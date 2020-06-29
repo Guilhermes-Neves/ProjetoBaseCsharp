@@ -1,9 +1,0 @@
-#language:pt
-
-@login
-Funcionalidade: Adicionar pedidos no carrinho
-  Para que eu possa realizar vendas no portal da Styllus
-  Sendo uma revendedora previamente cadastrada
-  Posso adicionar produtos no carrinho
-
-  Cenario: Adicionar

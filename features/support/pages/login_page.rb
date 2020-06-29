@@ -2,7 +2,7 @@ class LoginPage
 
   include Capybara::DSL
 
-  def go 
+  def load 
     visit '/'
   end
 

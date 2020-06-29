@@ -1,5 +1,5 @@
 Dado("que visito a página inicial") do
-  @login_page.go
+  @login_page.load
 end
 
 Quando("preencho meus dados de acesso") do
