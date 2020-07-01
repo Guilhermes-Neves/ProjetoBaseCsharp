@@ -4,6 +4,7 @@ end
 
 Quando("preencho meus dados de acesso") do
   @login_page.loginWith('89085','058483')
+  @login_page.loadHome
 end
 
 Então("eu vejo a mensagem {string}") do |message|

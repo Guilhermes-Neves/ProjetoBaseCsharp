@@ -5,12 +5,17 @@ end
 Quando("eu adiciono todos os itens") do
   @product_list.each do |p|
     @products_page.filterProduct(p["referencia"])
+    @products_page.aplyQuantity(p["quantidade"])
     @products_page.addToCart
   end
 end
 
 Quando("acesso meu carrinho") do
   @cart_page.load
+end
+
+Quando("seleciono o tipo de frete como {string}") do |delivery|
+  @cart_page.selectDelivery(delivery)
 end
 
 Então("vejo todos os itens no carrinho") do
@@ -36,6 +41,19 @@ Então("não consigo finalizar o pedido") do
   @cart_page.findButtonCloseOrderDisabled
 end
 
-Então("vejo a mensagem {string}") do |message|
-  expect(@cart_page.findAlert).to have_text message
+Então("vejo a mensagem de alerta {string}") do |message|
+  expect(@cart_page.findAlertDanger).to have_text message
+end
+
+Então("a forma de pagamento {string} não deverá está presente") do |payment|
+  expect(page.has_text?(payment)).to eq false
+  
+end
+
+Então("o valor do frete deve ser de {string}") do |delivery|
+  expect(@cart_page.findDelivery).to have_text delivery
+end
+
+Então("vejo a mensagem informativa {string}") do |message|
+  expect(@cart_page.findAlertInfo(message)).to have_text message
 end

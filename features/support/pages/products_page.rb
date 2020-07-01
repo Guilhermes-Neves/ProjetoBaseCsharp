@@ -11,6 +11,10 @@ class ProductsPage
     click_button "Buscar"
   end
 
+  def aplyQuantity(quantity)
+    find('input[type=number]').set quantity
+  end
+
   def addToCart
     find(".btn-add").click
   end
