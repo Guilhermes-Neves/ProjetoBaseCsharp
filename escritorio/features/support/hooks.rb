@@ -8,7 +8,7 @@ Before do
   @home_page = HomePage.new
   @manage_page = ManagerPage.new
 
-  page.driver.browser.manage.window.maximize
+  #page.driver.browser.manage.window.maximize
   #page.current_window.resize_to(1440, 900)
 
   @host = String("142.44.247.200")

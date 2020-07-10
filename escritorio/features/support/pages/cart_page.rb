@@ -48,4 +48,18 @@ class CartPage
   def closeOrder
     find(:xpath, '//*[@id="app"]/div/div[2]/div/div/div[2]/div/div/div[2]/div[3]/div/div/ul/li[5]/button').click
   end
+
+  def getTotal
+    find(:xpath, '//*[@id="app"]/div/div[2]/div/div/div[2]/div/div/div[2]/div[3]/div/div/ul/li[3]/strong').text
+  end
+
+  def getCreditLimit
+    find(:xpath, '//*[@id="app"]/div/div[2]/div/div/div[2]/div/div/div[1]/div/p/strong').text
+  end
+
+  def changeQuantity(quantity)
+    sleep 0.5
+    find("input[type=number]").set quantity
+    find("input[type=number]").send_keys :enter
+  end
 end

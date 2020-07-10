@@ -39,24 +39,18 @@ Funcionalidade: Adicionar produtos no carrinho
         | subTotal | R$ 69,80 |  
         | desconto | R$ 0,00  |
         | total    | R$ 69,80 |  
-  @smoke
+  @tempo
   Cenario: Ultrapassando o limite de crédito
       Dado que os produtos desejados são:
-        | nome                                    | referencia      | tamanho | cor        | quantidade | desconto | preco     |
-        | CONJ SINGAPURA CORACAO PEDRINHAS ZIR    | CJ3-0002/45-001 | unico   | sem cor    | 8          | 50%      | R$ 399,20 | 
-        | CONJ SING PEROLA E PEDRA ZIR            | CJ3-0003/45-001 | unico   | sem cor    | 8          | 50%      | R$ 319,20 |
-        | CONJ FLOR PEDRINHAS E PEDRA REDONDA ZIR | CJ3-0005/45-001 | unico   | sem cor    | 8          | 50%      | R$ 399,20 |
-        | CONJ VENEZ X PEDRINHAS                  | CJ3-0006/45-007 | unico   | sem cor    | 8          | 50%      | R$ 399,20 |
+        | nome                                    | referencia      | tamanho | cor        | quantidade | desconto | preco    |
+        | CONJ SINGAPURA CORACAO PEDRINHAS ZIR    | CJ3-0002/45-001 | unico   | sem cor    | 1          | 50%      | R$ 49,90 |  
       E estou na página de pedido rápido
       Quando eu adiciono todos os itens
       E acesso meu carrinho
-      Então vejo todos os itens
-      E a forma de pagamento "À Prazo - Até 30 dias no boleto" não deverá está presente
+      E aumento a quantidade até ultrapassar o limite
+      Então a forma de pagamento "À Prazo - Até 30 dias no boleto" não deverá está presente
       E vejo a mensagem "Limite de crédito excedido. Você pode efetuar o pagamento à vista ou então remover alguns produtos do seu carrinho."
-      E os valores totais são:
-        | subTotal | R$ 1.516,80 |  
-        | desconto | R$ 758,40   |
-        | total    | R$ 758,40   |  
+  
 @smoke
     Cenario: Pedido até R$ 149,99 com desconto de 30%
       Dado que os produtos desejados são:

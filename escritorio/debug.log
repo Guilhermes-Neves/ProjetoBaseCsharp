@@ -78,3 +78,65 @@
 [0708/164201.378:ERROR:exception_snapshot_win.cc(98)] thread ID 11940 not found in process
 [0708/164201.383:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
 [0708/164201.383:ERROR:exception_snapshot_win.cc(98)] thread ID 1728 not found in process
+[0710/175637.074:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/175637.075:ERROR:exception_snapshot_win.cc(98)] thread ID 9288 not found in process
+[0710/175637.079:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/175637.079:ERROR:exception_snapshot_win.cc(98)] thread ID 15884 not found in process
+[0710/175821.963:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/175821.964:ERROR:exception_snapshot_win.cc(98)] thread ID 16100 not found in process
+[0710/175822.037:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/175822.037:ERROR:exception_snapshot_win.cc(98)] thread ID 15444 not found in process
+[0710/180211.019:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/180211.019:ERROR:exception_snapshot_win.cc(98)] thread ID 15840 not found in process
+[0710/180211.103:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/180211.103:ERROR:exception_snapshot_win.cc(98)] thread ID 8984 not found in process
+[0710/180211.165:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/180211.165:ERROR:exception_snapshot_win.cc(98)] thread ID 15352 not found in process
+[0710/180954.337:ERROR:process_reader_win.cc(151)] SuspendThread: Acesso negado. (0x5)
+[0710/180954.338:ERROR:process_reader_win.cc(151)] SuspendThread: Acesso negado. (0x5)
+[0710/180954.338:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/180954.338:ERROR:exception_snapshot_win.cc(98)] thread ID 12784 not found in process
+[0710/180954.392:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/180954.392:ERROR:exception_snapshot_win.cc(98)] thread ID 12748 not found in process
+[0710/181036.670:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181036.670:ERROR:exception_snapshot_win.cc(98)] thread ID 9448 not found in process
+[0710/181036.677:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181036.677:ERROR:exception_snapshot_win.cc(98)] thread ID 4948 not found in process
+[0710/181152.712:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181152.713:ERROR:exception_snapshot_win.cc(98)] thread ID 5092 not found in process
+[0710/181152.803:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181152.803:ERROR:exception_snapshot_win.cc(98)] thread ID 1772 not found in process
+[0710/181228.172:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181228.172:ERROR:exception_snapshot_win.cc(98)] thread ID 8484 not found in process
+[0710/181228.188:ERROR:process_info.cc(329)] VirtualQueryEx: Acesso negado. (0x5)
+[0710/181228.188:ERROR:process_info.cc(556)] ReadMemoryInfo failed
+[0710/181228.188:ERROR:process_memory_win.cc(39)] Failed to initialize ProcessInfo.
+[0710/181228.188:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: Tentou-se acessar um processo de saída. (0xc000010a)
+[0710/181339.053:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181339.054:ERROR:exception_snapshot_win.cc(98)] thread ID 4776 not found in process
+[0710/181339.126:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181339.126:ERROR:exception_snapshot_win.cc(98)] thread ID 6228 not found in process
+[0710/181729.191:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181729.192:ERROR:exception_snapshot_win.cc(98)] thread ID 5404 not found in process
+[0710/181729.287:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181729.287:ERROR:exception_snapshot_win.cc(98)] thread ID 7552 not found in process
+[0710/181825.018:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181825.019:ERROR:exception_snapshot_win.cc(98)] thread ID 6836 not found in process
+[0710/181825.170:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181825.170:ERROR:exception_snapshot_win.cc(98)] thread ID 12132 not found in process
+[0710/181935.663:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181935.664:ERROR:exception_snapshot_win.cc(98)] thread ID 7060 not found in process
+[0710/181935.731:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/181935.731:ERROR:exception_snapshot_win.cc(98)] thread ID 13208 not found in process
+[0710/182357.762:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/182357.762:ERROR:exception_snapshot_win.cc(98)] thread ID 10092 not found in process
+[0710/182357.861:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/182357.862:ERROR:exception_snapshot_win.cc(98)] thread ID 5080 not found in process
+[0710/182538.942:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/182538.942:ERROR:exception_snapshot_win.cc(98)] thread ID 3128 not found in process
+[0710/182539.068:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/182539.068:ERROR:exception_snapshot_win.cc(98)] thread ID 15012 not found in process
+[0710/182933.108:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/182933.109:ERROR:exception_snapshot_win.cc(98)] thread ID 1948 not found in process
+[0710/182933.212:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[0710/182933.212:ERROR:exception_snapshot_win.cc(98)] thread ID 2416 not found in process
