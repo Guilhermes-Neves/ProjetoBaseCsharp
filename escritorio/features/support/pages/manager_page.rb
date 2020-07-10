@@ -9,6 +9,10 @@ class ManagerPage
 
     click_button "Login"
 
+    sleep 5
+
     visit "https://hlg-gestor.styllus.online/#/pedidos/portal"
+
+    sleep 10
   end
 end

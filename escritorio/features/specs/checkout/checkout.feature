@@ -22,5 +22,5 @@ Funcionalidade: Checkout de pedidos
     E finalizo o pedido
     Então vejo todos os itens no pedido
     E visito a página inicial
-    E vejo o limite de crédito "R$ 491,58"
+    E vejo o limite de crédito "R$ 1.023,41"
     E libero o limite de crédito
