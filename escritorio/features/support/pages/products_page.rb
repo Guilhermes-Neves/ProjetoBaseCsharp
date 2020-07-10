@@ -2,8 +2,7 @@ class ProductsPage
   include Capybara::DSL
 
   def loadOrderFast
-    find("a", text: "Novo Pedido").click
-    find("a", text: "Pedido Rápido").click
+    visit "/#/pedido-rapido"
   end
 
   def loadProducts

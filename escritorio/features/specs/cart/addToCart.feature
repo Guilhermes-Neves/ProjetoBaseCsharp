@@ -5,7 +5,7 @@ Funcionalidade: Adicionar produtos no carrinho
   Para que eu possa realizar vendas no portal da Styllus
   Sendo uma revendedora previamente cadastrada
   Posso adicionar produtos no carrinho
-
+@smoke
   Cenario: Adicionar varios itens
     Dado que os produtos desejados são:
         | nome                                 | referencia      | tamanho | cor        | quantidade | desconto | preco    |
@@ -22,7 +22,7 @@ Funcionalidade: Adicionar produtos no carrinho
         | desconto | R$ 32,91  |
         | frete    | R$ 21,20  |
         | total    | R$ 97,99  |  
-    
+  @smoke  
   Cenario: Total do pedido menor que R$ 80,00
       Dado que os produtos desejados são:
         | nome                                    | referencia      | tamanho | cor        | quantidade | desconto | preco    |
@@ -39,7 +39,7 @@ Funcionalidade: Adicionar produtos no carrinho
         | subTotal | R$ 69,80 |  
         | desconto | R$ 0,00  |
         | total    | R$ 69,80 |  
-  
+  @smoke
   Cenario: Ultrapassando o limite de crédito
       Dado que os produtos desejados são:
         | nome                                    | referencia      | tamanho | cor        | quantidade | desconto | preco     |
@@ -57,7 +57,7 @@ Funcionalidade: Adicionar produtos no carrinho
         | subTotal | R$ 1.516,80 |  
         | desconto | R$ 758,40   |
         | total    | R$ 758,40   |  
-
+@smoke
     Cenario: Pedido até R$ 149,99 com desconto de 30%
       Dado que os produtos desejados são:
         | nome                                | referencia      | tamanho | cor       | quantidade | desconto | preco    |      
