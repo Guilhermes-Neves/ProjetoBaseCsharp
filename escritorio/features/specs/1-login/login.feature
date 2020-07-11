@@ -9,4 +9,4 @@ Funcionalidade: Login
     Cenário: Login com sucesso
         Dado que visito a página inicial
         Quando preencho meus dados de acesso
-        Então eu vejo a mensagem "Bem vindo ;)"
+        Então eu vejo o nome do usuário "ROZALIA"

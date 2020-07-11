@@ -42,8 +42,8 @@ Funcionalidade: Adicionar produtos no carrinho
   @tempo
   Cenario: Ultrapassando o limite de crédito
       Dado que os produtos desejados são:
-        | nome                                    | referencia      | tamanho | cor        | quantidade | desconto | preco    |
-        | CONJ SINGAPURA CORACAO PEDRINHAS ZIR    | CJ3-0002/45-001 | unico   | sem cor    | 1          | 50%      | R$ 49,90 |  
+        | nome                      | referencia | tamanho | cor       | quantidade | desconto | preco    |
+        | ARG DE PRATA ENC FIO LISO | AG3-0015   | unico   | sem pedra | 10         | 50%      | R$ 99,90 |  
       E estou na página de pedido rápido
       Quando eu adiciono todos os itens
       E acesso meu carrinho

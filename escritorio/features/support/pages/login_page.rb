@@ -11,7 +11,7 @@ class LoginPage
     click_button "Entrar"
   end
 
-  def verifyLoginMessage
-    find(".vn-message")
+  def verifyLoggedUser(loggedUser)
+    find("h5", text: loggedUser)
   end
 end

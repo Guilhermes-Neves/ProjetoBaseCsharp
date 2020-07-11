@@ -36,7 +36,7 @@ Quando("aumento a quantidade até ultrapassar o limite") do
   @limit = @get_limit.delete(" (?:\.|)*R$").gsub(",", ".")
   @get_total = @cart_page.getTotal
   @total = @get_total.delete(" (?:\.|)*R$").gsub(",", ".")
-  quantity = 1
+  quantity = 10
 
   while @total < @limit
     @get_total = @cart_page.getTotal
@@ -49,6 +49,10 @@ end
 
 Quando("acesso meu carrinho") do
   @cart_page.load
+  @get_limit = @cart_page.getCreditLimit
+  @limit = @get_limit.delete(" (?:\.|)*R$").gsub(",", ".")
+  @get_total = @cart_page.getTotal
+  @total = @get_total.delete(" (?:\.|)*R$").gsub(",", ".")
 end
 
 Quando("seleciono o tipo de frete como {string}") do |delivery|
@@ -132,10 +136,15 @@ Então("visito a página inicial") do
   @login_page.load
 end
 
-Então("vejo o limite de crédito {string}") do |creditLimit|
-  expect(@home_page.verifyCreditLimit).to have_text creditLimit
+Então("vejo o limite de crédito") do
+  newCreditLimit = @limit.to_f - @total.to_f
+  completeCreditLimit = "R$ #{newCreditLimit.to_s.gsub(".", ",")}"
+  expect(@home_page.verifyCreditLimit).to have_text completeCreditLimit
 end
 
 Então("libero o limite de crédito") do
-  @manage_page.clearCreditLimit
+  @manage_page.load
+  @manage_page.login
+  @manage_page.loadOrders
+  @manage_page.clearCreditLimit(@orderId)
 end

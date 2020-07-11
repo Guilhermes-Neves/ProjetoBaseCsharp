@@ -46,7 +46,7 @@ class CartPage
   end
 
   def closeOrder
-    find(:xpath, '//*[@id="app"]/div/div[2]/div/div/div[2]/div/div/div[2]/div[3]/div/div/ul/li[5]/button').click
+    find(:xpath, '//*[@id="app"]/div/div[2]/div/div/div[2]/div/div/div[2]/div[3]/div/div/ul/li[4]/button').click
   end
 
   def getTotal

@@ -14,13 +14,13 @@ Funcionalidade: Checkout de pedidos
       | BR PEND RAB.RATO PEDRIN E CIRC VAZ   | PD3-0003   | unico   | crystal   | 1          | 30%      | R$ 24,90 |
       | BR PEND CHAPAZ OVAIS DET DIAMANTADO  | PD3-0004   | unico   | sem pedra | 1          | 30%      | R$ 19,90 |
     E estão no carrinho
-@temp
+@check
   Cenario: Finalizando pedido com pagamento a prazo
     Quando acesso meu carrinho
     E seleciono a forma de pagamento "À Prazo - Até 30 dias no boleto"
-    E seleciono o tipo de frete como " Entrega Rápida - R$ 21,20 "
+    E seleciono o tipo de frete como " Entrega Normal - R$ 0,00 "
     E finalizo o pedido
     Então vejo todos os itens no pedido
     E visito a página inicial
-    E vejo o limite de crédito "R$ 1.023,41"
+    E vejo o limite de crédito
     E libero o limite de crédito

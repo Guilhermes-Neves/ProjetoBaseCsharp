@@ -4,7 +4,7 @@
   dot: --format progress
   html: --format html --out=log/report.html
   json: --format json --out=log/report.json
-  chrome: -p dot BROWSER=chrome
-  firefox: -p dot BROWSER=firexo
+  chrome: -p bdd BROWSER=chrome
+  firefox: -p bdd BROWSER=firexo
   chrome_headless: -p dot BROWSER=chrome_headless
   firefox_headless: -p dot BROWSER=firefox_headless
