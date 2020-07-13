@@ -14,7 +14,7 @@ class ManagerPage
 
   def loadOrders
     find(:xpath, '//*[@id="inspire"]/div[1]/header/div/button[1]/span/i').click
-    find(".v-list-item__title", text: "Pedidos (Portal)").click
+    find(".v-list-item__title", text: "Pedidos (Esc. Virtual)").click
   end
 
   def clearCreditLimit(orderId)
