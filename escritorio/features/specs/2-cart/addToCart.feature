@@ -122,10 +122,10 @@ Funcionalidade: Adicionar produtos no carrinho
     Cenario: Adicionando somente produtos em promoção
       Dado que os produtos desejados são:
         | nome                                     | referencia | tamanho | cor               | quantidade | desconto | preco    |
-        | PROMOCAO CORD+PULSEIRA+ARGOLA OLHO GREGO | PRM-0024   | unico   | resina multicores | 1          | 0%       | R$ 99,90 | 
-        | PRM INF PULSEIRA+COLAR PEDRA E LIBELULA  | PRM-0025   | unico   | sem pedra         | 1          | 0%       | R$ 59,90 | 
-        | PRM INF CO3-0018 + PL3-0022 + TR3-0010   | PRM-0026   | unico   | sem pedra         | 1          | 0%       | R$ 69,90 | 
-        | PRM INF CO3-0019 + PL3-0021 + TR3-0001   | PRM-0027   | unico   | sem pedra         | 1          | 0%       | R$ 59,90 | 
+        | PROMOCAO CORD+PULSEIRA+ARGOLA OLHO GREGO | PRM-0024   | unico   | resina multicores | 1          | 35%      | R$ 99,90 | 
+        | PRM INF PULSEIRA+COLAR PEDRA E LIBELULA  | PRM-0025   | unico   | sem pedra         | 1          | 35%      | R$ 59,90 | 
+        | PRM INF CO3-0018 + PL3-0022 + TR3-0010   | PRM-0026   | unico   | sem pedra         | 1          | 35%      | R$ 69,90 | 
+        | PRM INF CO3-0019 + PL3-0021 + TR3-0001   | PRM-0027   | unico   | sem pedra         | 1          | 35%      | R$ 59,90 | 
       E estou na página de produtos em promoção
       Quando eu adiciono todos os itens com cor e tamanho
       E acesso meu carrinho
@@ -138,8 +138,8 @@ Funcionalidade: Adicionar produtos no carrinho
     Cenario: Adicionando produtos em promoção e produtos sem promoção
       Dado que os produtos desejados são:
         | nome                                     | referencia      | tamanho | cor               | quantidade | desconto | preco    |
-        | PROMOCAO CORD+PULSEIRA+ARGOLA OLHO GREGO | PRM-0024        | unico   | resina multicores | 1          | 0%       | R$ 99,90 | 
-        | PRM INF PULSEIRA+COLAR PEDRA E LIBELULA  | PRM-0025        | unico   | sem pedra         | 1          | 0%       | R$ 59,90 | 
+        | PROMOCAO CORD+PULSEIRA+ARGOLA OLHO GREGO | PRM-0024        | unico   | resina multicores | 1          | 35%      | R$ 99,90 | 
+        | PRM INF PULSEIRA+COLAR PEDRA E LIBELULA  | PRM-0025        | unico   | sem pedra         | 1          | 35%      | R$ 59,90 | 
       E estou na página de produtos em promoção
       Quando eu adiciono todos os itens com cor e tamanho
       Dado que os produtos desejados são:
@@ -152,7 +152,7 @@ Funcionalidade: Adicionar produtos no carrinho
       Então vejo todos os itens
       E os valores totais são:
         | subTotal | R$ 239,60 |  
-        | desconto | R$ 27,93  |
+        | desconto | R$ 83,86  |
         | total    | R$ 211,67 |
     
     Cenario: Adicionando somente produtos da linha lingerie desconto adicional fixo em 30%
@@ -186,15 +186,15 @@ Funcionalidade: Adicionar produtos no carrinho
       Quando eu adiciono todos os itens com cor e tamanho
       Dado que os produtos desejados são:
         | nome                                     | referencia      | tamanho | cor               | quantidade | desconto | preco    |
-        | PROMOCAO CORD+PULSEIRA+ARGOLA OLHO GREGO | PRM-0024        | unico   | resina multicores | 1          | 0%       | R$ 99,90 | 
-        | PRM INF PULSEIRA+COLAR PEDRA E LIBELULA  | PRM-0025        | unico   | sem pedra         | 1          | 0%       | R$ 59,90 | 
+        | PROMOCAO CORD+PULSEIRA+ARGOLA OLHO GREGO | PRM-0024        | unico   | resina multicores | 1          | 40%      | R$ 99,90 | 
+        | PRM INF PULSEIRA+COLAR PEDRA E LIBELULA  | PRM-0025        | unico   | sem pedra         | 1          | 40%      | R$ 59,90 | 
       E estou na página de produtos em promoção
       Quando eu adiciono todos os itens com cor e tamanho
       E acesso meu carrinho
       Então vejo todos os itens
       E os valores totais são:
         | subTotal | R$ 469,00 |  
-        | desconto | R$ 105,72 |
+        | desconto | R$ 169,64 |
         | total    | R$ 363,28 |
 
   Cenario: Adicionando somente produtos com estoque zerado
