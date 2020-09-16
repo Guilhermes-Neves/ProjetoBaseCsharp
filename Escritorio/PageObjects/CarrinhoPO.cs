@@ -20,7 +20,7 @@ namespace escritorio.PageObjects
         {
             this.driver = driver;
             byTable = By.CssSelector("table tbody tr");
-            byAlertaTotalPedido = By.CssSelector(".alert-warning .alert-content");
+            byAlertaTotalPedido = By.CssSelector(".alert-danger .alert-content");
         }
 
         public void Visitar()
