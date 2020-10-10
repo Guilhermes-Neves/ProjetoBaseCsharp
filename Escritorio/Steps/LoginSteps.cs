@@ -1,44 +1,51 @@
 ﻿using escritorio.PageObjects;
+using Escritorio.Helpers;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 using TechTalk.SpecFlow;
 
-namespace Escritorio.Spets
+
+namespace Escritorio.Steps
 {
     [Binding]
     public class LoginSteps
     {
-
-        string url = "https://hlg-escritorio.styllus.online/";
-        IWebDriver driver;
-        LoginPO loginPO;
-        HomePO homePO;
-
-        [Given(@"que visito a página inicial")]
-        public void DadoQueVisitoAPaginaInicial()
+        private static IWebDriver driver;
+        private static LoginPO loginPO;
+        private static HomePO homePO;
+        
+        public LoginSteps()
         {
-            //iniciando as classes
-            driver = Helpers.Helpers.IniciarDriver(driver);
-            homePO = new HomePO(driver);
+            driver = new ChromeDriver();
             loginPO = new LoginPO(driver);
+            homePO = new HomePO(driver);
+        }
 
-            //acessar o site
+        [Given(@"que visito a página inicial ""(.*)""")]
+        public void DadoQueVisitoAPaginaInicial(string url)
+        {   
             loginPO.Visitar(url);
         }
-
-        [When(@"preencho meus dados de acesso")]
-        public void QuandoPreenchoMeusDadosDeAcesso()
+        
+        [When(@"preencho meus dados de acesso ""(.*)"" e ""(.*)""")]
+        public void QuandoPreenchoMeusDadosDeAcessoE(string codStyllus, string password)
         {
-            loginPO.EfetuarLoginComDados("1590", "Jesco1986");
+
+            loginPO.EfetuarLoginComDados(codStyllus, password);
+            
         }
-
-        [Then(@"eu vejo a página incial")]
-        public void EntaoEuVejoAPaginaIncial()
+        
+        [Then(@"eu vejo a mensagem (.*)")]
+        public void EntaoEuVejoAMensagem(string message)
         {
-            homePO.ValidarLogin();
-            Helpers.Helpers.FinalizarDriver(driver);
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
+            bool iguais = wait.Until(drv => homePO.MensagemLogin == message);
+            Assert.True(iguais);
+
+            driver.Quit();
         }
     }
 }

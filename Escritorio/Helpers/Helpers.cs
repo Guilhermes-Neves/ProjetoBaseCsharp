@@ -2,20 +2,20 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace Escritorio.Helpers
 {
     public static class Helpers
     {
+       
         [SetUp]
         public static IWebDriver IniciarDriver(IWebDriver driver)
         {
-            var Driver = new ChromeDriver();
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-            Driver.Manage().Window.Maximize();
-            return Driver;
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+            driver.Manage().Window.Maximize();
+
+            return driver;
         }
 
         [TearDown]

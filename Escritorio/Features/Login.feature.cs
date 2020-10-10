@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Escritorio.Features.Login
+namespace Escritorio.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -35,7 +35,7 @@ namespace Escritorio.Features.Login
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt"), "Features/Login", "Login", "    Para que eu possa fazer pedidos no site da Styllus\r\n    Sendo uma revendedora" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt"), "Features", "Login", "    Para que eu possa fazer pedidos no site da Styllus\r\n    Sendo uma revendedora" +
                     " previamente cadastrada\r\n    Posso acessar o site com minhas credenciais", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -75,12 +75,18 @@ namespace Escritorio.Features.Login
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Login com sucesso")]
-        public virtual void LoginComSucesso()
+        [NUnit.Framework.DescriptionAttribute("Login com dados validos e invalidos")]
+        [NUnit.Framework.TestCaseAttribute("1390398", "167581", "Bem vindo ;)", null)]
+        [NUnit.Framework.TestCaseAttribute("13903231", "1449051", "A combinação de usuário e senha não foi identificada. Por favor, verefique os dad" +
+            "os informados.", null)]
+        public virtual void LoginComDadosValidosEInvalidos(string codStyllus, string password, string message, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login com sucesso", null, tagsOfScenario, argumentsOfScenario);
+            argumentsOfScenario.Add("CodStyllus", codStyllus);
+            argumentsOfScenario.Add("Password", password);
+            argumentsOfScenario.Add("Message", message);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login com dados validos e invalidos", null, tagsOfScenario, argumentsOfScenario);
 #line 8
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -102,13 +108,13 @@ namespace Escritorio.Features.Login
             {
                 this.ScenarioStart();
 #line 9
-        testRunner.Given("que visito a página inicial", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+        testRunner.Given("que visito a página inicial \"https://hlg-escritorio.styllus.online/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
 #line 10
-        testRunner.When("preencho meus dados de acesso", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+        testRunner.When(string.Format("preencho meus dados de acesso \"{0}\" e \"{1}\"", codStyllus, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
 #line 11
-        testRunner.Then("eu vejo a página incial", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+        testRunner.Then(string.Format("eu vejo a mensagem {0}", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             }
             this.ScenarioCleanup();

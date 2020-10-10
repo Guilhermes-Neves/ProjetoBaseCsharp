@@ -14,13 +14,15 @@ namespace escritorio.PageObjects
 
         private IWebDriver driver;
         private By bySpanUsuario;
-        private By bySpanSair;
+        private By byDangerMessage;
+
+        public string MensagemLogin => driver.FindElement(byDangerMessage).Text;
 
         public HomePO(IWebDriver driver)
         {
             this.driver = driver;
             bySpanUsuario = By.CssSelector(".media.media-pill");
-            bySpanSair = By.CssSelector("a[href='#!']");
+            byDangerMessage = By.CssSelector("p.vn-message");
         }
 
         private By MensagemInicial()

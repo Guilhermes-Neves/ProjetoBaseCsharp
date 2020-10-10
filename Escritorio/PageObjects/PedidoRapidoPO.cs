@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Escritorio.PageObjects;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace escritorio.PageObjects
         private By byBotaoBuscar;
         private By byBotaoAdicionar;
 
-        public object TimeUnit { get; }
+        public Produtos Produtos { get; }
 
         public PedidoRapidoPO(IWebDriver driver)
         {
@@ -26,13 +27,13 @@ namespace escritorio.PageObjects
             byInputQuantidade = By.CssSelector("input[type='number']");
             byBotaoBuscar = By.ClassName("btn-buscar");
             byBotaoAdicionar = By.ClassName("btn-add");
-
+            Produtos = new Produtos(driver);
 
         }
 
-        public void Visitar()
+        public void Visitar(string url)
         {
-            driver.Navigate().GoToUrl("https://hlg-escritorio.styllus.online/#/pedido-rapido");
+            driver.Navigate().GoToUrl(url);
         }
 
         public void FiltrarProduto(string referencia)

@@ -57,6 +57,9 @@
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="SeleniumExtras.PageObjects, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetSeleniumExtras.PageObjects.3.11.0\lib\net45\SeleniumExtras.PageObjects.dll</HintPath>
     </Reference>
@@ -111,6 +114,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -135,18 +139,22 @@
   <ItemGroup>
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="PageObjects\CarrinhoPO.cs" />
+    <Compile Include="PageObjects\ChekoutPO.cs" />
+    <Compile Include="PageObjects\Produtos.cs" />
     <Compile Include="PageObjects\HomePO.cs" />
     <Compile Include="PageObjects\LoginPO.cs" />
     <Compile Include="PageObjects\PedidoRapidoPO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\AddToCartSteps.cs" />
+    <Compile Include="Steps\CheckoutDePedidosSteps.cs" />
     <Compile Include="Steps\LoginSteps.cs" />
-    <Compile Include="Steps\LogoutSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Features\Login\Login.feature" />
-    <None Include="Features\Login\Logout.feature" />
+    <None Include="Features\Checkout.feature" />
+    <None Include="Features\Login.feature" />
+    <None Include="Features\AddToCart.feature" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
