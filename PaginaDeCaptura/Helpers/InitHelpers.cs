@@ -1,14 +1,12 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using System;
 
 
-namespace Escritorio.Helpers
+namespace PaginaDeCaptura.Helpers
 {
-    public static class Helpers
+    public class InitHelpers
     {
-       
         [SetUp]
         public static IWebDriver IniciarDriver(IWebDriver driver)
         {
@@ -16,12 +14,6 @@ namespace Escritorio.Helpers
             driver.Manage().Window.Maximize();
 
             return driver;
-        }
-
-        [TearDown]
-        public static void FinalizarDriver(IWebDriver driver)
-        {
-            driver.Quit();
         }
     }
 }
