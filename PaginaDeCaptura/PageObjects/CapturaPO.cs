@@ -85,5 +85,10 @@ namespace PaginaDeCaptura.PageObjects
             driver.FindElement(byCheckTermos).Click();
 
         }
+
+        public void PreencherEndereco(string cep)
+        {
+
+        }
     }
 }
