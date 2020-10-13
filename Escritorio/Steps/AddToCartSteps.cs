@@ -1,9 +1,7 @@
 ﻿using escritorio.PageObjects;
-using Escritorio.Helpers;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 

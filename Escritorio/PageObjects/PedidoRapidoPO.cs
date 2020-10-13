@@ -1,10 +1,6 @@
 ﻿using Escritorio.PageObjects;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
+
 
 
 namespace escritorio.PageObjects

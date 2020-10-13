@@ -1,4 +1,7 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using PaginaDeCaptura.PageObjects;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace PaginaDeCaptura.StepDefinition
@@ -6,40 +9,65 @@ namespace PaginaDeCaptura.StepDefinition
     [Binding]
     public class CadastrarUmaRevendedoraSteps
     {
+
+        IWebDriver driver;
+        CapturaPO capturaPO;
+        string codigoStyllus = string.Empty;
+        string cpf = string.Empty;
+        string numero = "5259483778432661";
+        string mes = "04";
+        string ano = "21";
+        string codigo = "483";
+
+        public CadastrarUmaRevendedoraSteps()
+        {
+            driver = Helpers.InitHelpers.IniciarDriver(new ChromeDriver());
+            capturaPO = new CapturaPO(driver);
+            cpf = Helpers.CpfHelper.GetCpf(false);
+        }
+
         [Given(@"que acesso a página de captura")]
         public void DadoQueAcessoAPaginaDeCaptura()
         {
-            ScenarioContext.Current.Pending();
+            capturaPO.Visitar();
         }
         
         [When(@"faço o cadastro da revendedora")]
         public void QuandoFacoOCadastroDaRevendedora()
         {
-            ScenarioContext.Current.Pending();
+            capturaPO.PreencherDadosPessoais(cpf, "");
+            capturaPO.PreencherEndereco("28630535", "4", "Apartamento");
         }
-        
-        [When(@"seleciono o kit de entrada")]
-        public void QuandoSelecionoOKitDeEntrada()
+
+        [When(@"seleciono o kit de ""(.*)""")]
+        public void QuandoSelecionoOKitDe(string kit)
         {
-            ScenarioContext.Current.Pending();
+            capturaPO.SelecionarKit(kit);
         }
-        
-        [When(@"seleciono para receber no primeiro pedido")]
-        public void QuandoSelecionoParaReceberNoPrimeiroPedido()
+
+
+        [When(@"seleciono para o frete como ""(.*)""")]
+        public void QuandoSelecionoParaOFreteComo(string frete)
         {
-            ScenarioContext.Current.Pending();
+            capturaPO.SelecionarRecebimento(frete);
         }
-        
+
+
         [When(@"efetuo pagamento com cartão")]
         public void QuandoEfetuoPagamentoComCartao()
         {
-            ScenarioContext.Current.Pending();
+            capturaPO.FinalizarCheckoutCartao(numero, mes, ano, codigo);
         }
-        
-        [Then(@"vejo a mensagem (.*)")]
-        public void EntaoVejoAMensagem(string p0, Table table)
+
+        [Then(@"vejo a mensagem")]
+        public void EntaoVejoAMensagem(Table mensagem)
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(mensagem.Rows[0][0].ToString(), capturaPO.TituloMensagem);
+            Assert.AreEqual(mensagem.Rows[1][0].ToString(), capturaPO.ConteudoMensagem);
+
+            driver.Quit();
         }
+
+
     }
 }

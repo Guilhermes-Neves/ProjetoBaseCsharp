@@ -1,16 +1,13 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
+
 
 namespace PaginaDeCaptura.PageObjects
 {
     public class CapturaPO
     {
-
         private IWebDriver driver;
         private By byInputCpf;
         private By byInputNome;
@@ -40,17 +37,21 @@ namespace PaginaDeCaptura.PageObjects
         private By byBotaoConfirmarCheckout;
         private By byTituloMensagem;
         private By byConteudoMensagem;
+        private By byLoadContainer;
+
+        public string TituloMensagem => driver.FindElement(byTituloMensagem).Text;
+        public string ConteudoMensagem => driver.FindElement(byConteudoMensagem).Text;
 
         public CapturaPO(IWebDriver driver)
         {
             this.driver = driver;
             byInputCpf = By.Id("novacaptura__field--cpf");
-            byInputNome = By.Id("novacaptura__field--nomes");
+            byInputNome = By.Id("novacaptura__field--nome");
             byInputData = By.Id("novacaptura__field--data-nascimento");
             byInputTelefone = By.Id("novacaptura__field--telefone");
             byInputEmail = By.Id("novacaptura__field--email");
             byInputIndicador = By.Id("novacaptura__field--codigo-indicador");
-            byCheckTermos = By.ClassName("primary--text");
+            byCheckTermos = By.XPath("//*[@id='app']/div/main/div/div/div/div/div/div/div[2]/div[1]/div/form/div/div[8]/p/a/i");
             byBotaoAceitoTermos = By.Id("terms__button--aceitar");
             byBotaoContinuarNovaCaptura = By.Id("novacaptura__button--continuar");
             byInputCep = By.Id("endereco__field--cep");
@@ -72,6 +73,12 @@ namespace PaginaDeCaptura.PageObjects
             byBotaoConfirmarCheckout = By.Id("checkout__button--confirmar");
             byTituloMensagem = By.Id("swal2-title");
             byConteudoMensagem = By.Id("swal2-content");
+            byLoadContainer = By.ClassName("loading-container");
+        }
+
+        public void Visitar()
+        {
+            driver.Navigate().GoToUrl("https://hlg-revenda.styllus.online/#/novo-cadastro");
         }
 
         public void PreencherDadosPessoais(string cpf, string codIndicador)
@@ -83,12 +90,63 @@ namespace PaginaDeCaptura.PageObjects
             driver.FindElement(byInputEmail).SendKeys("teste@teste.com");
             driver.FindElement(byInputIndicador).SendKeys(codIndicador);
             driver.FindElement(byCheckTermos).Click();
+            Thread.Sleep(500);
+            driver.FindElement(byBotaoAceitoTermos).Click();
+            driver.FindElement(byBotaoContinuarNovaCaptura).Click();
 
         }
 
-        public void PreencherEndereco(string cep)
+        public void PreencherEndereco(string cep, string numero, string complemento)
         {
+            driver.FindElement(byInputCep).SendKeys(cep);
+            Thread.Sleep(500);
+            driver.FindElement(byInputNumero).SendKeys(numero);
+            driver.FindElement(byInputComplemento).SendKeys(complemento);
+            driver.FindElement(byBotaoContinuarEndereco).Click();
+        }
 
+        public void SelecionarKit(string kit)
+        {
+            new WebDriverWait(driver, new TimeSpan(0, 0, 15))
+                .Until(ExpectedConditions.InvisibilityOfElementLocated(byLoadContainer));
+
+            if (kit == "entrada")
+            {
+                    driver.FindElement(byBotaoKitEntrada).Click();
+            }
+            else
+            {
+                driver.FindElement(byBotaoKitPassaporte).Click();
+            }
+        }
+
+        public void SelecionarRecebimento(string frete)
+        {
+            if (frete == "receber depois")
+            {
+                driver.FindElement(byCheckReceberDepois).Click();
+            }
+        }
+
+        public void FinalizarCheckoutCartao(string numero, string mes, string ano, string codigo)
+        {
+            driver.FindElement(byBotaoComprar).Click();
+            driver.FindElement(byBotaoPagar).Click();
+            driver.FindElement(byBotaoCartao).Click();
+            driver.FindElement(byInputNumeroCartao).SendKeys(numero);
+            Thread.Sleep(1000);
+            driver.FindElement(byInputNomeCartao).SendKeys("Teste");
+
+            var mesCartao = new SelectElement(driver.FindElement(bySelectMes));
+            mesCartao.SelectByValue(mes);
+
+            var anoCartao = new SelectElement(driver.FindElement(bySelectAno));
+            anoCartao.SelectByValue(ano);
+
+            driver.FindElement(byInputCodigo).SendKeys(codigo);
+
+            driver.FindElement(byBotaoContinuarPagamento).Click();
+            driver.FindElement(byBotaoConfirmarCheckout).Click();
         }
     }
 }

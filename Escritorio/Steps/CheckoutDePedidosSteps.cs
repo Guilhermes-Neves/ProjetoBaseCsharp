@@ -1,6 +1,5 @@
 ﻿using escritorio.PageObjects;
 using Escritorio.PageObjects;
-using Google.Protobuf.WellKnownTypes;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
