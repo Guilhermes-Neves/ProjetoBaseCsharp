@@ -84,9 +84,6 @@ namespace PaginaDeCaptura.PageObjects
             driver.FindElement(byInputIndicador).SendKeys(codIndicador);
             driver.FindElement(byCheckTermos).Click();
 
- 
-
-
         }
     }
 }
