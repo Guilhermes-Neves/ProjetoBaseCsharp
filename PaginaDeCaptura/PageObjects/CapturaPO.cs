@@ -85,6 +85,8 @@ namespace PaginaDeCaptura.PageObjects
             driver.FindElement(byCheckTermos).Click();
 
  
+
+
         }
     }
 }
