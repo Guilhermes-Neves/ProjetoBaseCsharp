@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
 using System.Threading;
 
 namespace Escritorio.PageObjects
@@ -22,6 +24,7 @@ namespace Escritorio.PageObjects
 
         public void PesquisarPorRef(string referencia)
         {
+            Thread.Sleep(1000);
             driver.FindElement(byInputRef).Clear();
             driver.FindElement(byInputRef).SendKeys(referencia);
             Thread.Sleep(1000);
@@ -31,7 +34,9 @@ namespace Escritorio.PageObjects
 
         public void AdicionarProdutos(string quantidade)
         {
+            Thread.Sleep(1000);
             driver.FindElement(byInputQuantidade).Clear();
+            Thread.Sleep(1000);
             driver.FindElement(byInputQuantidade).SendKeys(quantidade);
             driver.FindElement(byBotaoAdicionar).Click();
 
