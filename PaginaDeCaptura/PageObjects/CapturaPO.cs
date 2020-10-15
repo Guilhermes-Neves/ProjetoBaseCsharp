@@ -112,7 +112,7 @@ namespace PaginaDeCaptura.PageObjects
 
             if (kit == "entrada")
             {
-                    driver.FindElement(byBotaoKitEntrada).Click();
+                driver.FindElement(byBotaoKitEntrada).Click();
             }
             else
             {

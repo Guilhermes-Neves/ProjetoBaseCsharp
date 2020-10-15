@@ -2,6 +2,13 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http.Headers;
+using System.Threading;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -15,6 +22,10 @@ namespace Escritorio.Steps
         PedidoRapidoPO produtosPO;
         CarrinhoPO carrinhoPO;
         LoginPO loginPO;
+        HomePO homePO;
+        string limiteCredito;
+        string totalPedido;
+        IEnumerable<dynamic> tabelaProdutos;
 
         public AddToCartSteps()
         {
@@ -22,6 +33,7 @@ namespace Escritorio.Steps
             loginPO = new LoginPO(driver);
             produtosPO = new PedidoRapidoPO(driver);
             carrinhoPO = new CarrinhoPO(driver);
+            homePO = new HomePO(driver);
             loginPO.Visitar("https://hlg-escritorio.styllus.online/#/");
             loginPO.EfetuarLoginComDados("1390398", "167581");
         }
@@ -31,11 +43,18 @@ namespace Escritorio.Steps
         {
             produtosPO.Visitar("https://hlg-escritorio.styllus.online/#/pedido-rapido");
         }
-        
+
+        [Given(@"estou na página de produtos com fotos")]
+        public void DadoEstouNaPaginaDeProdutosComFotos()
+        {
+            produtosPO.Visitar("https://hlg-escritorio.styllus.online/#/produtos");
+        }
+
+
         [When(@"eu adiciono todos os itens")]
         public void QuandoEuAdicionoTodosOsItens(Table produtos)
         {
-            var tabelaProdutos = produtos.CreateDynamicSet();
+            tabelaProdutos = produtos.CreateDynamicSet();
 
             foreach (var prod in tabelaProdutos)
             {
@@ -49,13 +68,37 @@ namespace Escritorio.Steps
         public void QuandoAcessoMeuCarrinho()
         {
             carrinhoPO.Visitar("https://hlg-escritorio.styllus.online/#/pedidos/carrinho");
+            carrinhoPO.EsperarCarregamento();
         }
-                
-        [Then(@"vejo todos os itens")]
-        public void EntaoVejoTodosOsItens(Table produtos)
-        {
-            var tabelaProdutos = produtos.CreateDynamicSet();
 
+        [Then(@"não consigo finalizar o pedido")]
+        public void EntaoNaoConsigoFinalizarOPedido()
+        {
+            carrinhoPO.SelecionarFrete("Entrega Rápida");
+            Assert.IsFalse(carrinhoPO.BotaoDesativado);
+        }
+
+        [Then(@"vejo a mensagem ""(.*)""")]
+        public void EntaoVejoAMensagem(string mensagem)
+        {
+            Assert.AreEqual(mensagem, carrinhoPO.AlertaTotalPedido);
+        }
+ 
+        [Then(@"a forma de pagamento a prazo não deverá está presente")]
+        public void EntaoAFormaDePagamentoNaoDeveraEstaPresente()
+        {
+            Assert.IsTrue(carrinhoPO.VerificarPagamentoFormaPrazo);
+        }
+
+        [Then(@"vejo o alerta ""(.*)""")]
+        public void EntaoVejoOAlerta(string alerta)
+        {
+            Assert.AreEqual(carrinhoPO.AlertaLimiteCredito, alerta);
+        }
+
+        [Then(@"vejo todos os itens")]
+        public void EntaoVejoTodosOsItens()
+        {
             foreach (var prod in tabelaProdutos)
             {
                 bool nomeProdutoNoCarrinho = driver.PageSource.Contains(prod.nome);
@@ -64,24 +107,10 @@ namespace Escritorio.Steps
                 Assert.IsTrue(nomeProdutoNoCarrinho);
                 Assert.IsTrue(descontoNoCarrinho);
             }
-
-
-            
-        }
-        
-        [Then(@"os valores totais são:")]
-        public void EntaoOsValoresTotaisSao(Table totais)
-        {
-            var subTotal = totais.Rows[0][1];
-            var desconto = totais.Rows[1][1];
-            var total = totais.Rows[2][1];
-
-
-            Assert.IsTrue(carrinhoPO.Subtotal.Contains(subTotal));
-            Assert.IsTrue(carrinhoPO.Desconto.Contains(desconto));
-            Assert.IsTrue(carrinhoPO.Total.Contains(total));
             driver.Quit();
         }
+
+
     }
 }
 
