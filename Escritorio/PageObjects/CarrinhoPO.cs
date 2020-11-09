@@ -43,8 +43,8 @@ namespace escritorio.PageObjects
             byDesconto = By.XPath("//*[@id='app']/div/div[2]/div/div/div[2]/div/div/div[2]/div[3]/div/div/ul/li[2]/strong");
             byTotal = By.XPath("//*[@id='app']/div/div[2]/div/div/div[2]/div/div/div[2]/div[3]/div/div/ul/li[3]/strong");
             bySelectPagamento = By.Id("fr_pgto");
-            byCheckEntregaNormal = By.XPath("//*[@id='app']/div/div[2]/div/div/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/p");
-            byCheckEntregaRapida = By.XPath("//*[@id='app']/div/div[2]/div/div/div[2]/div/div/div[2]/div[2]/div/div/div[3]/div/p");
+            byCheckEntregaNormal = By.XPath("//*[@id='app']/div/div/div/div/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/p/span");
+            byCheckEntregaRapida = By.XPath("//*[@id='app']/div/div/div/div/div[2]/div/div/div[2]/div[2]/div/div/div[3]/div/p/span");
             byBotaoFinalizarPedido = By.Id("place_order");
             byInputQuantidade = By.CssSelector("input.form-control.form-control-sm.text-center");
             byOptionPagamentoPrazo = By.XPath("//*[@id='fr_pgto']/option[2]");
