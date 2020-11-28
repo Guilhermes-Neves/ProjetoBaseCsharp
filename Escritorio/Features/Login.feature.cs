@@ -108,7 +108,7 @@ namespace Escritorio.Features
             {
                 this.ScenarioStart();
 #line 9
-        testRunner.Given("que visito a página inicial \"https://hlg-escritorio.styllus.online/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+        testRunner.Given("que visito a página inicial", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
 #line 10
         testRunner.When(string.Format("preencho meus dados de acesso \"{0}\" e \"{1}\"", codStyllus, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");

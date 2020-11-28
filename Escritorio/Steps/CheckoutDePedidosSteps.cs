@@ -28,7 +28,6 @@ namespace Escritorio.Steps
             produtosPO = new PedidoRapidoPO(driver);
             carrinhoPO = new CarrinhoPO(driver);
             chekoutPO = new ChekoutPO(driver);
-            loginPO.Visitar("https://hlg-escritorio.styllus.online/#/");
             loginPO.EfetuarLoginComDados("1390398", "167581");
         }
 

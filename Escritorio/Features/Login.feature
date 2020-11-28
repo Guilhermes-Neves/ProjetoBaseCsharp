@@ -6,7 +6,7 @@ Funcionalidade: Login
     Posso acessar o site com minhas credenciais
 
     Cenário: Login com dados validos e invalidos
-        Dado que visito a página inicial "https://hlg-escritorio.styllus.online/"
+        Dado que visito a página inicial
         Quando preencho meus dados de acesso "<CodStyllus>" e "<Password>"
         Então eu vejo a mensagem <Message>
 

@@ -24,10 +24,10 @@ namespace Escritorio.Steps
             homePO = new HomePO(driver);
         }
 
-        [Given(@"que visito a página inicial ""(.*)""")]
-        public void DadoQueVisitoAPaginaInicial(string url)
+        [Given(@"que visito a página inicial")]
+        public void DadoQueVisitoAPaginaInicial()
         {   
-            loginPO.Visitar(url);
+            loginPO.Visitar();
         }
         
         [When(@"preencho meus dados de acesso ""(.*)"" e ""(.*)""")]
