@@ -41,6 +41,8 @@ C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\Escritorio\bin\Debug\WebDri
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\Escritorio\obj\Debug\Escritorio.csproj.CopyComplete
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\Escritorio\obj\Debug\Escritorio.exe
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\Escritorio\obj\Debug\Escritorio.pdb
+C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\obj\Debug\Escritorio.exe.config
+C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\obj\Debug\Escritorio.csproj.CoreCompileInputs.cache
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\NUnit3.TestAdapter.dll
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\NUnit3.TestAdapter.pdb
@@ -56,6 +58,7 @@ C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escrit
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\Gherkin.dll
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\Google.Protobuf.dll
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\nunit.framework.dll
+C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\RestSharp.dll
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\SeleniumExtras.PageObjects.dll
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\SeleniumExtras.WaitHelpers.dll
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\SpecFlow.Assist.Dynamic.dll
@@ -70,6 +73,7 @@ C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escrit
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\Google.Protobuf.xml
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\nunit.framework.pdb
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\nunit.framework.xml
+C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\RestSharp.xml
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\System.ValueTuple.xml
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\TechTalk.SpecFlow.pdb
@@ -78,11 +82,7 @@ C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escrit
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\Utf8Json.xml
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\WebDriver.xml
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\WebDriver.Support.xml
-C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\obj\Debug\Escritorio.csprojAssemblyReference.cache
-C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\obj\Debug\Escritorio.exe.config
-C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\obj\Debug\Escritorio.csproj.CoreCompileInputs.cache
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\obj\Debug\Escritorio.csproj.CopyComplete
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\obj\Debug\Escritorio.exe
 C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\obj\Debug\Escritorio.pdb
-C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\RestSharp.dll
-C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\bin\Debug\RestSharp.xml
+C:\Users\guilh\OneDrive\Documentos\Automacao\Styllus\testes-automatizados\Escritorio\obj\Debug\Escritorio.csprojAssemblyReference.cache
