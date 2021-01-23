@@ -20,21 +20,23 @@ namespace Escritorio.Steps
         string mes = "04";
         string ano = "21";
         string codigo = "483";
+        string url;
 
         public CheckoutDePedidosSteps()
         {
+            url = "https://hlg-escritorio.styllus.online/#/";
             driver = Helpers.Helpers.IniciarDriver(new ChromeDriver());
             loginPO = new LoginPO(driver);
             produtosPO = new PedidoRapidoPO(driver);
             carrinhoPO = new CarrinhoPO(driver);
             chekoutPO = new ChekoutPO(driver);
-            loginPO.EfetuarLoginComDados("1390398", "167581");
+            loginPO.EfetuarLoginComDados(url, "83578", "130662");
         }
 
         [Given(@"que estou na página de pedido rápido")]
         public void DadoQueEstouNaPaginaDePedidoRapido()
         {
-            produtosPO.Visitar("https://hlg-escritorio.styllus.online/#/pedido-rapido");
+            produtosPO.Visitar(url + "pedido-rapido");
         }
 
         [When(@"eu adicionar todos os itens")]
@@ -52,7 +54,7 @@ namespace Escritorio.Steps
         [When(@"acessar meu carrinho")]
         public void QuandoAcessarMeuCarrinho()
         {
-            carrinhoPO.Visitar("https://hlg-escritorio.styllus.online/#/pedidos/carrinho");
+            carrinhoPO.Visitar(url + "pedidos/carrinho");
         }
 
 

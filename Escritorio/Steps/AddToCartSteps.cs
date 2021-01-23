@@ -1,4 +1,6 @@
 ﻿using escritorio.PageObjects;
+using gestor.PageObjects;
+using Gestor.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -23,30 +25,38 @@ namespace Escritorio.Steps
         CarrinhoPO carrinhoPO;
         LoginPO loginPO;
         HomePO homePO;
-        string limiteCredito;
-        string totalPedido;
+        LoginGestorPO loginGestorPO;
+        HomeGestorPO homeGestorPO;
+        RevendedoraPO revendedoraPO;
         IEnumerable<dynamic> tabelaProdutos;
+        string url;
+        string urlGestor;
 
         public AddToCartSteps()
         {
+            url = "https://hlg-escritorio.styllus.online/#/";
+            urlGestor = "http://localhost:8080/#/";
             driver = Helpers.Helpers.IniciarDriver(new ChromeDriver());
             loginPO = new LoginPO(driver);
             produtosPO = new PedidoRapidoPO(driver);
             carrinhoPO = new CarrinhoPO(driver);
             homePO = new HomePO(driver);
-            loginPO.EfetuarLoginComDados("1390398", "167581");
+            loginGestorPO = new LoginGestorPO(driver);
+            homeGestorPO = new HomeGestorPO(driver);
+            revendedoraPO = new RevendedoraPO(driver);
+            loginPO.EfetuarLoginComDados(url, "83578", "130662");
         }
 
         [Given(@"estou na página de pedido rápido")]
         public void DadoEstouNaPaginaDePedidoRapido()
         {
-            produtosPO.Visitar("https://hlg-escritorio.styllus.online/#/pedido-rapido");
+            produtosPO.Visitar(url + "pedido-rapido");
         }
 
         [Given(@"estou na página de produtos com fotos")]
         public void DadoEstouNaPaginaDeProdutosComFotos()
         {
-            produtosPO.Visitar("https://hlg-escritorio.styllus.online/#/produtos");
+            produtosPO.Visitar(url + "produtos");
         }
 
 
@@ -60,15 +70,30 @@ namespace Escritorio.Steps
                 produtosPO.Produtos.PesquisarPorRef(prod.referencia.ToString());
                 produtosPO.Produtos.AdicionarProdutos(prod.quantidade.ToString());
             }
-            
+
         }
-        
+
         [When(@"acesso meu carrinho")]
         public void QuandoAcessoMeuCarrinho()
         {
-            carrinhoPO.Visitar("https://hlg-escritorio.styllus.online/#/pedidos/carrinho");
+            carrinhoPO.Visitar(url + "pedidos/carrinho");
             carrinhoPO.EsperarCarregamento();
         }
+
+        [When(@"eu adiciono todos os itens com cor e tamanho")]
+        public void QuandoEuAdicionoTodosOsItensComCorETamanho(Table produtos)
+        {
+            tabelaProdutos = produtos.CreateDynamicSet();
+
+            foreach (var prod in tabelaProdutos)
+            {
+                produtosPO.Produtos.PesquisarPorRef(prod.referencia.ToString());
+                produtosPO.Produtos.SelecionarTamanho(prod.tamanho.ToString());
+                produtosPO.Produtos.SelecionarCor(prod.cor.ToString());
+                produtosPO.Produtos.AdicionarProdutos(prod.quantidade.ToString());
+            }
+        }
+
 
         [Then(@"não consigo finalizar o pedido")]
         public void EntaoNaoConsigoFinalizarOPedido()
@@ -82,31 +107,86 @@ namespace Escritorio.Steps
         {
             Assert.AreEqual(mensagem, carrinhoPO.AlertaTotalPedido);
         }
- 
+
         [Then(@"a forma de pagamento a prazo não deverá está presente")]
         public void EntaoAFormaDePagamentoNaoDeveraEstaPresente()
         {
             Assert.IsTrue(carrinhoPO.VerificarPagamentoFormaPrazo);
         }
 
-        [Then(@"vejo o alerta ""(.*)""")]
-        public void EntaoVejoOAlerta(string alerta)
+        [Then(@"vejo a alerta numero (.*) com a mensagem ""(.*)""")]
+        public void EntaoVejoAAlertaNumeroComAMensagem(int tipo, string mensagem)
         {
-            Assert.AreEqual(carrinhoPO.AlertaLimiteCredito, alerta);
+            string teste = carrinhoPO.Alerta(tipo);
+            Assert.AreEqual(teste, mensagem);
         }
+
+        [Then(@"vejo os descontos corretos")]
+        public void EntaoVejoOsDescontosCorretos()
+        {
+            foreach (var prod in tabelaProdutos)
+            {
+                Assert.AreEqual(carrinhoPO.DescontoItem, prod.desconto);
+            }
+        }
+
 
         [Then(@"vejo todos os itens")]
         public void EntaoVejoTodosOsItens()
         {
-            foreach (var prod in tabelaProdutos)
+            try
             {
-                bool nomeProdutoNoCarrinho = driver.PageSource.Contains(prod.nome);
-                bool descontoNoCarrinho = driver.PageSource.Contains(prod.desconto);
+                foreach (var prod in tabelaProdutos)
+                {
+                    bool nomeProdutoNoCarrinho = driver.PageSource.Contains(prod.nome);
+                    bool descontoNoCarrinho = driver.PageSource.Contains(prod.desconto);
 
-                Assert.IsTrue(nomeProdutoNoCarrinho);
-                Assert.IsTrue(descontoNoCarrinho);
+                    Assert.IsTrue(nomeProdutoNoCarrinho);
+                    Assert.IsTrue(descontoNoCarrinho);
+                }
+                    driver.Quit();
             }
-            driver.Quit();
+            catch (NoSuchElementException)
+            {
+
+                Assert.Fail();
+                driver.Quit();
+            }
+
+            
+        }
+
+        [When(@"que edito uma revendedora")]
+        public void DadoQueEditoUmaRevendedora()
+        {
+            loginGestorPO.EfetuarLoginComDados(urlGestor, "pedro.albani@portalstyllus.com.br", "Styllus2020!@#");
+            revendedoraPO.Visitar(urlGestor);
+            revendedoraPO.FiltrarRevendedora("130.662.947-06");
+            revendedoraPO.EditarRevendedora();
+        }
+
+        [When(@"adiciono cashback para a mesma")]
+        public void QuandoAdicionoCashbackParaAMesma()
+        {
+            revendedoraPO.AdicionarCashBack("500", "15122022");
+        }
+
+        [When(@"utilizo ""(.*)"" reais de cashback")]
+        public void QuandoUtilizoReaisDeCashback(string valorCashback)
+        {
+            carrinhoPO.AplicarCashback(valorCashback);
+        }
+
+        [When(@"eu seleciono a forma de pagamento ""(.*)""")]
+        public void QuandoSelecionoAFormaDePagamento(string formaPagamento)
+        {
+            carrinhoPO.SelecionarPagamento(formaPagamento);
+        }
+
+        [Then(@"a mensagem ""(.*)"" não é exibida")]
+        public void EntaoAMensagemNaoEExibida(string mensagem)
+        {
+            Assert.IsTrue(carrinhoPO.VerificarAlertaLimiteCredito);
         }
 
 

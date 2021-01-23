@@ -76,9 +76,9 @@ namespace PaginaDeCaptura.PageObjects
             byLoadContainer = By.ClassName("loading-container");
         }
 
-        public void Visitar()
+        public void Visitar(string url)
         {
-            driver.Navigate().GoToUrl("https://hlg-revenda.styllus.online/#/novo-cadastro");
+            driver.Navigate().GoToUrl(url + "novo-cadastro");
         }
 
         public void PreencherDadosPessoais(string cpf, string codIndicador)
@@ -88,10 +88,13 @@ namespace PaginaDeCaptura.PageObjects
             driver.FindElement(byInputData).SendKeys("01011999");
             driver.FindElement(byInputTelefone).SendKeys("22999999999");
             driver.FindElement(byInputEmail).SendKeys("teste@teste.com");
+            Thread.Sleep(1000);
             driver.FindElement(byInputIndicador).SendKeys(codIndicador);
+            Thread.Sleep(1000);
             driver.FindElement(byCheckTermos).Click();
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
             driver.FindElement(byBotaoAceitoTermos).Click();
+            Thread.Sleep(1000);
             driver.FindElement(byBotaoContinuarNovaCaptura).Click();
 
         }
@@ -110,6 +113,7 @@ namespace PaginaDeCaptura.PageObjects
             new WebDriverWait(driver, new TimeSpan(0, 0, 15))
                 .Until(ExpectedConditions.InvisibilityOfElementLocated(byLoadContainer));
 
+            Thread.Sleep(8000);
             if (kit == "entrada")
             {
                 driver.FindElement(byBotaoKitEntrada).Click();
@@ -131,6 +135,7 @@ namespace PaginaDeCaptura.PageObjects
         public void FinalizarCheckoutCartao(string numero, string mes, string ano, string codigo)
         {
             driver.FindElement(byBotaoComprar).Click();
+            Thread.Sleep(3000);
             driver.FindElement(byBotaoPagar).Click();
             driver.FindElement(byBotaoCartao).Click();
             driver.FindElement(byInputNumeroCartao).SendKeys(numero);

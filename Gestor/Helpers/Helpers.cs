@@ -5,7 +5,7 @@ using System;
 
 namespace Escritorio.Helpers
 {
-    public static class Helpers
+    public class Helpers
     {
 
         [SetUp]
@@ -16,6 +16,5 @@ namespace Escritorio.Helpers
 
             return driver;
         }
-
     }
 }

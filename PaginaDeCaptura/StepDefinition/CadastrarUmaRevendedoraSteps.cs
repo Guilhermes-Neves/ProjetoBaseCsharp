@@ -18,9 +18,11 @@ namespace PaginaDeCaptura.StepDefinition
         string mes = "04";
         string ano = "21";
         string codigo = "483";
+        string url;
 
         public CadastrarUmaRevendedoraSteps()
         {
+            url = "https://hlg-revenda.styllus.online/#/";
             driver = Helpers.InitHelpers.IniciarDriver(new ChromeDriver());
             capturaPO = new CapturaPO(driver);
             cpf = Helpers.CpfHelper.GetCpf(false);
@@ -29,7 +31,7 @@ namespace PaginaDeCaptura.StepDefinition
         [Given(@"que acesso a página de captura")]
         public void DadoQueAcessoAPaginaDeCaptura()
         {
-            capturaPO.Visitar();
+            capturaPO.Visitar(url);
         }
         
         [When(@"faço o cadastro da revendedora")]

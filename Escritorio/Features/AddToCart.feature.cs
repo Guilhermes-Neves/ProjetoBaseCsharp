@@ -181,21 +181,24 @@ namespace Escritorio.Features
                             "tamanho",
                             "cor",
                             "quantidade",
-                            "desconto"});
+                            "desconto",
+                            "alerta"});
                 table2.AddRow(new string[] {
                             "CONJ SINGAPURA FE",
                             "CJ3-0001/45-000",
                             "unico",
                             "sem cor",
                             "1",
-                            "0%"});
+                            "0%",
+                            "1"});
                 table2.AddRow(new string[] {
                             "CONJ SINGAPURA CORACAO PEDRINHAS ZIR",
                             "CJ3-0002/45-001",
                             "unico",
                             "sem cor",
                             "1",
-                            "0%"});
+                            "0%",
+                            "1"});
 #line 20
        testRunner.When("eu adiciono todos os itens", ((string)(null)), table2, "Quando ");
 #line hidden
@@ -206,8 +209,8 @@ namespace Escritorio.Features
        testRunner.Then("não consigo finalizar o pedido", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
 #line 26
-       testRunner.And("vejo a mensagem \"Atenção Para efetuar um pedido, selecione pelo menos R$ 80,00 em" +
-                        " produtos\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+       testRunner.And("vejo a alerta numero 3 com a mensagem \"Atenção Para efetuar um pedido, selecione " +
+                        "pelo menos R$ 80,00 em produtos\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
 #line 27
        testRunner.And("vejo todos os itens", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
@@ -270,10 +273,535 @@ namespace Escritorio.Features
       testRunner.Then("a forma de pagamento a prazo não deverá está presente", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
 #line 36
-      testRunner.And("vejo o alerta \"Limite de crédito excedido. Você pode efetuar o pagamento à vista " +
-                        "ou então remover alguns produtos do seu carrinho.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+      testRunner.And("vejo a alerta numero 1 com a mensagem \"Limite de crédito excedido. Você pode efet" +
+                        "uar o pagamento à vista ou então remover alguns produtos do seu carrinho.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
 #line 37
+      testRunner.And("vejo todos os itens", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Pedido até R$ 149,99 com desconto de 30%")]
+        public virtual void PedidoAteR14999ComDescontoDe30()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Pedido até R$ 149,99 com desconto de 30%", null, tagsOfScenario, argumentsOfScenario);
+#line 39
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 40
+      testRunner.Given("estou na página de produtos com fotos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "nome",
+                            "referencia",
+                            "tamanho",
+                            "cor",
+                            "quantidade",
+                            "desconto"});
+                table4.AddRow(new string[] {
+                            "CONJ VENEZ X PEDRINHAS",
+                            "CJ3-0006/45-007",
+                            "45",
+                            "preto",
+                            "3",
+                            "30%"});
+#line 41
+      testRunner.When("eu adiciono todos os itens", ((string)(null)), table4, "Quando ");
+#line hidden
+#line 44
+      testRunner.And("acesso meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 45
+      testRunner.Then("vejo os descontos corretos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Pedido até R$ 299,99 com desconto de 35%")]
+        public virtual void PedidoAteR29999ComDescontoDe35()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Pedido até R$ 299,99 com desconto de 35%", null, tagsOfScenario, argumentsOfScenario);
+#line 47
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 48
+      testRunner.Given("estou na página de produtos com fotos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "nome",
+                            "referencia",
+                            "tamanho",
+                            "cor",
+                            "quantidade",
+                            "desconto"});
+                table5.AddRow(new string[] {
+                            "CONJ VENEZ X PEDRINHAS",
+                            "CJ3-0006/45-007",
+                            "45",
+                            "preto",
+                            "6",
+                            "35%"});
+#line 49
+      testRunner.When("eu adiciono todos os itens", ((string)(null)), table5, "Quando ");
+#line hidden
+#line 52
+      testRunner.And("acesso meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 53
+      testRunner.Then("vejo os descontos corretos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Pedido até R$ 599,99 com desconto de 40%")]
+        public virtual void PedidoAteR59999ComDescontoDe40()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Pedido até R$ 599,99 com desconto de 40%", null, tagsOfScenario, argumentsOfScenario);
+#line 55
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 56
+      testRunner.Given("estou na página de produtos com fotos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                            "nome",
+                            "referencia",
+                            "tamanho",
+                            "cor",
+                            "quantidade",
+                            "desconto"});
+                table6.AddRow(new string[] {
+                            "CONJ VENEZ X PEDRINHAS",
+                            "CJ3-0006/45-007",
+                            "45",
+                            "preto",
+                            "12",
+                            "40%"});
+#line 57
+      testRunner.When("eu adiciono todos os itens", ((string)(null)), table6, "Quando ");
+#line hidden
+#line 60
+      testRunner.And("acesso meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 61
+      testRunner.Then("vejo os descontos corretos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Pedido acima de R$ 600,00 com desconto de 50%")]
+        public virtual void PedidoAcimaDeR60000ComDescontoDe50()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Pedido acima de R$ 600,00 com desconto de 50%", null, tagsOfScenario, argumentsOfScenario);
+#line 63
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 64
+      testRunner.Given("estou na página de produtos com fotos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                            "nome",
+                            "referencia",
+                            "tamanho",
+                            "cor",
+                            "quantidade",
+                            "desconto"});
+                table7.AddRow(new string[] {
+                            "CONJ VENEZ X PEDRINHAS",
+                            "CJ3-0006/45-007",
+                            "45",
+                            "preto",
+                            "13",
+                            "50%"});
+#line 65
+      testRunner.When("eu adiciono todos os itens", ((string)(null)), table7, "Quando ");
+#line hidden
+#line 68
+      testRunner.And("acesso meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 69
+      testRunner.Then("vejo os descontos corretos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Adicionando somente produtos da linha lingerie desconto adicional fixo em 30%")]
+        public virtual void AdicionandoSomenteProdutosDaLinhaLingerieDescontoAdicionalFixoEm30()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adicionando somente produtos da linha lingerie desconto adicional fixo em 30%", null, tagsOfScenario, argumentsOfScenario);
+#line 71
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 72
+      testRunner.Given("estou na página de produtos com fotos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                            "nome",
+                            "referencia",
+                            "tamanho",
+                            "cor",
+                            "quantidade",
+                            "desconto",
+                            "preco"});
+                table8.AddRow(new string[] {
+                            "TANGA SU",
+                            "LI3-0011",
+                            "p",
+                            "preto",
+                            "10",
+                            "30%",
+                            "R$ 14,90"});
+#line 73
+      testRunner.When("eu adiciono todos os itens com cor e tamanho", ((string)(null)), table8, "Quando ");
+#line hidden
+#line 76
+      testRunner.And("acesso meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 77
+      testRunner.Then("vejo os descontos corretos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Adicionando somente produtos com estoque zerado")]
+        public virtual void AdicionandoSomenteProdutosComEstoqueZerado()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adicionando somente produtos com estoque zerado", null, tagsOfScenario, argumentsOfScenario);
+#line 79
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 80
+      testRunner.Given("estou na página de produtos com fotos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                            "nome",
+                            "referencia",
+                            "tamanho",
+                            "cor",
+                            "quantidade",
+                            "desconto",
+                            "preco"});
+                table9.AddRow(new string[] {
+                            "TANGA FIO RENDA",
+                            "LI3-0004",
+                            "p",
+                            "preto",
+                            "1",
+                            "30%",
+                            "R$ 9,90"});
+#line 81
+      testRunner.When("eu adiciono todos os itens com cor e tamanho", ((string)(null)), table9, "Quando ");
+#line hidden
+#line 84
+      testRunner.And("acesso meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 85
+      testRunner.Then("vejo a alerta numero 2 com a mensagem \"Alguns dos itens selecionados não possuem " +
+                        "estoque disponível. Por favor, verifique antes de continuar:\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+#line 86
+      testRunner.And("vejo todos os itens", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Adicionando produtos com estoque e produtos com estoque zerado")]
+        public virtual void AdicionandoProdutosComEstoqueEProdutosComEstoqueZerado()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adicionando produtos com estoque e produtos com estoque zerado", null, tagsOfScenario, argumentsOfScenario);
+#line 88
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 89
+      testRunner.Given("estou na página de produtos com fotos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                            "nome",
+                            "referencia",
+                            "tamanho",
+                            "cor",
+                            "quantidade",
+                            "desconto",
+                            "preco"});
+                table10.AddRow(new string[] {
+                            "TANGA SU",
+                            "LI3-0011",
+                            "p",
+                            "preto",
+                            "1",
+                            "30%",
+                            "R$ 14,90"});
+                table10.AddRow(new string[] {
+                            "CAMISOLA JAMILY",
+                            "LI3-0007",
+                            "m",
+                            "branco",
+                            "1",
+                            "30%",
+                            "R$ 69,90"});
+                table10.AddRow(new string[] {
+                            "CAMISOLA VIVI",
+                            "LI3-0008",
+                            "m",
+                            "vermelho",
+                            "1",
+                            "30%",
+                            "R$ 69,90"});
+                table10.AddRow(new string[] {
+                            "TANGA CINTA",
+                            "LI3-0013",
+                            "gg",
+                            "marron",
+                            "1",
+                            "30%",
+                            "R$ 24,90"});
+                table10.AddRow(new string[] {
+                            "BOXER ROMANTIC LISA",
+                            "LI3-0001",
+                            "m",
+                            "azul 2",
+                            "1",
+                            "30%",
+                            "R$ 19,90"});
+                table10.AddRow(new string[] {
+                            "TANGA FIO RENDA",
+                            "LI3-0004",
+                            "p",
+                            "preto",
+                            "1",
+                            "30%",
+                            "R$ 9,90"});
+#line 90
+      testRunner.When("eu adiciono todos os itens com cor e tamanho", ((string)(null)), table10, "Quando ");
+#line hidden
+#line 98
+      testRunner.And("acesso meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 99
+      testRunner.Then("vejo a alerta numero 2 com a mensagem \"Alguns dos itens selecionados não possuem " +
+                        "estoque disponível. Por favor, verifique antes de continuar:\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+#line 100
+      testRunner.And("vejo todos os itens", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Ultrapassando o limite de crédito e utilizando cashback")]
+        public virtual void UltrapassandoOLimiteDeCreditoEUtilizandoCashback()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Ultrapassando o limite de crédito e utilizando cashback", null, tagsOfScenario, argumentsOfScenario);
+#line 102
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 103
+      testRunner.Given("estou na página de pedido rápido", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                            "nome",
+                            "referencia",
+                            "tamanho",
+                            "cor",
+                            "quantidade",
+                            "desconto",
+                            "preco"});
+                table11.AddRow(new string[] {
+                            "ARG DE PRATA ENC FIO LISO",
+                            "AG3-0015",
+                            "unico",
+                            "sem pedra",
+                            "35",
+                            "50%",
+                            "R$ 99,90"});
+#line 104
+      testRunner.When("eu adiciono todos os itens", ((string)(null)), table11, "Quando ");
+#line hidden
+#line 107
+      testRunner.And("que edito uma revendedora", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 108
+   testRunner.And("adiciono cashback para a mesma", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 109
+      testRunner.And("acesso meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 110
+      testRunner.And("utilizo \"500\" reais de cashback", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 111
+      testRunner.Then("a mensagem \"Limite de crédito excedido. Você pode efetuar o pagamento à vista ou " +
+                        "então remover alguns produtos do seu carrinho.\" não é exibida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+#line 112
       testRunner.And("vejo todos os itens", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             }

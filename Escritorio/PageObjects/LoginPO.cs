@@ -5,7 +5,7 @@ namespace escritorio.PageObjects
 {
     public class LoginPO
     {
-        private IWebDriver driver;
+        IWebDriver driver;
         private By byInputLogin;
         private By byInputPassword;
         private By byBotaoLogin;
@@ -20,11 +20,10 @@ namespace escritorio.PageObjects
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
         }
 
-   
-        public void Visitar()
+       public void Visitar(string url)
         {
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("https://hlg-escritorio.styllus.online/#/");
+            driver.Navigate().GoToUrl(url);
         }
 
         public void PreencherFormulario(string codStyllus, string password)
@@ -38,9 +37,9 @@ namespace escritorio.PageObjects
             driver.FindElement(byBotaoLogin).Click();
         }
 
-        public void EfetuarLoginComDados(string codStyllus, string password)
+        public void EfetuarLoginComDados(string url ,string codStyllus, string password)
         {
-            driver.Navigate().GoToUrl("https://hlg-escritorio.styllus.online");
+            driver.Navigate().GoToUrl(url);
             driver.FindElement(byInputLogin).SendKeys(codStyllus);
             driver.FindElement(byInputPassword).SendKeys(password);
             driver.FindElement(byBotaoLogin).Click();
