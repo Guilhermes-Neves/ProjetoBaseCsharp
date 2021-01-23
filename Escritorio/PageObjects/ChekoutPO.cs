@@ -17,6 +17,7 @@ namespace Escritorio.PageObjects
         private By byBotaoContinuar2;
         private By byBotaoConfirmar;
         private By byPedidoFinalizado;
+        private By byBotaoPagar;
 
         public string PedidoFinalizado => driver.FindElement(byPedidoFinalizado).Text;
 
@@ -33,10 +34,13 @@ namespace Escritorio.PageObjects
             byBotaoContinuar2 = By.XPath("//*[@id='checkoutModal']/div/div/div[2]/div/div/form/button[1]");
             byBotaoConfirmar = By.XPath("//*[@id='checkoutModal']/div/div/div[2]/div/div/button[1]");
             byPedidoFinalizado = By.Id("swal2-content");
+            byBotaoPagar = By.CssSelector("button.btn-success");
         }
 
         public void FinalizarCheckoutCartao(string numero, string mes, string ano, string codigo)
         {
+            Thread.Sleep(5000);
+            driver.FindElement(byBotaoPagar).Click();
             driver.FindElement(byBotaoCartao).Click();
             driver.FindElement(byInputNumeroCartao).SendKeys(numero);
             Thread.Sleep(1000);

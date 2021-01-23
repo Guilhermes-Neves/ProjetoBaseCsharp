@@ -107,7 +107,7 @@ namespace Escritorio.Features
 #line 10
    testRunner.Given("que estou na página de pedido rápido", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                             "nome",
                             "referencia",
                             "tamanho",
@@ -115,7 +115,7 @@ namespace Escritorio.Features
                             "quantidade",
                             "desconto",
                             "preco"});
-                table4.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "BR PEND CHAP QUADRA LISAS DET CRAQ",
                             "PD3-0001",
                             "unico",
@@ -123,7 +123,7 @@ namespace Escritorio.Features
                             "1",
                             "30%",
                             "R$ 39,90"});
-                table4.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "BR PEND CURV FIO VENEZ E PEROLA",
                             "PD3-0002",
                             "unico",
@@ -131,7 +131,7 @@ namespace Escritorio.Features
                             "1",
                             "30%",
                             "R$ 39,90"});
-                table4.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "BR PEND RAB.RATO PEDRIN E CIRC VAZ",
                             "PD3-0003",
                             "unico",
@@ -139,7 +139,7 @@ namespace Escritorio.Features
                             "1",
                             "30%",
                             "R$ 24,90"});
-                table4.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "BR PEND CHAPAZ OVAIS DET DIAMANTADO",
                             "PD3-0004",
                             "unico",
@@ -148,7 +148,7 @@ namespace Escritorio.Features
                             "30%",
                             "R$ 19,90"});
 #line 11
-   testRunner.When("eu adicionar todos os itens", ((string)(null)), table4, "Quando ");
+   testRunner.When("eu adicionar todos os itens", ((string)(null)), table12, "Quando ");
 #line hidden
 #line 17
    testRunner.And("acessar meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");

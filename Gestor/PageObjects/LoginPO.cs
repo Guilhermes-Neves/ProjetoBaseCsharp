@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Gestor.PageObjects;
+using OpenQA.Selenium;
 
 namespace gestor.PageObjects
 {
@@ -19,11 +20,13 @@ namespace gestor.PageObjects
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
         }
 
+        public Useful Util { get; }
 
-        public void Visitar()
+
+        public void Visitar(string url)
         {
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("http://hlg-painel.styllus.online/#/pages/login");
+            driver.Navigate().GoToUrl(url);
         }
 
         public void PreencherFormulario(string email, string password)
@@ -34,15 +37,16 @@ namespace gestor.PageObjects
 
         public void SubmeterFormulario()
         {
-            driver.FindElement(byBotaoLogin).Click();
+            //driver.FindElement(byBotaoLogin).Click();
+            Util.ClickOn(byBotaoLogin, 30);
         }
 
-        public void EfetuarLoginComDados(string email, string password)
+        public void EfetuarLoginComDados(string url, string email, string password)
         {
-            driver.Navigate().GoToUrl("http://hlg-painel.styllus.online/#/pages/login");
+            driver.Navigate().GoToUrl(url);
             driver.FindElement(byInputLogin).SendKeys(email);
             driver.FindElement(byInputPassword).SendKeys(password);
-            driver.FindElement(byBotaoLogin).Click();
+            //driver.FindElement(byBotaoLogin).Click();
         }
 
 

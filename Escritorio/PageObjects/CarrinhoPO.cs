@@ -22,17 +22,21 @@ namespace escritorio.PageObjects
         private By byCheckEntregaRapida;
         private By byBotaoFinalizarPedido;
         private By byAlertaLimite;
+        private By byTdDesconto;
+        private By byAlertaEstoque;
+        private By byInputCashback;
+        private By byBotaoAplicarCashback;
 
         public string AlertaTotalPedido => driver.FindElement(byAlertaTotalPedido).Text;
-
         public string TabelaDeProdutos => driver.FindElement(byTable).Text;
         public string Subtotal => driver.FindElement(bySubtotal).Text;
         public string Desconto => driver.FindElement(byDesconto).Text;
         public string Total => driver.FindElement(byTotal).Text;
-
         public bool BotaoDesativado => driver.FindElement(byBotaoFinalizarPedido).Enabled;
         public bool VerificarPagamentoFormaPrazo => Esperar().Until(ExpectedConditions.InvisibilityOfElementWithText(byOptionPagamentoPrazo, "À Prazo - Até 30 dias no boleto"));
+        public bool VerificarAlertaLimiteCredito => Esperar().Until(ExpectedConditions.InvisibilityOfElementWithText(byAlertaLimite, "Limite de crédito excedido. Você pode efetuar o pagamento à vista ou então remover alguns produtos do seu carrinho."));
         public string AlertaLimiteCredito => driver.FindElement(byAlertaLimite).Text;
+        public string DescontoItem => driver.FindElement(byTdDesconto).Text;
 
         public CarrinhoPO(IWebDriver driver)
         {
@@ -49,6 +53,31 @@ namespace escritorio.PageObjects
             byInputQuantidade = By.CssSelector("input.form-control.form-control-sm.text-center");
             byOptionPagamentoPrazo = By.XPath("//*[@id='fr_pgto']/option[2]");
             byAlertaLimite = By.CssSelector(".alert.alert-info");
+            byTdDesconto = By.CssSelector("td[data-title='Desconto']");
+            byAlertaEstoque = By.CssSelector("p.alert.alert-danger");
+            byInputCashback = By.XPath("/html/body/div[2]/div/div/div/div/div[2]/div/div/div[2]/div[1]/div/div/div/div/input");
+            byBotaoAplicarCashback = By.CssSelector("button.btn.mt-2.btn-info.btn-block");
+        }
+
+        public string Alerta(int alert)
+        {
+            switch (alert)
+            {
+                case 1:
+                    string alertaLimite = driver.FindElement(byAlertaLimite).Text;
+                    return alertaLimite;
+
+                case 2:
+                    string alertaEstoque = driver.FindElement(byAlertaEstoque).Text;
+                    return alertaEstoque;
+
+                case 3:
+                    var alertaTotalPedido = driver.FindElement(byAlertaTotalPedido).Text;
+                    return alertaTotalPedido;
+
+                default:
+                    return "erro";
+            }
         }
 
         public void Visitar(string url)
@@ -79,7 +108,7 @@ namespace escritorio.PageObjects
             elementoFormaPagamento.SelectByText(formaPagamento);
         }
 
-       public void SelecionarFrete(string frete)
+        public void SelecionarFrete(string frete)
         {
             if (frete == "Entrega Normal")
             {
@@ -94,11 +123,18 @@ namespace escritorio.PageObjects
 
             }
         }
-        
+
+        public void AplicarCashback(string valor)
+        {
+            driver.FindElement(byInputCashback).SendKeys(valor);
+            driver.FindElement(byBotaoAplicarCashback).Click();
+        }
+
         public void FinalizarPedido()
         {
             driver.FindElement(byBotaoFinalizarPedido).Click();
         }
+
 
 
     }

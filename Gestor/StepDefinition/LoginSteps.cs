@@ -14,9 +14,11 @@ namespace Gestor.StepDefinition
         private static IWebDriver driver;
         private static LoginPO loginPO;
         private static HomePO homePO;
+        string url;
 
         public LoginSteps()
         {
+            url = "http://localhost:8081/#/";
             driver = new ChromeDriver();
             loginPO = new LoginPO(driver);
             homePO = new HomePO(driver);
@@ -25,7 +27,7 @@ namespace Gestor.StepDefinition
         [Given(@"que visito a página inicial")]
         public void DadoQueVisitoAPaginaInicial()
         {
-            loginPO.Visitar();
+            loginPO.Visitar(url);
         }
         
         [When(@"preencho meus dados de acesso ""(.*)"" e ""(.*)""")]

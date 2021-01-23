@@ -12,7 +12,7 @@ Funcionalidade: Login
 
      Exemplos: 
      | CodStyllus | Password | Message                                                                                         |
-     | 1390398    | 167581   | Bem vindo ;)                                                                                    |
-     | 13903231   | 1449051  | A combinação de usuário e senha não foi identificada. Por favor, verefique os dados informados. |
+     | 83578      | 130662   | Bem vindo ;)                                                                                    |
+     | 13904656   | 1444564  | A combinação de usuário e senha não foi identificada. Por favor, verefique os dados informados. |
 
  

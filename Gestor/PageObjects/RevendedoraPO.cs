@@ -54,16 +54,20 @@ namespace Gestor.PageObjects
         public void FiltrarRevendedora(string cpf)
         {
             driver.FindElement(byInputCpf).SendKeys(cpf);
+            Thread.Sleep(5000);
             driver.FindElement(byBotaoBuscar).Click();
+            Thread.Sleep(2000);
         }
 
         public void EditarRevendedora()
         {
+            Thread.Sleep(5000);
             driver.FindElement(byEditarRevendedora).Click();
         }
 
         public void AdicionarCashBack(string valor, string data)
         {
+            Thread.Sleep(5000);
             driver.FindElement(byTabCashBack).Click();
             driver.FindElement(byBotaoAdicionarCashback).Click();
             driver.FindElement(byInputValorCashback).SendKeys(valor);
@@ -73,7 +77,9 @@ namespace Gestor.PageObjects
 
         public void DeletarCashback()
         {
+            Thread.Sleep(5000);
             driver.FindElement(byTabCashBack).Click();
+            Thread.Sleep(1000);
             driver.FindElement(byBotaoDeletar).Click();
             driver.FindElement(byBotaoProssiga).Click();
         }
