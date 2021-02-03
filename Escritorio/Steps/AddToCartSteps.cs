@@ -4,21 +4,18 @@ using Gestor.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
 using System.Threading;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
 
+
 namespace Escritorio.Steps
 {
     [Binding]
-    public class AddToCartSteps
+    public class AddToCartSteps : IDisposable
     {
         IWebDriver driver;
         PedidoRapidoPO produtosPO;
@@ -27,7 +24,7 @@ namespace Escritorio.Steps
         HomePO homePO;
         LoginGestorPO loginGestorPO;
         HomeGestorPO homeGestorPO;
-        RevendedoraPO revendedoraPO;
+        RevendedoraGestorPO revendedoraPO;
         IEnumerable<dynamic> tabelaProdutos;
         string url;
         string urlGestor;
@@ -43,8 +40,13 @@ namespace Escritorio.Steps
             homePO = new HomePO(driver);
             loginGestorPO = new LoginGestorPO(driver);
             homeGestorPO = new HomeGestorPO(driver);
-            revendedoraPO = new RevendedoraPO(driver);
+            revendedoraPO = new RevendedoraGestorPO(driver);
             loginPO.EfetuarLoginComDados(url, "83578", "130662");
+        }
+
+        public void Dispose()
+        {
+            driver.Quit();
         }
 
         [Given(@"estou na página de pedido rápido")]
@@ -126,6 +128,7 @@ namespace Escritorio.Steps
         {
             foreach (var prod in tabelaProdutos)
             {
+                Thread.Sleep(500);
                 Assert.AreEqual(carrinhoPO.DescontoItem, prod.desconto);
             }
         }
@@ -144,13 +147,11 @@ namespace Escritorio.Steps
                     Assert.IsTrue(nomeProdutoNoCarrinho);
                     Assert.IsTrue(descontoNoCarrinho);
                 }
-                    driver.Quit();
             }
             catch (NoSuchElementException)
             {
 
                 Assert.Fail();
-                driver.Quit();
             }
 
             
@@ -160,7 +161,7 @@ namespace Escritorio.Steps
         public void DadoQueEditoUmaRevendedora()
         {
             loginGestorPO.EfetuarLoginComDados(urlGestor, "pedro.albani@portalstyllus.com.br", "Styllus2020!@#");
-            revendedoraPO.Visitar(urlGestor);
+            revendedoraPO.Visitar();
             revendedoraPO.FiltrarRevendedora("130.662.947-06");
             revendedoraPO.EditarRevendedora();
         }

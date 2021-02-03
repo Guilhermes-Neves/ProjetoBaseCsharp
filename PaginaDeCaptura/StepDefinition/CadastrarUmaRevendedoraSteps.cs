@@ -3,11 +3,12 @@ using OpenQA.Selenium.Chrome;
 using PaginaDeCaptura.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
+using System;
 
 namespace PaginaDeCaptura.StepDefinition
 {
     [Binding]
-    public class CadastrarUmaRevendedoraSteps
+    public class CadastrarUmaRevendedoraSteps : IDisposable
     {
 
         IWebDriver driver;
@@ -26,6 +27,11 @@ namespace PaginaDeCaptura.StepDefinition
             driver = Helpers.InitHelpers.IniciarDriver(new ChromeDriver());
             capturaPO = new CapturaPO(driver);
             cpf = Helpers.CpfHelper.GetCpf(false);
+        }
+
+        public void Dispose()
+        {
+            driver.Quit();
         }
 
         [Given(@"que acesso a página de captura")]

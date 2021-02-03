@@ -88,3 +88,5 @@ C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\Pagin
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.exe
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.pdb
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.csprojAssemblyReference.cache
+C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Common.dll
+C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Common.pdb

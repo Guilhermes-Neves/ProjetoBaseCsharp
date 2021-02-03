@@ -116,53 +116,29 @@ namespace Escritorio.Features
                             "desconto",
                             "preco"});
                 table12.AddRow(new string[] {
-                            "BR PEND CHAP QUADRA LISAS DET CRAQ",
-                            "PD3-0001",
-                            "unico",
-                            "sem pedra",
-                            "1",
-                            "30%",
-                            "R$ 39,90"});
-                table12.AddRow(new string[] {
-                            "BR PEND CURV FIO VENEZ E PEROLA",
-                            "PD3-0002",
-                            "unico",
-                            "perola",
-                            "1",
-                            "30%",
-                            "R$ 39,90"});
-                table12.AddRow(new string[] {
-                            "BR PEND RAB.RATO PEDRIN E CIRC VAZ",
-                            "PD3-0003",
-                            "unico",
+                            "CONJ SING FLOR PEDRA ZIR",
+                            "CJ3-0004",
+                            "45",
                             "crystal",
-                            "1",
-                            "30%",
-                            "R$ 24,90"});
-                table12.AddRow(new string[] {
-                            "BR PEND CHAPAZ OVAIS DET DIAMANTADO",
-                            "PD3-0004",
-                            "unico",
-                            "sem pedra",
-                            "1",
-                            "30%",
-                            "R$ 19,90"});
+                            "4",
+                            "35%",
+                            "R$ 39,90"});
 #line 11
    testRunner.When("eu adicionar todos os itens", ((string)(null)), table12, "Quando ");
 #line hidden
-#line 17
+#line 14
    testRunner.And("acessar meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 18
+#line 15
    testRunner.And("seleciono a forma de pagamento \"Cartão ou Boleto à vista\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 19
+#line 16
    testRunner.And("seleciono o tipo de frete como \"Entrega Normal\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 20
+#line 17
    testRunner.And("finalizo o checkout pagando com cartão", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 21
+#line 18
    testRunner.Then("vejo a confirmação do checkout com a mensagem \"Pedido realizado com sucesso.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             }

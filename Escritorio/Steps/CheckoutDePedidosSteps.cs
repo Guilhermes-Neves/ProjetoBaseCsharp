@@ -3,13 +3,14 @@ using Escritorio.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
 namespace Escritorio.Steps
 {
     [Binding]
-    public class CheckoutDePedidosSteps
+    public class CheckoutDePedidosSteps : IDisposable
     {
         IWebDriver driver;
         LoginPO loginPO;
@@ -21,6 +22,12 @@ namespace Escritorio.Steps
         string ano = "21";
         string codigo = "483";
         string url;
+
+        public void Dispose()
+        {
+            driver.Quit();
+        }
+
 
         public CheckoutDePedidosSteps()
         {
@@ -82,7 +89,6 @@ namespace Escritorio.Steps
         public void EntaoVejoAConfirmacaoDoCheckoutComAMensagem(string mensagem)
         {
             Assert.AreEqual(mensagem, chekoutPO.PedidoFinalizado);
-            driver.Quit();
         }
 
     }

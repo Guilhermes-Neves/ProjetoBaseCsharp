@@ -11,29 +11,35 @@ using TechTalk.SpecFlow;
 namespace Gestor.StepDefinition
 {
     [Binding]
-    public class AjusteCashbackManualmenteSteps
+    public class AjusteCashbackManualmenteSteps : IDisposable
     {
-        private static IWebDriver driver;
-        private static LoginPO loginPO;
-        private static RevendedoraPO revendedoraPO;
+        IWebDriver driver;
+        LoginGestorPO loginPO;
+        RevendedoraGestorPO revendedoraPO;
         string url;
 
         public AjusteCashbackManualmenteSteps()
         {
-            url = "http://localhost:8081/#/";
+            url = "http://localhost:8080/#/";
             driver = new ChromeDriver();
-            revendedoraPO = new RevendedoraPO(driver);
-            loginPO = new LoginPO(driver);
+            revendedoraPO = new RevendedoraGestorPO(driver);
+            loginPO = new LoginGestorPO(driver);
             loginPO.EfetuarLoginComDados(url, "pedro.albani@portalstyllus.com.br", "Styllus2020!@#");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(8);
             driver.Manage().Window.Maximize();
         }
 
+        public void Dispose()
+        {
+            driver.Quit();
+        }
+
+
         [Given(@"que edito uma revendedora")]
         public void DadoQueEditoUmaRevendedora()
         {
             revendedoraPO.Visitar();
-            revendedoraPO.FiltrarRevendedora("000.029.017-30");
+            revendedoraPO.BuscarRevendedora("cpf", "000.029.017-30");
             revendedoraPO.EditarRevendedora();
         }
         
@@ -59,5 +65,7 @@ namespace Gestor.StepDefinition
 
             driver.Quit();
         }
+
+
     }
 }

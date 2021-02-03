@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
-
+using Escritorio.Helpers;
+using Common;
 
 namespace escritorio.PageObjects
 {
@@ -9,6 +10,7 @@ namespace escritorio.PageObjects
         private By byInputLogin;
         private By byInputPassword;
         private By byBotaoLogin;
+        Utilitarios util;
         
     
         public LoginPO(IWebDriver driver)
@@ -18,6 +20,7 @@ namespace escritorio.PageObjects
             byInputPassword = By.Id("input-password");
             byBotaoLogin = By.ClassName("btn-primary");
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+            util = new Utilitarios(driver);
         }
 
        public void Visitar(string url)
@@ -34,7 +37,7 @@ namespace escritorio.PageObjects
 
         public void SubmeterFormulario()
         {
-            driver.FindElement(byBotaoLogin).Click();
+            util.OnClick(byBotaoLogin, 5);
         }
 
         public void EfetuarLoginComDados(string url ,string codStyllus, string password)
@@ -42,7 +45,7 @@ namespace escritorio.PageObjects
             driver.Navigate().GoToUrl(url);
             driver.FindElement(byInputLogin).SendKeys(codStyllus);
             driver.FindElement(byInputPassword).SendKeys(password);
-            driver.FindElement(byBotaoLogin).Click();
+            util.OnClick(byBotaoLogin, 5);
         }
 
 

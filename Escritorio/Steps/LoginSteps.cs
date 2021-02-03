@@ -10,7 +10,7 @@ using TechTalk.SpecFlow;
 namespace Escritorio.Steps
 {
     [Binding]
-    public class LoginSteps
+    public class LoginSteps : IDisposable
     {
         IWebDriver driver;
         private static LoginPO loginPO;
@@ -24,6 +24,11 @@ namespace Escritorio.Steps
             homePO = new HomePO(driver);
             url = "https://hlg-escritorio.styllus.online/#/";
 
+        }
+
+        public void Dispose()
+        {
+            driver.Quit();
         }
 
         [Given(@"que visito a página inicial")]
@@ -45,7 +50,8 @@ namespace Escritorio.Steps
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
             bool iguais = wait.Until(drv => homePO.MensagemLogin == message);
             Assert.True(iguais);
-            driver.Quit();
         }
+
+
     }
 }

@@ -2,13 +2,14 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using TechTalk.SpecFlow;
+using Escritorio.Helpers;
+using Common;
 
 namespace escritorio.PageObjects
 {
     public class CarrinhoPO
     {
+        Utilitarios util;
         private IWebDriver driver;
         private By byTable;
         private By byAlertaTotalPedido;
@@ -53,10 +54,11 @@ namespace escritorio.PageObjects
             byInputQuantidade = By.CssSelector("input.form-control.form-control-sm.text-center");
             byOptionPagamentoPrazo = By.XPath("//*[@id='fr_pgto']/option[2]");
             byAlertaLimite = By.CssSelector(".alert.alert-info");
-            byTdDesconto = By.CssSelector("td[data-title='Desconto']");
+            byTdDesconto = By.XPath("/html/body/div[2]/div[2]/div/div/div/div[2]/div/div/div[1]/div/div[3]/table/tbody/tr/td[5]");
             byAlertaEstoque = By.CssSelector("p.alert.alert-danger");
             byInputCashback = By.XPath("/html/body/div[2]/div/div/div/div/div[2]/div/div/div[2]/div[1]/div/div/div/div/input");
             byBotaoAplicarCashback = By.CssSelector("button.btn.mt-2.btn-info.btn-block");
+            util = new Utilitarios(driver);
         }
 
         public string Alerta(int alert)
@@ -112,11 +114,11 @@ namespace escritorio.PageObjects
         {
             if (frete == "Entrega Normal")
             {
-                driver.FindElement(byCheckEntregaNormal).Click();
+                util.OnClick(byCheckEntregaNormal, 5);
             }
             if (frete == "Entrega Rápida")
             {
-                driver.FindElement(byCheckEntregaRapida).Click();
+                util.OnClick(byCheckEntregaRapida, 5);
             }
             if (frete == "Frete Gratis")
             {
@@ -127,12 +129,12 @@ namespace escritorio.PageObjects
         public void AplicarCashback(string valor)
         {
             driver.FindElement(byInputCashback).SendKeys(valor);
-            driver.FindElement(byBotaoAplicarCashback).Click();
+            util.OnClick(byBotaoAplicarCashback, 5);
         }
 
         public void FinalizarPedido()
         {
-            driver.FindElement(byBotaoFinalizarPedido).Click();
+            util.OnClick(byBotaoFinalizarPedido, 5);
         }
 
 

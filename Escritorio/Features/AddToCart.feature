@@ -89,11 +89,7 @@ Funcionalidade: Adicionar produtos no carrinho
       Dado estou na página de produtos com fotos
       Quando eu adiciono todos os itens com cor e tamanho
         | nome                | referencia | tamanho | cor      | quantidade | desconto | preco    |
-        | TANGA SU            | LI3-0011   | p       | preto    | 1          | 30%      | R$ 14,90 | 
-        | CAMISOLA JAMILY     | LI3-0007   | m       | branco   | 1          | 30%      | R$ 69,90 |   
-        | CAMISOLA VIVI       | LI3-0008   | m       | vermelho | 1          | 30%      | R$ 69,90 |   
-        | TANGA CINTA         | LI3-0013   | gg      | marron   | 1          | 30%      | R$ 24,90 |   
-        | BOXER ROMANTIC LISA | LI3-0001   | m       | azul 2   | 1          | 30%      | R$ 19,90 |   
+        | CAMISOLA JAMILY     | LI3-0007   | m       | vermelho | 1          | 30%      | R$ 69,90 |   
         | TANGA FIO RENDA     | LI3-0004   | p       | preto    | 1          | 30%      | R$ 9,90  |   
       E acesso meu carrinho
       Então vejo a alerta numero 2 com a mensagem "Alguns dos itens selecionados não possuem estoque disponível. Por favor, verifique antes de continuar:"
