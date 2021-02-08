@@ -19,10 +19,12 @@ namespace Escritorio.Steps
 
         public LoginSteps()
         {
-            driver = new ChromeDriver();
+            ChromeOptions optionsChr = new ChromeOptions();
+            optionsChr.AddArgument("--headless");
+            driver = new ChromeDriver(optionsChr);
             loginPO = new LoginPO(driver);
             homePO = new HomePO(driver);
-            url = "http://localhost:8080/#/";
+            url = "https://hlg-escritorio.styllus.online/#/";
 
         }
 

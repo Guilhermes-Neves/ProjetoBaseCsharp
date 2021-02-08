@@ -32,7 +32,7 @@ namespace Escritorio.Steps
 
         public AddToCartSteps()
         {
-            url = "http://localhost:8080/#/";
+            url = "https://hlg-escritorio.styllus.online/#/";
             urlGestor = "http://localhost:8081/#/";
             driver = Helpers.Helpers.IniciarDriver(new ChromeDriver());
             loginPO = new LoginPO(driver);
