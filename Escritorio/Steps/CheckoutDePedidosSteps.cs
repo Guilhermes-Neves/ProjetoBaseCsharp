@@ -31,13 +31,13 @@ namespace Escritorio.Steps
 
         public CheckoutDePedidosSteps()
         {
-            url = "https://hlg-escritorio.styllus.online/#/";
+            url = "http://localhost:8080/#/";
             driver = Helpers.Helpers.IniciarDriver(new ChromeDriver());
             loginPO = new LoginPO(driver);
             produtosPO = new PedidoRapidoPO(driver);
             carrinhoPO = new CarrinhoPO(driver);
             chekoutPO = new ChekoutPO(driver);
-            loginPO.EfetuarLoginComDados(url, "83578", "130662");
+            loginPO.EfetuarLoginComDados(url, "1396019", "130662");
         }
 
         [Given(@"que estou na página de pedido rápido")]

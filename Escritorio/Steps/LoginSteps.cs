@@ -22,7 +22,7 @@ namespace Escritorio.Steps
             driver = new ChromeDriver();
             loginPO = new LoginPO(driver);
             homePO = new HomePO(driver);
-            url = "https://hlg-escritorio.styllus.online/#/";
+            url = "http://localhost:8080/#/";
 
         }
 

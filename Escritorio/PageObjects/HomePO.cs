@@ -67,11 +67,6 @@ namespace escritorio.PageObjects
             driver.Navigate().GoToUrl("https://hlg-escritorio.styllus.online/#/");
         }
 
-        public void EfetuarLogOut()
-        {
-            driver.FindElement(bySpanUsuario).Click();
-            ((IJavaScriptExecutor)driver).ExecuteScript("document.querySelector(\"'a[href=\'#!\']\"').click();");
-        }
 
     }
 }

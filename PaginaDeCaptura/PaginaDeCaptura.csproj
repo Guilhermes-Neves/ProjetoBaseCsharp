@@ -139,6 +139,7 @@
   <ItemGroup>
     <Compile Include="Helpers\CpfHelper.cs" />
     <Compile Include="Helpers\InitHelpers.cs" />
+    <Compile Include="Helpers\NomeHelper.cs" />
     <Compile Include="PageObjects\CapturaPO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,6 +149,12 @@
     <None Include="App.config" />
     <None Include="Features\AddReseller.feature" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{66fd7450-8fe8-4ad1-8749-566915bea281}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

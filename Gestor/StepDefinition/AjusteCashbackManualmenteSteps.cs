@@ -15,14 +15,14 @@ namespace Gestor.StepDefinition
     {
         IWebDriver driver;
         LoginGestorPO loginPO;
-        RevendedoraGestorPO revendedoraPO;
+        RevendedoraPO revendedoraPO;
         string url;
 
         public AjusteCashbackManualmenteSteps()
         {
-            url = "http://localhost:8080/#/";
+            url = "http://localhost:8081/#/";
             driver = new ChromeDriver();
-            revendedoraPO = new RevendedoraGestorPO(driver);
+            revendedoraPO = new RevendedoraPO(driver);
             loginPO = new LoginGestorPO(driver);
             loginPO.EfetuarLoginComDados(url, "pedro.albani@portalstyllus.com.br", "Styllus2020!@#");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(8);

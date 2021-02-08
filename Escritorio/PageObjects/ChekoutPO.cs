@@ -44,8 +44,8 @@ namespace Escritorio.PageObjects
         {
             util.OnClick(byBotaoPagar, 5);
             util.OnClick(byBotaoCartao, 5);
-            driver.FindElement(byInputNumeroCartao).SendKeys(numero);
-            driver.FindElement(byInputNomeCartao).SendKeys("Teste");
+            util.SendKey(byInputNumeroCartao, numero, 10);
+            util.SendKey(byInputNomeCartao, "Teste", 10);
 
             var mesCartao = new SelectElement(driver.FindElement(bySelectMes));
             mesCartao.SelectByValue(mes);

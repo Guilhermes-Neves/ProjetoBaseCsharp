@@ -36,13 +36,13 @@ namespace escritorio.PageObjects
 
         public void FiltrarProduto(string referencia)
         {
-            driver.FindElement(byInputReferencia).SendKeys(referencia);
+            util.SendKey(byInputReferencia, referencia, 10);
             util.OnClick(byBotaoBuscar, 5);
         }
 
         public void AdicionarProduto(string quantidade)
         {
-            driver.FindElement(byInputQuantidade).SendKeys(quantidade);
+            util.SendKey(byInputQuantidade, quantidade, 10);
             util.OnClick(byBotaoAdicionar, 5);
 
         }

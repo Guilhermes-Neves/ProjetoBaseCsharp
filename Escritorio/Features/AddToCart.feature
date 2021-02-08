@@ -64,15 +64,15 @@ Funcionalidade: Adicionar produtos no carrinho
       Dado estou na página de produtos com fotos
       Quando eu adiciono todos os itens
         | nome                   | referencia      | tamanho | cor       | quantidade | desconto |     
-        | CONJ VENEZ X PEDRINHAS | CJ3-0006/45-007 | 45      | preto     | 13         | 50%      |
+        | CONJ VENEZ X PEDRINHAS | CJ3-0006/45-007 | 45      | preto     | 17         | 50%      |
       E acesso meu carrinho
       Então vejo os descontos corretos
 
     Cenario: Adicionando somente produtos da linha lingerie desconto adicional fixo em 30%
       Dado estou na página de produtos com fotos
       Quando eu adiciono todos os itens com cor e tamanho
-        | nome            | referencia | tamanho | cor      | quantidade | desconto | preco    |
-        | TANGA SU        | LI3-0011   | p       | preto    | 10         | 30%      | R$ 14,90 |   
+        | nome            | referencia | tamanho | cor                   | quantidade | desconto | preco    |
+        | TANGA SU        | LI3-0011   | P       | PRETO - Disponível    | 10         | 30%      | R$ 14,90 |   
       E acesso meu carrinho
       Então vejo os descontos corretos
 

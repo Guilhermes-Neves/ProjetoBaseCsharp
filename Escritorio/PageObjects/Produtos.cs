@@ -24,27 +24,27 @@ namespace Escritorio.PageObjects
             byBotaoBuscar = By.ClassName("btn-buscar");
             byInputQuantidade = By.CssSelector("input[type='number']");
             byBotaoAdicionar = By.ClassName("btn-add");
-            bySelectTamanho = By.XPath("//*[@id='app']/div/div/div/div/div[2]/div[2]/div/div[3]/div[1]/select");
-            bySelectCor = By.XPath("//*[@id='app']/div/div/div/div/div[2]/div[2]/div/div[3]/div[2]/select");
+            bySelectTamanho = By.XPath("/html/body/div[2]/div[2]/div/div/div/div[2]/div[1]/div/div[3]/div[1]/select");
+            bySelectCor = By.XPath("/html/body/div[2]/div[2]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/select");
             util = new Utilitarios(driver);
         }
 
         public void PesquisarPorRef(string referencia)
         {
-            driver.FindElement(byInputRef).Clear();
-            driver.FindElement(byInputRef).SendKeys(referencia);
+            util.ClearInput(byInputRef, 10);
+            util.SendKey(byInputRef, referencia, 10);
             util.OnClick(byBotaoBuscar, 5);
-            driver.FindElement(byInputRef).Clear();
+            util.ClearInput(byInputRef, 10);
         }
 
         public void SelecionarTamanho(string tamanho)
         {
-            util.SelectValue(bySelectTamanho, tamanho, 10);
+            util.SelectText(bySelectTamanho, tamanho, 10);
         }
 
         public void SelecionarCor(string cor)
         {
-            util.SelectValue(bySelectCor, cor, 10);
+            util.SelectText(bySelectCor, cor, 10);
         }
 
         public void AdicionarProdutos(string quantidade)

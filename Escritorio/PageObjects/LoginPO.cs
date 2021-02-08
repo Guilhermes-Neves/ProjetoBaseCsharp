@@ -31,8 +31,8 @@ namespace escritorio.PageObjects
 
         public void PreencherFormulario(string codStyllus, string password)
         {
-            driver.FindElement(byInputLogin).SendKeys(codStyllus);
-            driver.FindElement(byInputPassword).SendKeys(password);
+            util.SendKey(byInputLogin, codStyllus, 10);
+            util.SendKey(byInputPassword, password, 10);
         }
 
         public void SubmeterFormulario()
@@ -43,8 +43,8 @@ namespace escritorio.PageObjects
         public void EfetuarLoginComDados(string url ,string codStyllus, string password)
         {
             driver.Navigate().GoToUrl(url);
-            driver.FindElement(byInputLogin).SendKeys(codStyllus);
-            driver.FindElement(byInputPassword).SendKeys(password);
+            util.SendKey(byInputLogin,codStyllus, 10);
+            util.SendKey(byInputPassword,password, 10);
             util.OnClick(byBotaoLogin, 5);
         }
 

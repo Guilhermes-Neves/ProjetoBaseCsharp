@@ -100,14 +100,13 @@ namespace escritorio.PageObjects
 
         public void AlterarQuantidade(string quantidade)
         {
-            driver.FindElement(byInputQuantidade).Clear();
-            driver.FindElement(byInputQuantidade).SendKeys(quantidade);
+            util.ClearInput(byInputQuantidade, 10);
+            util.SendKey(byInputQuantidade, quantidade, 10);
         }
 
         public void SelecionarPagamento(string formaPagamento)
         {
-            var elementoFormaPagamento = new SelectElement(driver.FindElement(bySelectPagamento));
-            elementoFormaPagamento.SelectByText(formaPagamento);
+            util.SelectText(bySelectPagamento, formaPagamento, 10);
         }
 
         public void SelecionarFrete(string frete)
@@ -128,7 +127,7 @@ namespace escritorio.PageObjects
 
         public void AplicarCashback(string valor)
         {
-            driver.FindElement(byInputCashback).SendKeys(valor);
+            util.SendKey(byInputCashback, valor, 10);
             util.OnClick(byBotaoAplicarCashback, 5);
         }
 

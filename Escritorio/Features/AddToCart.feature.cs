@@ -496,7 +496,7 @@ namespace Escritorio.Features
                             "CJ3-0006/45-007",
                             "45",
                             "preto",
-                            "13",
+                            "17",
                             "50%"});
 #line 65
       testRunner.When("eu adiciono todos os itens", ((string)(null)), table7, "Quando ");
@@ -552,8 +552,8 @@ namespace Escritorio.Features
                 table8.AddRow(new string[] {
                             "TANGA SU",
                             "LI3-0011",
-                            "p",
-                            "preto",
+                            "P",
+                            "PRETO - Disponível",
                             "10",
                             "30%",
                             "R$ 14,90"});

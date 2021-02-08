@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using TechTalk.SpecFlow;
+using Common;
 using TechTalk.SpecFlow.Assist;
 
 
@@ -24,15 +25,15 @@ namespace Escritorio.Steps
         HomePO homePO;
         LoginGestorPO loginGestorPO;
         HomeGestorPO homeGestorPO;
-        RevendedoraGestorPO revendedoraPO;
+        RevendedoraPO revendedoraPO;
         IEnumerable<dynamic> tabelaProdutos;
         string url;
         string urlGestor;
 
         public AddToCartSteps()
         {
-            url = "https://hlg-escritorio.styllus.online/#/";
-            urlGestor = "http://localhost:8080/#/";
+            url = "http://localhost:8080/#/";
+            urlGestor = "http://localhost:8081/#/";
             driver = Helpers.Helpers.IniciarDriver(new ChromeDriver());
             loginPO = new LoginPO(driver);
             produtosPO = new PedidoRapidoPO(driver);
@@ -40,8 +41,8 @@ namespace Escritorio.Steps
             homePO = new HomePO(driver);
             loginGestorPO = new LoginGestorPO(driver);
             homeGestorPO = new HomeGestorPO(driver);
-            revendedoraPO = new RevendedoraGestorPO(driver);
-            loginPO.EfetuarLoginComDados(url, "83578", "130662");
+            revendedoraPO = new RevendedoraPO(driver);
+            loginPO.EfetuarLoginComDados(url, "1396019", "130662");
         }
 
         public void Dispose()

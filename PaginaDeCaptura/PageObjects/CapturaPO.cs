@@ -86,9 +86,7 @@ namespace PaginaDeCaptura.PageObjects
 
         public void PreencherDadosPessoais(string cpf, string codIndicador)
         {
-            utilitarios.SendKey(byInputCpf, cpf, 10);
             utilitarios.SendKey(byInputNome, "Teste Automatizado", 10);
-            utilitarios.SendKey(byInputData, "01011999", 10);
             utilitarios.SendKey(byInputTelefone, "22999999999", 10);
             utilitarios.SendKey(byInputEmail, "teste@teste.com", 10);
             utilitarios.SendKey(byInputIndicador, codIndicador, 10);
@@ -135,7 +133,7 @@ namespace PaginaDeCaptura.PageObjects
             utilitarios.SendKey(byInputNomeCartao, "Teste", 10);
 
             utilitarios.SelectValue(bySelectMes, mes, 10);
-            utilitarios.SelectValue(bySelectAno, ano, 10);
+            utilitarios.SelectText(bySelectAno, ano, 10);
 
             utilitarios.SendKey(byInputCodigo, codigo, 10);
 

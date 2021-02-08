@@ -138,15 +138,21 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepDefinition\AjusteCashbackManualmenteSteps.cs" />
-    <Compile Include="StepDefinition\BuscarRevendedorasSteps.cs" />
+    <Compile Include="StepDefinition\BuscarRevendedoraSteps.cs" />
     <Compile Include="StepDefinition\LoginSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Features\Login.feature" />
     <None Include="Features\Cashback.feature" />
-    <None Include="Features\SearchResellers.feature" />
+    <None Include="Features\SearchReseller.feature" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{66fd7450-8fe8-4ad1-8749-566915bea281}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
