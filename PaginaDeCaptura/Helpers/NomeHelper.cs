@@ -4,6 +4,7 @@ namespace PaginaDeCaptura.Helpers
 {
     public static class NomeHelper
     {
+        /**
         public static string GetNome()
         {
             var client = new RestClient("https://www.4devs.com.br/ferramentas_online.php");
@@ -24,5 +25,6 @@ namespace PaginaDeCaptura.Helpers
             IRestResponse response = client.Execute(request);
             string teste = response.Content;
         }
+        **/
     }
 }

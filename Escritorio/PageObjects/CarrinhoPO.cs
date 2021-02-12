@@ -35,8 +35,7 @@ namespace escritorio.PageObjects
         public string Total => driver.FindElement(byTotal).Text;
         public bool BotaoDesativado => driver.FindElement(byBotaoFinalizarPedido).Enabled;
         public bool VerificarPagamentoFormaPrazo => Esperar().Until(ExpectedConditions.InvisibilityOfElementWithText(byOptionPagamentoPrazo, "À Prazo - Até 30 dias no boleto"));
-        public bool VerificarAlertaLimiteCredito => Esperar().Until(ExpectedConditions.InvisibilityOfElementWithText(byAlertaLimite, "Limite de crédito excedido. Você pode efetuar o pagamento à vista ou então remover alguns produtos do seu carrinho."));
-        public string AlertaLimiteCredito => driver.FindElement(byAlertaLimite).Text;
+        public string AlertaLimiteCredito => util.GetText(byAlertaLimite, 30);
         public string DescontoItem => driver.FindElement(byTdDesconto).Text;
 
         public CarrinhoPO(IWebDriver driver)
@@ -66,15 +65,15 @@ namespace escritorio.PageObjects
             switch (alert)
             {
                 case 1:
-                    string alertaLimite = driver.FindElement(byAlertaLimite).Text;
+                    string alertaLimite = util.GetText(byAlertaLimite, 30);
                     return alertaLimite;
 
                 case 2:
-                    string alertaEstoque = driver.FindElement(byAlertaEstoque).Text;
+                    string alertaEstoque = util.GetText(byAlertaEstoque, 30);
                     return alertaEstoque;
 
                 case 3:
-                    var alertaTotalPedido = driver.FindElement(byAlertaTotalPedido).Text;
+                    var alertaTotalPedido = util.GetText(byAlertaTotalPedido, 30);
                     return alertaTotalPedido;
 
                 default:
@@ -89,7 +88,7 @@ namespace escritorio.PageObjects
 
         public void EsperarCarregamento()
         {
-            new WebDriverWait(driver, new TimeSpan(0, 0, 15))
+            new WebDriverWait(driver, new TimeSpan(0, 0, 30))
                 .Until(ExpectedConditions.ElementIsVisible(byTable));
         }
 

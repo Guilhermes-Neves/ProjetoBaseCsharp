@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Aoz0zdvebI4IK9wdzrrOsVq+4sMEcW6zshPZ8nkJNbqm9p+u/6MKE+ZujrzGsbXjP5XUMcEKR0u989x2xnYzFQ==",
+  "dgSpecHash": "1ZFdh07TpGOiC0Oy1NYkGpqHua+BS1Mbh1sfre8gOGzJVm77ILX718+aAh/mFEjrhQ4vNNEfVZM16Z6GksWwZQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\guilh\\Source\\Repos\\testes-automatizados\\Common\\Common.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\newtonsoft.json\\10.0.3\\newtonsoft.json.10.0.3.nupkg.sha512",
+    "C:\\Users\\guilh\\.nuget\\packages\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\selenium.support\\3.141.0\\selenium.support.3.141.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\selenium.webdriver\\3.141.0\\selenium.webdriver.3.141.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

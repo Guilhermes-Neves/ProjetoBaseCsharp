@@ -20,7 +20,7 @@ namespace Common
             DateTime timeoutLimit = DateTime.Now.AddSeconds(timeOut);
             Exception methodException = null;
 
-            while(DateTime.Now <= timeoutLimit)
+            while (DateTime.Now <= timeoutLimit)
             {
                 try
                 {
@@ -30,6 +30,33 @@ namespace Common
                         driver.FindElement(element).Click();
                         Thread.Sleep(waitTime);
                         return;
+                    }
+                }
+                catch (Exception e)
+                {
+                    methodException = e;
+                    continue;
+                }
+            }
+            Thread.Sleep(waitTime);
+            throw methodException;
+        }
+
+        public string GetText(By element, double timeOut)
+        {
+            DateTime timeoutLimit = DateTime.Now.AddSeconds(timeOut);
+            Exception methodException = null;
+
+            while (DateTime.Now <= timeoutLimit)
+            {
+                try
+                {
+                    if (true)
+                    {
+                        Thread.Sleep(waitTime);
+                        string textoElemento = driver.FindElement(element).Text;
+                        Thread.Sleep(waitTime);
+                        return textoElemento;
                     }
                 }
                 catch (Exception e)
@@ -69,7 +96,7 @@ namespace Common
             throw methodException;
         }
 
-        public void SendKey(By element, string value ,double timeOut)
+        public void SendKey(By element, string value, double timeOut)
         {
             DateTime timeoutLimit = DateTime.Now.AddSeconds(timeOut);
             Exception methodException = null;
@@ -153,5 +180,68 @@ namespace Common
             Thread.Sleep(waitTime);
             throw methodException;
         }
+
+        public string GetUrl(string projeto)
+        {
+
+            if (projeto == "escritorio")
+            {
+                string urlEscritorio = "https://hlg-escritorio.styllus.online/#/";
+                return urlEscritorio;
+            }
+            if (projeto == "gestor")
+            {
+                string urlGestor = "http://localhost:8080/#/";
+                return urlGestor;
+            }
+            if (projeto == "paginaCaptura")
+            {
+                string urlPaginaCaptura = "https://hlg-revenda.styllus.online/#/";
+                return urlPaginaCaptura;
+            }
+            else
+            {
+                return "Projeto não entontrado";
+            }
+        }
+
+        public string UsuarioLogin(string projeto)
+        {
+            if (projeto == "escritorio")
+            {
+                string usuarioEscritorio = "650083";
+                return usuarioEscritorio;
+            }
+            if (projeto == "gestor")
+            {
+                string usuarioGestor = "pedro.albani@portalstyllus.com.br";
+                return usuarioGestor;
+            }
+            else
+            {
+                return "Projeto não entontrado";
+            }
+
+        }
+
+        public string SenhaLogin(string projeto)
+        {
+            if (projeto == "escritorio")
+            {
+                string senhaEscritorio = "000158";
+                return senhaEscritorio;
+            }
+            if (projeto == "gestor")
+            {
+                string senhaGestor = "Styllus2020!@#";
+                return senhaGestor;
+            }
+            else
+            {
+                return "Projeto não entontrado";
+            }
+
+        }
+
     }
 }

@@ -28,7 +28,7 @@ namespace PaginaDeCaptura.StepDefinition
             driver = Helpers.InitHelpers.IniciarDriver(new ChromeDriver());
             capturaPO = new CapturaPO(driver);
             cpf = Helpers.CpfHelper.GetCpf(false);
-            nome = Helpers.NomeHelper.GetNome();
+            //nome = Helpers.NomeHelper.GetNome();
         }
 
         public void Dispose()

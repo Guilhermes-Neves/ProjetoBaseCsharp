@@ -78,21 +78,10 @@ Funcionalidade: Adicionar produtos no carrinho
 
     Cenario: Adicionando somente produtos com estoque zerado
       Dado estou na página de produtos com fotos
-      Quando eu adiciono todos os itens com cor e tamanho
-        | nome                | referencia | tamanho | cor      | quantidade | desconto | preco    |  
-        | TANGA FIO RENDA     | LI3-0004   | p       | preto    | 1          | 30%      | R$ 9,90  |   
-      E acesso meu carrinho
-      Então vejo a alerta numero 2 com a mensagem "Alguns dos itens selecionados não possuem estoque disponível. Por favor, verifique antes de continuar:"
-      E vejo todos os itens
-
-    Cenario: Adicionando produtos com estoque e produtos com estoque zerado
-      Dado estou na página de produtos com fotos
-      Quando eu adiciono todos os itens com cor e tamanho
-        | nome                | referencia | tamanho | cor      | quantidade | desconto | preco    |
-        | CAMISOLA JAMILY     | LI3-0007   | m       | vermelho | 1          | 30%      | R$ 69,90 |   
-        | TANGA FIO RENDA     | LI3-0004   | p       | preto    | 1          | 30%      | R$ 9,90  |   
-      E acesso meu carrinho
-      Então vejo a alerta numero 2 com a mensagem "Alguns dos itens selecionados não possuem estoque disponível. Por favor, verifique antes de continuar:"
+      Quando eu seleciono cor e tamanho dos itens
+        | nome            | referencia | tamanho | cor                  | quantidade | desconto | preco   |
+        | TANGA FIO RENDA | LI3-0004   | P       | PRETO - Indisponível | 1          | 30%      | R$ 9,90 |   
+      Então vejo o texto indisponível "Indisponível"
       E vejo todos os itens
 
     Cenario: Ultrapassando o limite de crédito e utilizando cashback

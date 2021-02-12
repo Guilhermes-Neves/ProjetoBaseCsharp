@@ -15,14 +15,16 @@ namespace Gestor.StepDefinition
         IWebDriver driver;
         LoginGestorPO loginPO;
         HomeGestorPO homePO;
+        Utilitarios util;
         string url;
 
         public LoginSteps()
         {
-            url = "http://localhost:8081/#/";
             driver = new ChromeDriver();
             loginPO = new LoginGestorPO(driver);
             homePO = new HomeGestorPO(driver);
+            util = new Utilitarios(driver);
+            url = util.GetUrl("gestor");
         }
 
         public void Dispose()

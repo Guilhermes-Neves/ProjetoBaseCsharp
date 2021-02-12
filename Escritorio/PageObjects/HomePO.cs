@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Common;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -13,55 +14,22 @@ namespace escritorio.PageObjects
     {
 
         private IWebDriver driver;
-        private By bySpanUsuario;
         private By byDangerMessage;
         private By byLimiteCredito;
+        Utilitarios util;
 
-        public string MensagemLogin => driver.FindElement(byDangerMessage).Text;
+        public string MensagemLogin => util.GetText(byDangerMessage, 30);
 
-        public string LimiteDeCredito => driver.FindElement(byLimiteCredito).Text;
+        public string LimiteDeCredito => util.GetText(byLimiteCredito, 30);
 
         public HomePO(IWebDriver driver)
         {
             this.driver = driver;
-            bySpanUsuario = By.CssSelector(".media.media-pill");
+            util = new Utilitarios(driver);
             byDangerMessage = By.CssSelector("p.vn-message");
             byLimiteCredito = By.XPath("//*[@id='app']/div/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div[1]/span");
         }
 
-        private By MensagemInicial()
-        {
-            return By.CssSelector(".h3.text-white");
-        }
-
-        private WebDriverWait Esperar()
-        {
-            return new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-        }
-
-        public Boolean EsperarCarregamento()
-        {
-            if (Esperar().Until(ExpectedConditions.ElementIsVisible(byLimiteCredito)).Displayed)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public Boolean ValidarLogin()
-        {
-            if (Esperar().Until(ExpectedConditions.ElementIsVisible(MensagemInicial())).Displayed)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
         public void Visitar()
         {
             driver.Navigate().GoToUrl("https://hlg-escritorio.styllus.online/#/");

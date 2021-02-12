@@ -107,7 +107,7 @@ namespace Escritorio.Features
 #line 10
    testRunner.Given("que estou na página de pedido rápido", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
-                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                             "nome",
                             "referencia",
                             "tamanho",
@@ -115,7 +115,7 @@ namespace Escritorio.Features
                             "quantidade",
                             "desconto",
                             "preco"});
-                table12.AddRow(new string[] {
+                table11.AddRow(new string[] {
                             "CONJ SING FLOR PEDRA ZIR",
                             "CJ3-0004",
                             "45",
@@ -124,7 +124,7 @@ namespace Escritorio.Features
                             "35%",
                             "R$ 39,90"});
 #line 11
-   testRunner.When("eu adicionar todos os itens", ((string)(null)), table12, "Quando ");
+   testRunner.When("eu adicionar todos os itens", ((string)(null)), table11, "Quando ");
 #line hidden
 #line 14
    testRunner.And("acessar meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");

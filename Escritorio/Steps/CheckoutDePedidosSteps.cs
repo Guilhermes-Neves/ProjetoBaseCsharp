@@ -1,4 +1,5 @@
-﻿using escritorio.PageObjects;
+﻿using Common;
+using escritorio.PageObjects;
 using Escritorio.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -17,6 +18,7 @@ namespace Escritorio.Steps
         PedidoRapidoPO produtosPO;
         CarrinhoPO carrinhoPO;
         ChekoutPO chekoutPO;
+        Utilitarios util;
         string numero = "5259483778432661";
         string mes = "04";
         string ano = "21";
@@ -31,13 +33,14 @@ namespace Escritorio.Steps
 
         public CheckoutDePedidosSteps()
         {
-            url = "https://hlg-escritorio.styllus.online/#/";
             driver = Helpers.Helpers.IniciarDriver(new ChromeDriver());
+            util = new Utilitarios(driver);
             loginPO = new LoginPO(driver);
             produtosPO = new PedidoRapidoPO(driver);
             carrinhoPO = new CarrinhoPO(driver);
             chekoutPO = new ChekoutPO(driver);
-            loginPO.EfetuarLoginComDados(url, "1396019", "130662");
+            url = util.GetUrl("escritorio");
+            loginPO.EfetuarLoginComDados(url, util.UsuarioLogin("escritorio") , util.SenhaLogin("escritorio"));
         }
 
         [Given(@"que estou na página de pedido rápido")]

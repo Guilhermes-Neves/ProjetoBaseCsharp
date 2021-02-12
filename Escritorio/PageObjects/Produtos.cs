@@ -16,6 +16,7 @@ namespace Escritorio.PageObjects
         private By byBotaoAdicionar;
         private By bySelectTamanho;
         private By bySelectCor;
+        private By bySpanEstoque;
 
         public Produtos(IWebDriver driver)
         {
@@ -26,8 +27,11 @@ namespace Escritorio.PageObjects
             byBotaoAdicionar = By.ClassName("btn-add");
             bySelectTamanho = By.XPath("/html/body/div[2]/div[2]/div/div/div/div[2]/div[1]/div/div[3]/div[1]/select");
             bySelectCor = By.XPath("/html/body/div[2]/div[2]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/select");
+            bySpanEstoque = By.CssSelector("span.badge-danger");
             util = new Utilitarios(driver);
         }
+
+        public string MensagemEstoque => util.GetText(bySpanEstoque, 30);
 
         public void PesquisarPorRef(string referencia)
         {

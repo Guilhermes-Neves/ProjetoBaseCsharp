@@ -76,7 +76,7 @@ namespace Escritorio.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Login com dados validos e invalidos")]
-        [NUnit.Framework.TestCaseAttribute("1396019", "130662", "Bem vindo ;)", null)]
+        [NUnit.Framework.TestCaseAttribute("650083", "000158", "Bem vindo ;)", null)]
         [NUnit.Framework.TestCaseAttribute("13904656", "1444564", "A combinação de usuário e senha não foi identificada. Por favor, verefique os dad" +
             "os informados.", null)]
         public virtual void LoginComDadosValidosEInvalidos(string codStyllus, string password, string message, string[] exampleTags)

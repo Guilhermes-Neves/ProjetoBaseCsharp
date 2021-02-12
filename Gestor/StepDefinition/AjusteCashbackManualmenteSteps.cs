@@ -1,11 +1,11 @@
-﻿using gestor.PageObjects;
+﻿using Common;
+using gestor.PageObjects;
 using Gestor.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace Gestor.StepDefinition
@@ -16,16 +16,17 @@ namespace Gestor.StepDefinition
         IWebDriver driver;
         LoginGestorPO loginPO;
         RevendedoraPO revendedoraPO;
+        Utilitarios util;
         string url;
 
         public AjusteCashbackManualmenteSteps()
         {
-            url = "http://localhost:8081/#/";
             driver = new ChromeDriver();
             revendedoraPO = new RevendedoraPO(driver);
             loginPO = new LoginGestorPO(driver);
-            loginPO.EfetuarLoginComDados(url, "pedro.albani@portalstyllus.com.br", "Styllus2020!@#");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(8);
+            util = new Utilitarios(driver);
+            url = util.GetUrl("gestor");
+            loginPO.EfetuarLoginComDados(url, util.UsuarioLogin("gestor"), util.SenhaLogin("gestor"));
             driver.Manage().Window.Maximize();
         }
 

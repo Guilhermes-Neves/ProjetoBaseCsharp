@@ -1,4 +1,5 @@
-﻿using escritorio.PageObjects;
+﻿using Common;
+using escritorio.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -13,6 +14,7 @@ namespace Escritorio.Steps
     public class LoginSteps : IDisposable
     {
         IWebDriver driver;
+        Utilitarios util;
         private static LoginPO loginPO;
         private static HomePO homePO;
         string url;
@@ -24,7 +26,8 @@ namespace Escritorio.Steps
             driver = new ChromeDriver(optionsChr);
             loginPO = new LoginPO(driver);
             homePO = new HomePO(driver);
-            url = "https://hlg-escritorio.styllus.online/#/";
+            util = new Utilitarios(driver);
+            url = util.GetUrl("escritorio");
 
         }
 

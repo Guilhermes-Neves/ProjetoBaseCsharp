@@ -1,4 +1,5 @@
-﻿using gestor.PageObjects;
+﻿using Common;
+using gestor.PageObjects;
 using Gestor.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -17,16 +18,17 @@ namespace Gestor.StepDefinition
         IWebDriver driver;
         LoginGestorPO loginPO;
         RevendedoraPO revendedoraPO;
+        Utilitarios util;
         string url;
 
         public BuscarRevendedoraSteps()
         {
-            url = "http://localhost:8081/#/";
             driver = new ChromeDriver();
+            util = new Utilitarios(driver);
             revendedoraPO = new RevendedoraPO(driver);
             loginPO = new LoginGestorPO(driver);
-            loginPO.EfetuarLoginComDados(url, "pedro.albani@portalstyllus.com.br", "Styllus2020!@#");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(8);
+            url = util.GetUrl("gestor");
+            loginPO.EfetuarLoginComDados(url, util.UsuarioLogin("gestor"), util.SenhaLogin("gestor"));
             driver.Manage().Window.Maximize();
         }
 
