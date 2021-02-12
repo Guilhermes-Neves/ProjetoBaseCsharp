@@ -126,8 +126,8 @@ namespace escritorio.PageObjects
 
         public void AplicarCashback(string valor)
         {
-            util.SendKey(byInputCashback, valor, 10);
-            util.OnClick(byBotaoAplicarCashback, 5);
+            util.SendKey(byInputCashback, valor, 30);
+            util.OnClick(byBotaoAplicarCashback, 30);
         }
 
         public void FinalizarPedido()

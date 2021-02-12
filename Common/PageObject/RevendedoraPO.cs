@@ -76,11 +76,11 @@ namespace Gestor.PageObjects
 
         public void AdicionarCashBack(string valor, string data)
         {
-            util.OnClick(byTabCashBack, 10);
-            util.OnClick(byBotaoAdicionarCashback, 10);
-            util.SendKey(byInputValorCashback, valor, 10);
-            util.SendKey(byInputDataCashback, data, 10);
-            util.OnClick(byBotaoSalvar, 10);
+            util.OnClick(byTabCashBack, 30);
+            util.OnClick(byBotaoAdicionarCashback, 30);
+            util.SendKey(byInputValorCashback, valor, 30);
+            util.SendKey(byInputDataCashback, data, 30);
+            util.OnClick(byBotaoSalvar, 30);
         }
 
         public void DeletarCashback()
