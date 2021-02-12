@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Common;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Threading;
@@ -9,6 +10,7 @@ namespace PaginaDeCaptura.PageObjects
     public class CapturaPO
     {
         private IWebDriver driver;
+        Utilitarios utilitarios;
         private By byInputCpf;
         private By byInputNome;
         private By byInputData;
@@ -45,6 +47,7 @@ namespace PaginaDeCaptura.PageObjects
         public CapturaPO(IWebDriver driver)
         {
             this.driver = driver;
+            utilitarios = new Utilitarios(driver); 
             byInputCpf = By.Id("novacaptura__field--cpf");
             byInputNome = By.Id("novacaptura__field--nome");
             byInputData = By.Id("novacaptura__field--data-nascimento");
@@ -83,44 +86,33 @@ namespace PaginaDeCaptura.PageObjects
 
         public void PreencherDadosPessoais(string cpf, string codIndicador)
         {
-            driver.FindElement(byInputCpf).SendKeys(cpf);
-            driver.FindElement(byInputNome).SendKeys("Teste Automatizado");
-            driver.FindElement(byInputData).SendKeys("01011999");
-            driver.FindElement(byInputTelefone).SendKeys("22999999999");
-            driver.FindElement(byInputEmail).SendKeys("teste@teste.com");
-            Thread.Sleep(1000);
-            driver.FindElement(byInputIndicador).SendKeys(codIndicador);
-            Thread.Sleep(1000);
-            driver.FindElement(byCheckTermos).Click();
-            Thread.Sleep(1000);
-            driver.FindElement(byBotaoAceitoTermos).Click();
-            Thread.Sleep(1000);
-            driver.FindElement(byBotaoContinuarNovaCaptura).Click();
+            utilitarios.SendKey(byInputNome, "Teste Automatizado", 10);
+            utilitarios.SendKey(byInputTelefone, "22999999999", 10);
+            utilitarios.SendKey(byInputEmail, "teste@teste.com", 10);
+            utilitarios.SendKey(byInputIndicador, codIndicador, 10);
+            utilitarios.OnClick(byCheckTermos, 10);
+            utilitarios.OnClick(byBotaoAceitoTermos, 10);
+            utilitarios.OnClick(byBotaoContinuarNovaCaptura, 10);
 
         }
 
         public void PreencherEndereco(string cep, string numero, string complemento)
         {
-            driver.FindElement(byInputCep).SendKeys(cep);
-            Thread.Sleep(500);
-            driver.FindElement(byInputNumero).SendKeys(numero);
-            driver.FindElement(byInputComplemento).SendKeys(complemento);
-            driver.FindElement(byBotaoContinuarEndereco).Click();
+            utilitarios.SendKey(byInputCep, cep, 10);
+            utilitarios.SendKey(byInputNumero, numero, 10);
+            utilitarios.SendKey(byInputComplemento, complemento, 10);
+            utilitarios.OnClick(byBotaoContinuarEndereco, 10);
         }
 
         public void SelecionarKit(string kit)
         {
-            new WebDriverWait(driver, new TimeSpan(0, 0, 15))
-                .Until(ExpectedConditions.InvisibilityOfElementLocated(byLoadContainer));
-
-            Thread.Sleep(8000);
             if (kit == "entrada")
             {
-                driver.FindElement(byBotaoKitEntrada).Click();
+                utilitarios.OnClick(byBotaoKitEntrada, 10);
             }
             else
             {
-                driver.FindElement(byBotaoKitPassaporte).Click();
+                utilitarios.OnClick(byBotaoKitPassaporte, 10);
             }
         }
 
@@ -128,30 +120,25 @@ namespace PaginaDeCaptura.PageObjects
         {
             if (frete == "receber depois")
             {
-                driver.FindElement(byCheckReceberDepois).Click();
+                utilitarios.OnClick(byCheckReceberDepois, 10);
             }
         }
 
         public void FinalizarCheckoutCartao(string numero, string mes, string ano, string codigo)
         {
-            driver.FindElement(byBotaoComprar).Click();
-            Thread.Sleep(3000);
-            driver.FindElement(byBotaoPagar).Click();
-            driver.FindElement(byBotaoCartao).Click();
-            driver.FindElement(byInputNumeroCartao).SendKeys(numero);
-            Thread.Sleep(1000);
-            driver.FindElement(byInputNomeCartao).SendKeys("Teste");
+            utilitarios.OnClick(byBotaoComprar, 10);
+            utilitarios.OnClick(byBotaoPagar, 10);
+            utilitarios.OnClick(byBotaoCartao, 10);
+            utilitarios.SendKey(byInputNumeroCartao, numero, 10);
+            utilitarios.SendKey(byInputNomeCartao, "Teste", 10);
 
-            var mesCartao = new SelectElement(driver.FindElement(bySelectMes));
-            mesCartao.SelectByValue(mes);
+            utilitarios.SelectValue(bySelectMes, mes, 10);
+            utilitarios.SelectText(bySelectAno, ano, 10);
 
-            var anoCartao = new SelectElement(driver.FindElement(bySelectAno));
-            anoCartao.SelectByValue(ano);
+            utilitarios.SendKey(byInputCodigo, codigo, 10);
 
-            driver.FindElement(byInputCodigo).SendKeys(codigo);
-
-            driver.FindElement(byBotaoContinuarPagamento).Click();
-            driver.FindElement(byBotaoConfirmarCheckout).Click();
+            utilitarios.OnClick(byBotaoContinuarPagamento, 10);
+            utilitarios.OnClick(byBotaoConfirmarCheckout, 10);
         }
     }
 }

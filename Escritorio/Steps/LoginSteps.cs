@@ -1,4 +1,5 @@
-﻿using escritorio.PageObjects;
+﻿using Common;
+using escritorio.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -10,20 +11,29 @@ using TechTalk.SpecFlow;
 namespace Escritorio.Steps
 {
     [Binding]
-    public class LoginSteps
+    public class LoginSteps : IDisposable
     {
         IWebDriver driver;
+        Utilitarios util;
         private static LoginPO loginPO;
         private static HomePO homePO;
         string url;
 
         public LoginSteps()
         {
-            driver = new ChromeDriver();
+            ChromeOptions optionsChr = new ChromeOptions();
+            optionsChr.AddArgument("--headless");
+            driver = new ChromeDriver(optionsChr);
             loginPO = new LoginPO(driver);
             homePO = new HomePO(driver);
-            url = "https://hlg-escritorio.styllus.online/#/";
+            util = new Utilitarios(driver);
+            url = util.GetUrl("escritorio");
 
+        }
+
+        public void Dispose()
+        {
+            driver.Quit();
         }
 
         [Given(@"que visito a página inicial")]
@@ -45,7 +55,8 @@ namespace Escritorio.Steps
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
             bool iguais = wait.Until(drv => homePO.MensagemLogin == message);
             Assert.True(iguais);
-            driver.Quit();
         }
+
+
     }
 }

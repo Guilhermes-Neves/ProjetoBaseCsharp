@@ -4,21 +4,19 @@ using Gestor.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
 using System.Threading;
 using TechTalk.SpecFlow;
+using Common;
 using TechTalk.SpecFlow.Assist;
+
 
 
 namespace Escritorio.Steps
 {
     [Binding]
-    public class AddToCartSteps
+    public class AddToCartSteps : IDisposable
     {
         IWebDriver driver;
         PedidoRapidoPO produtosPO;
@@ -28,15 +26,15 @@ namespace Escritorio.Steps
         LoginGestorPO loginGestorPO;
         HomeGestorPO homeGestorPO;
         RevendedoraPO revendedoraPO;
+        Utilitarios util;
         IEnumerable<dynamic> tabelaProdutos;
         string url;
         string urlGestor;
 
         public AddToCartSteps()
         {
-            url = "https://hlg-escritorio.styllus.online/#/";
-            urlGestor = "http://localhost:8080/#/";
             driver = Helpers.Helpers.IniciarDriver(new ChromeDriver());
+            util = new Utilitarios(driver);
             loginPO = new LoginPO(driver);
             produtosPO = new PedidoRapidoPO(driver);
             carrinhoPO = new CarrinhoPO(driver);
@@ -44,7 +42,14 @@ namespace Escritorio.Steps
             loginGestorPO = new LoginGestorPO(driver);
             homeGestorPO = new HomeGestorPO(driver);
             revendedoraPO = new RevendedoraPO(driver);
-            loginPO.EfetuarLoginComDados(url, "83578", "130662");
+            url = util.GetUrl("escritorio");
+            urlGestor = util.GetUrl("gestor");
+            loginPO.EfetuarLoginComDados(url, util.UsuarioLogin("escritorio"), util.SenhaLogin("escritorio"));
+        }
+
+        public void Dispose()
+        {
+            driver.Quit();
         }
 
         [Given(@"estou na página de pedido rápido")]
@@ -94,6 +99,18 @@ namespace Escritorio.Steps
             }
         }
 
+        [When(@"eu seleciono cor e tamanho dos itens")]
+        public void QuandoEuSelecionoCorETamanhoDosItens(Table produtos)
+        {
+            tabelaProdutos = produtos.CreateDynamicSet();
+
+            foreach (var prod in tabelaProdutos)
+            {
+                produtosPO.Produtos.PesquisarPorRef(prod.referencia.ToString());
+                produtosPO.Produtos.SelecionarTamanho(prod.tamanho.ToString());
+                produtosPO.Produtos.SelecionarCor(prod.cor.ToString());
+            }
+        }
 
         [Then(@"não consigo finalizar o pedido")]
         public void EntaoNaoConsigoFinalizarOPedido()
@@ -126,10 +143,10 @@ namespace Escritorio.Steps
         {
             foreach (var prod in tabelaProdutos)
             {
+                Thread.Sleep(500);
                 Assert.AreEqual(carrinhoPO.DescontoItem, prod.desconto);
             }
         }
-
 
         [Then(@"vejo todos os itens")]
         public void EntaoVejoTodosOsItens()
@@ -144,24 +161,31 @@ namespace Escritorio.Steps
                     Assert.IsTrue(nomeProdutoNoCarrinho);
                     Assert.IsTrue(descontoNoCarrinho);
                 }
-                    driver.Quit();
             }
             catch (NoSuchElementException)
             {
 
                 Assert.Fail();
-                driver.Quit();
             }
 
             
         }
 
+        [Then(@"vejo o texto indisponível ""(.*)""")]
+        public void EntaoVejoOTextoIndisponivel(string mensagem)
+        {
+            Assert.AreEqual(mensagem, produtosPO.Produtos.MensagemEstoque);
+        }
+
+
+
+        //Parte do gestor
         [When(@"que edito uma revendedora")]
         public void DadoQueEditoUmaRevendedora()
         {
-            loginGestorPO.EfetuarLoginComDados(urlGestor, "pedro.albani@portalstyllus.com.br", "Styllus2020!@#");
-            revendedoraPO.Visitar(urlGestor);
-            revendedoraPO.FiltrarRevendedora("130.662.947-06");
+            loginGestorPO.EfetuarLoginComDados(urlGestor, util.UsuarioLogin("gestor"), util.SenhaLogin("gestor"));
+            revendedoraPO.Visitar();
+            revendedoraPO.BuscarRevendedora(util.UsuarioLogin("escritorio"), "codStyllus");
             revendedoraPO.EditarRevendedora();
         }
 
@@ -186,7 +210,7 @@ namespace Escritorio.Steps
         [Then(@"a mensagem ""(.*)"" não é exibida")]
         public void EntaoAMensagemNaoEExibida(string mensagem)
         {
-            Assert.IsTrue(carrinhoPO.VerificarAlertaLimiteCredito);
+            Assert.AreEqual(mensagem, carrinhoPO.AlertaLimiteCredito);
         }
 
 

@@ -131,3 +131,5 @@ C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\obj\Debug\Escritorio
 C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\obj\Debug\Escritorio.csproj.CopyComplete
 C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\obj\Debug\Escritorio.exe
 C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\obj\Debug\Escritorio.pdb
+C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\bin\Debug\Common.dll
+C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\bin\Debug\Common.pdb

@@ -496,7 +496,7 @@ namespace Escritorio.Features
                             "CJ3-0006/45-007",
                             "45",
                             "preto",
-                            "13",
+                            "17",
                             "50%"});
 #line 65
       testRunner.When("eu adiciono todos os itens", ((string)(null)), table7, "Quando ");
@@ -552,8 +552,8 @@ namespace Escritorio.Features
                 table8.AddRow(new string[] {
                             "TANGA SU",
                             "LI3-0011",
-                            "p",
-                            "preto",
+                            "P",
+                            "PRETO - Disponível",
                             "10",
                             "30%",
                             "R$ 14,90"});
@@ -611,125 +611,18 @@ namespace Escritorio.Features
                 table9.AddRow(new string[] {
                             "TANGA FIO RENDA",
                             "LI3-0004",
-                            "p",
-                            "preto",
+                            "P",
+                            "PRETO - Indisponível",
                             "1",
                             "30%",
                             "R$ 9,90"});
 #line 81
-      testRunner.When("eu adiciono todos os itens com cor e tamanho", ((string)(null)), table9, "Quando ");
+      testRunner.When("eu seleciono cor e tamanho dos itens", ((string)(null)), table9, "Quando ");
 #line hidden
 #line 84
-      testRunner.And("acesso meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+      testRunner.Then("vejo o texto indisponível \"Indisponível\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
 #line 85
-      testRunner.Then("vejo a alerta numero 2 com a mensagem \"Alguns dos itens selecionados não possuem " +
-                        "estoque disponível. Por favor, verifique antes de continuar:\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
-#line hidden
-#line 86
-      testRunner.And("vejo todos os itens", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Adicionando produtos com estoque e produtos com estoque zerado")]
-        public virtual void AdicionandoProdutosComEstoqueEProdutosComEstoqueZerado()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adicionando produtos com estoque e produtos com estoque zerado", null, tagsOfScenario, argumentsOfScenario);
-#line 88
-    this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 89
-      testRunner.Given("estou na página de produtos com fotos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
-#line hidden
-                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
-                            "nome",
-                            "referencia",
-                            "tamanho",
-                            "cor",
-                            "quantidade",
-                            "desconto",
-                            "preco"});
-                table10.AddRow(new string[] {
-                            "TANGA SU",
-                            "LI3-0011",
-                            "p",
-                            "preto",
-                            "1",
-                            "30%",
-                            "R$ 14,90"});
-                table10.AddRow(new string[] {
-                            "CAMISOLA JAMILY",
-                            "LI3-0007",
-                            "m",
-                            "branco",
-                            "1",
-                            "30%",
-                            "R$ 69,90"});
-                table10.AddRow(new string[] {
-                            "CAMISOLA VIVI",
-                            "LI3-0008",
-                            "m",
-                            "vermelho",
-                            "1",
-                            "30%",
-                            "R$ 69,90"});
-                table10.AddRow(new string[] {
-                            "TANGA CINTA",
-                            "LI3-0013",
-                            "gg",
-                            "marron",
-                            "1",
-                            "30%",
-                            "R$ 24,90"});
-                table10.AddRow(new string[] {
-                            "BOXER ROMANTIC LISA",
-                            "LI3-0001",
-                            "m",
-                            "azul 2",
-                            "1",
-                            "30%",
-                            "R$ 19,90"});
-                table10.AddRow(new string[] {
-                            "TANGA FIO RENDA",
-                            "LI3-0004",
-                            "p",
-                            "preto",
-                            "1",
-                            "30%",
-                            "R$ 9,90"});
-#line 90
-      testRunner.When("eu adiciono todos os itens com cor e tamanho", ((string)(null)), table10, "Quando ");
-#line hidden
-#line 98
-      testRunner.And("acesso meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line hidden
-#line 99
-      testRunner.Then("vejo a alerta numero 2 com a mensagem \"Alguns dos itens selecionados não possuem " +
-                        "estoque disponível. Por favor, verifique antes de continuar:\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
-#line hidden
-#line 100
       testRunner.And("vejo todos os itens", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             }
@@ -743,7 +636,7 @@ namespace Escritorio.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Ultrapassando o limite de crédito e utilizando cashback", null, tagsOfScenario, argumentsOfScenario);
-#line 102
+#line 87
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -763,10 +656,10 @@ namespace Escritorio.Features
             else
             {
                 this.ScenarioStart();
-#line 103
+#line 88
       testRunner.Given("estou na página de pedido rápido", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
-                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                             "nome",
                             "referencia",
                             "tamanho",
@@ -774,7 +667,7 @@ namespace Escritorio.Features
                             "quantidade",
                             "desconto",
                             "preco"});
-                table11.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "ARG DE PRATA ENC FIO LISO",
                             "AG3-0015",
                             "unico",
@@ -782,26 +675,26 @@ namespace Escritorio.Features
                             "35",
                             "50%",
                             "R$ 99,90"});
-#line 104
-      testRunner.When("eu adiciono todos os itens", ((string)(null)), table11, "Quando ");
+#line 89
+      testRunner.When("eu adiciono todos os itens", ((string)(null)), table10, "Quando ");
 #line hidden
-#line 107
+#line 92
       testRunner.And("que edito uma revendedora", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 108
+#line 93
    testRunner.And("adiciono cashback para a mesma", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 109
+#line 94
       testRunner.And("acesso meu carrinho", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 110
+#line 95
       testRunner.And("utilizo \"500\" reais de cashback", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 111
+#line 96
       testRunner.Then("a mensagem \"Limite de crédito excedido. Você pode efetuar o pagamento à vista ou " +
                         "então remover alguns produtos do seu carrinho.\" não é exibida", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
-#line 112
+#line 97
       testRunner.And("vejo todos os itens", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             }

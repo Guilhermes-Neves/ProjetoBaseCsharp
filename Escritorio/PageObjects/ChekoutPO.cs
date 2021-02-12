@@ -1,11 +1,13 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System.Threading;
+using Escritorio.Helpers;
+using Common;
 
 namespace Escritorio.PageObjects
 {
     public class ChekoutPO
     {
+        Utilitarios util;
         private IWebDriver driver;
         private By byBotaoCartao;
         private By byInputNumeroCartao;
@@ -35,16 +37,15 @@ namespace Escritorio.PageObjects
             byBotaoConfirmar = By.XPath("//*[@id='checkoutModal']/div/div/div[2]/div/div/button[1]");
             byPedidoFinalizado = By.Id("swal2-content");
             byBotaoPagar = By.CssSelector("button.btn-success");
+            util = new Utilitarios(driver);
         }
 
         public void FinalizarCheckoutCartao(string numero, string mes, string ano, string codigo)
         {
-            Thread.Sleep(5000);
-            driver.FindElement(byBotaoPagar).Click();
-            driver.FindElement(byBotaoCartao).Click();
-            driver.FindElement(byInputNumeroCartao).SendKeys(numero);
-            Thread.Sleep(1000);
-            driver.FindElement(byInputNomeCartao).SendKeys("Teste");
+            util.OnClick(byBotaoPagar, 5);
+            util.OnClick(byBotaoCartao, 5);
+            util.SendKey(byInputNumeroCartao, numero, 10);
+            util.SendKey(byInputNomeCartao, "Teste", 10);
 
             var mesCartao = new SelectElement(driver.FindElement(bySelectMes));
             mesCartao.SelectByValue(mes);
@@ -54,10 +55,10 @@ namespace Escritorio.PageObjects
 
             driver.FindElement(byInputCodigo).SendKeys(codigo);
 
-            driver.FindElement(byBotaoContinuar1).Click();
-            driver.FindElement(byBotaoContinuar2).Click();
+            util.OnClick(byBotaoContinuar1, 5);
+            util.OnClick(byBotaoContinuar2, 5);
 
-            driver.FindElement(byBotaoConfirmar).Click();
+            util.OnClick(byBotaoConfirmar, 5);
 
         }
     }

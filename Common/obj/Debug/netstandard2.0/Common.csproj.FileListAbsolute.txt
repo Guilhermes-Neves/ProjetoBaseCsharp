@@ -1,0 +1,9 @@
+C:\Users\guilh\source\repos\testes-automatizados\Common\bin\Debug\netstandard2.0\Common.deps.json
+C:\Users\guilh\source\repos\testes-automatizados\Common\bin\Debug\netstandard2.0\Common.dll
+C:\Users\guilh\source\repos\testes-automatizados\Common\obj\Debug\netstandard2.0\Common.csprojAssemblyReference.cache
+C:\Users\guilh\source\repos\testes-automatizados\Common\obj\Debug\netstandard2.0\Common.AssemblyInfoInputs.cache
+C:\Users\guilh\source\repos\testes-automatizados\Common\obj\Debug\netstandard2.0\Common.AssemblyInfo.cs
+C:\Users\guilh\source\repos\testes-automatizados\Common\bin\Debug\netstandard2.0\Common.pdb
+C:\Users\guilh\source\repos\testes-automatizados\Common\obj\Debug\netstandard2.0\Common.dll
+C:\Users\guilh\source\repos\testes-automatizados\Common\obj\Debug\netstandard2.0\Common.pdb
+C:\Users\guilh\Source\Repos\testes-automatizados\Common\obj\Debug\netstandard2.0\Common.csproj.CoreCompileInputs.cache

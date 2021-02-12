@@ -3,16 +3,18 @@ using OpenQA.Selenium.Chrome;
 using PaginaDeCaptura.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
+using System;
 
 namespace PaginaDeCaptura.StepDefinition
 {
     [Binding]
-    public class CadastrarUmaRevendedoraSteps
+    public class CadastrarUmaRevendedoraSteps : IDisposable
     {
 
         IWebDriver driver;
         CapturaPO capturaPO;
         string codigoStyllus = string.Empty;
+        string nome = string.Empty;
         string cpf = string.Empty;
         string numero = "5259483778432661";
         string mes = "04";
@@ -26,6 +28,12 @@ namespace PaginaDeCaptura.StepDefinition
             driver = Helpers.InitHelpers.IniciarDriver(new ChromeDriver());
             capturaPO = new CapturaPO(driver);
             cpf = Helpers.CpfHelper.GetCpf(false);
+            //nome = Helpers.NomeHelper.GetNome();
+        }
+
+        public void Dispose()
+        {
+            driver.Quit();
         }
 
         [Given(@"que acesso a página de captura")]

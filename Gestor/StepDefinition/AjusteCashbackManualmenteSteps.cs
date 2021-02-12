@@ -1,39 +1,46 @@
-﻿using gestor.PageObjects;
+﻿using Common;
+using gestor.PageObjects;
 using Gestor.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace Gestor.StepDefinition
 {
     [Binding]
-    public class AjusteCashbackManualmenteSteps
+    public class AjusteCashbackManualmenteSteps : IDisposable
     {
-        private static IWebDriver driver;
-        private static LoginPO loginPO;
-        private static RevendedoraPO revendedoraPO;
+        IWebDriver driver;
+        LoginGestorPO loginPO;
+        RevendedoraPO revendedoraPO;
+        Utilitarios util;
         string url;
 
         public AjusteCashbackManualmenteSteps()
         {
-            url = "http://localhost:8081/#/";
             driver = new ChromeDriver();
             revendedoraPO = new RevendedoraPO(driver);
-            loginPO = new LoginPO(driver);
-            loginPO.EfetuarLoginComDados(url, "pedro.albani@portalstyllus.com.br", "Styllus2020!@#");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(8);
+            loginPO = new LoginGestorPO(driver);
+            util = new Utilitarios(driver);
+            url = util.GetUrl("gestor");
+            loginPO.EfetuarLoginComDados(url, util.UsuarioLogin("gestor"), util.SenhaLogin("gestor"));
             driver.Manage().Window.Maximize();
         }
+
+        public void Dispose()
+        {
+            driver.Quit();
+        }
+
 
         [Given(@"que edito uma revendedora")]
         public void DadoQueEditoUmaRevendedora()
         {
             revendedoraPO.Visitar();
-            revendedoraPO.FiltrarRevendedora("000.029.017-30");
+            revendedoraPO.BuscarRevendedora("cpf", "000.029.017-30");
             revendedoraPO.EditarRevendedora();
         }
         
@@ -59,5 +66,7 @@ namespace Gestor.StepDefinition
 
             driver.Quit();
         }
+
+
     }
 }

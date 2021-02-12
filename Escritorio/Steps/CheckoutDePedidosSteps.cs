@@ -1,36 +1,46 @@
-﻿using escritorio.PageObjects;
+﻿using Common;
+using escritorio.PageObjects;
 using Escritorio.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
 namespace Escritorio.Steps
 {
     [Binding]
-    public class CheckoutDePedidosSteps
+    public class CheckoutDePedidosSteps : IDisposable
     {
         IWebDriver driver;
         LoginPO loginPO;
         PedidoRapidoPO produtosPO;
         CarrinhoPO carrinhoPO;
         ChekoutPO chekoutPO;
+        Utilitarios util;
         string numero = "5259483778432661";
         string mes = "04";
         string ano = "21";
         string codigo = "483";
         string url;
 
+        public void Dispose()
+        {
+            driver.Quit();
+        }
+
+
         public CheckoutDePedidosSteps()
         {
-            url = "https://hlg-escritorio.styllus.online/#/";
             driver = Helpers.Helpers.IniciarDriver(new ChromeDriver());
+            util = new Utilitarios(driver);
             loginPO = new LoginPO(driver);
             produtosPO = new PedidoRapidoPO(driver);
             carrinhoPO = new CarrinhoPO(driver);
             chekoutPO = new ChekoutPO(driver);
-            loginPO.EfetuarLoginComDados(url, "83578", "130662");
+            url = util.GetUrl("escritorio");
+            loginPO.EfetuarLoginComDados(url, util.UsuarioLogin("escritorio") , util.SenhaLogin("escritorio"));
         }
 
         [Given(@"que estou na página de pedido rápido")]
@@ -82,7 +92,6 @@ namespace Escritorio.Steps
         public void EntaoVejoAConfirmacaoDoCheckoutComAMensagem(string mensagem)
         {
             Assert.AreEqual(mensagem, chekoutPO.PedidoFinalizado);
-            driver.Quit();
         }
 
     }

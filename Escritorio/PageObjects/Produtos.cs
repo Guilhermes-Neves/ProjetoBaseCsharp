@@ -1,12 +1,14 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
+using Escritorio.Helpers;
 using System.Threading;
+using Common;
 
 namespace Escritorio.PageObjects
 {
     public class Produtos
     {
+        Utilitarios util;
         private IWebDriver driver;
         private By byInputRef;
         private By byBotaoBuscar;
@@ -14,6 +16,7 @@ namespace Escritorio.PageObjects
         private By byBotaoAdicionar;
         private By bySelectTamanho;
         private By bySelectCor;
+        private By bySpanEstoque;
 
         public Produtos(IWebDriver driver)
         {
@@ -22,40 +25,37 @@ namespace Escritorio.PageObjects
             byBotaoBuscar = By.ClassName("btn-buscar");
             byInputQuantidade = By.CssSelector("input[type='number']");
             byBotaoAdicionar = By.ClassName("btn-add");
-            bySelectTamanho = By.XPath("//*[@id='app']/div/div/div/div/div[2]/div[2]/div/div[3]/div[1]/select");
-            bySelectCor = By.XPath("//*[@id='app']/div/div/div/div/div[2]/div[2]/div/div[3]/div[2]/select");
+            bySelectTamanho = By.XPath("/html/body/div[2]/div[2]/div/div/div/div[2]/div[1]/div/div[3]/div[1]/select");
+            bySelectCor = By.XPath("/html/body/div[2]/div[2]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/select");
+            bySpanEstoque = By.CssSelector("span.badge-danger");
+            util = new Utilitarios(driver);
         }
+
+        public string MensagemEstoque => util.GetText(bySpanEstoque, 30);
 
         public void PesquisarPorRef(string referencia)
         {
-            Thread.Sleep(1000);
-            driver.FindElement(byInputRef).Clear();
-            driver.FindElement(byInputRef).SendKeys(referencia);
-            Thread.Sleep(1000);
-            driver.FindElement(byBotaoBuscar).Click();
-            driver.FindElement(byInputRef).Clear();
+            util.ClearInput(byInputRef, 10);
+            util.SendKey(byInputRef, referencia, 10);
+            util.OnClick(byBotaoBuscar, 5);
+            util.ClearInput(byInputRef, 10);
         }
 
         public void SelecionarTamanho(string tamanho)
         {
-            Thread.Sleep(2000);
-            var seletecTamanho = new SelectElement(driver.FindElement(bySelectTamanho));
-            seletecTamanho.SelectByText(tamanho.ToUpper());
+            util.SelectText(bySelectTamanho, tamanho, 10);
         }
 
         public void SelecionarCor(string cor)
         {
-            var seletecCor = new SelectElement(driver.FindElement(bySelectCor));
-            seletecCor.SelectByText(cor.ToUpper());
+            util.SelectText(bySelectCor, cor, 10);
         }
 
         public void AdicionarProdutos(string quantidade)
         {
-            Thread.Sleep(1000);
-            driver.FindElement(byInputQuantidade).Clear();
-            Thread.Sleep(1000);
-            driver.FindElement(byInputQuantidade).SendKeys(quantidade);
-            driver.FindElement(byBotaoAdicionar).Click();
+            util.ClearInput(byInputQuantidade, 10);
+            util.SendKey(byInputQuantidade, quantidade, 10);
+            util.OnClick(byBotaoAdicionar, 10);
 
         }
 

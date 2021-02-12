@@ -64,39 +64,24 @@ Funcionalidade: Adicionar produtos no carrinho
       Dado estou na página de produtos com fotos
       Quando eu adiciono todos os itens
         | nome                   | referencia      | tamanho | cor       | quantidade | desconto |     
-        | CONJ VENEZ X PEDRINHAS | CJ3-0006/45-007 | 45      | preto     | 13         | 50%      |
+        | CONJ VENEZ X PEDRINHAS | CJ3-0006/45-007 | 45      | preto     | 17         | 50%      |
       E acesso meu carrinho
       Então vejo os descontos corretos
 
     Cenario: Adicionando somente produtos da linha lingerie desconto adicional fixo em 30%
       Dado estou na página de produtos com fotos
       Quando eu adiciono todos os itens com cor e tamanho
-        | nome            | referencia | tamanho | cor      | quantidade | desconto | preco    |
-        | TANGA SU        | LI3-0011   | p       | preto    | 10         | 30%      | R$ 14,90 |   
+        | nome            | referencia | tamanho | cor                   | quantidade | desconto | preco    |
+        | TANGA SU        | LI3-0011   | P       | PRETO - Disponível    | 10         | 30%      | R$ 14,90 |   
       E acesso meu carrinho
       Então vejo os descontos corretos
 
     Cenario: Adicionando somente produtos com estoque zerado
       Dado estou na página de produtos com fotos
-      Quando eu adiciono todos os itens com cor e tamanho
-        | nome                | referencia | tamanho | cor      | quantidade | desconto | preco    |  
-        | TANGA FIO RENDA     | LI3-0004   | p       | preto    | 1          | 30%      | R$ 9,90  |   
-      E acesso meu carrinho
-      Então vejo a alerta numero 2 com a mensagem "Alguns dos itens selecionados não possuem estoque disponível. Por favor, verifique antes de continuar:"
-      E vejo todos os itens
-
-    Cenario: Adicionando produtos com estoque e produtos com estoque zerado
-      Dado estou na página de produtos com fotos
-      Quando eu adiciono todos os itens com cor e tamanho
-        | nome                | referencia | tamanho | cor      | quantidade | desconto | preco    |
-        | TANGA SU            | LI3-0011   | p       | preto    | 1          | 30%      | R$ 14,90 | 
-        | CAMISOLA JAMILY     | LI3-0007   | m       | branco   | 1          | 30%      | R$ 69,90 |   
-        | CAMISOLA VIVI       | LI3-0008   | m       | vermelho | 1          | 30%      | R$ 69,90 |   
-        | TANGA CINTA         | LI3-0013   | gg      | marron   | 1          | 30%      | R$ 24,90 |   
-        | BOXER ROMANTIC LISA | LI3-0001   | m       | azul 2   | 1          | 30%      | R$ 19,90 |   
-        | TANGA FIO RENDA     | LI3-0004   | p       | preto    | 1          | 30%      | R$ 9,90  |   
-      E acesso meu carrinho
-      Então vejo a alerta numero 2 com a mensagem "Alguns dos itens selecionados não possuem estoque disponível. Por favor, verifique antes de continuar:"
+      Quando eu seleciono cor e tamanho dos itens
+        | nome            | referencia | tamanho | cor                  | quantidade | desconto | preco   |
+        | TANGA FIO RENDA | LI3-0004   | P       | PRETO - Indisponível | 1          | 30%      | R$ 9,90 |   
+      Então vejo o texto indisponível "Indisponível"
       E vejo todos os itens
 
     Cenario: Ultrapassando o limite de crédito e utilizando cashback

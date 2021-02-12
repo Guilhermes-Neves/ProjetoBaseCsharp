@@ -5,23 +5,31 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 using TechTalk.SpecFlow;
+using Common;
 
 namespace Gestor.StepDefinition
 {
     [Binding]
-    public class LoginSteps
+    public class LoginSteps : IDisposable
     {
-        private static IWebDriver driver;
-        private static LoginPO loginPO;
-        private static HomePO homePO;
+        IWebDriver driver;
+        LoginGestorPO loginPO;
+        HomeGestorPO homePO;
+        Utilitarios util;
         string url;
 
         public LoginSteps()
         {
-            url = "http://localhost:8081/#/";
             driver = new ChromeDriver();
-            loginPO = new LoginPO(driver);
-            homePO = new HomePO(driver);
+            loginPO = new LoginGestorPO(driver);
+            homePO = new HomeGestorPO(driver);
+            util = new Utilitarios(driver);
+            url = util.GetUrl("gestor");
+        }
+
+        public void Dispose()
+        {
+            driver.Quit();
         }
 
         [Given(@"que visito a página inicial")]
