@@ -113,6 +113,9 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("seleciono para o frete como \"receber depois\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
 #line 10
+ testRunner.And("preencho o cpf e a data de nascimento", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 11
  testRunner.And("efetuo pagamento com cartão", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -122,7 +125,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table1.AddRow(new string[] {
                             "Após o pagamento, em até 72 horas ele será processado. Você receberá por e-mail u" +
                                 "m ID e senha para ter acesso ao escritório virtual."});
-#line 11
+#line 12
  testRunner.Then("vejo a mensagem", ((string)(null)), table1, "Então ");
 #line hidden
             }

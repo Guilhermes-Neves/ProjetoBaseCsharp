@@ -27,6 +27,7 @@ namespace Gestor.PageObjects
         private By byTdName;
         private By byTdCpf;
         private By byTdCod;
+        private By byTabCredit;
 
         public RevendedoraPO(IWebDriver driver)
         {
@@ -51,6 +52,7 @@ namespace Gestor.PageObjects
             byTdName = By.XPath("/html/body/div/div/main/div/div[2]/div[1]/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[1]");
             byTdCpf = By.XPath("/html/body/div/div/main/div/div[2]/div[1]/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[4]");
             byTdCod = By.XPath("/html/body/div/div/main/div/div[2]/div[1]/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[7]");
+            byTabCredit = By.XPath("/html/body/div[1]/div[1]/main/div/div[2]/div/div/div/div/div[1]/div[2]/div/div[7]");
         }
 
         public string MensagemSucesso => driver.FindElement(byMensagemSucesso).Text;
