@@ -4,6 +4,8 @@ using PaginaDeCaptura.PageObjects;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using System;
+using Common;
+using PaginaDeCaptura.Helpers;
 
 namespace PaginaDeCaptura.StepDefinition
 {
@@ -13,22 +15,32 @@ namespace PaginaDeCaptura.StepDefinition
 
         IWebDriver driver;
         CapturaPO capturaPO;
+        Utilitarios util;
         string codigoStyllus = string.Empty;
         string nome = string.Empty;
+        string telefone = string.Empty;
         string cpf = string.Empty;
-        string numero = "5259483778432661";
+        string cep = string.Empty;
+        string nascimento = string.Empty;
+        string numeroCasa = string.Empty;
+        string numeroCard = "5259483778432661";
         string mes = "04";
-        string ano = "21";
+        string ano = "2021";
         string codigo = "483";
         string url;
 
         public CadastrarUmaRevendedoraSteps()
         {
-            url = "https://hlg-revenda.styllus.online/#/";
             driver = Helpers.InitHelpers.IniciarDriver(new ChromeDriver());
+            util = new Utilitarios(driver);
             capturaPO = new CapturaPO(driver);
-            cpf = Helpers.CpfHelper.GetCpf(false);
-            //nome = Helpers.NomeHelper.GetNome();
+            url = util.GetUrl("paginaCaptura");
+            nome = Helpers.RevendedoraHelper.GetNome();
+            telefone = Helpers.RevendedoraHelper.GetTelefone();
+            cpf = Helpers.RevendedoraHelper.GetCPF();
+            cep = "28630535";
+            nascimento = Helpers.RevendedoraHelper.GetNascimento();
+            numeroCasa = Helpers.RevendedoraHelper.GetNumero();
         }
 
         public void Dispose()
@@ -45,8 +57,8 @@ namespace PaginaDeCaptura.StepDefinition
         [When(@"faço o cadastro da revendedora")]
         public void QuandoFacoOCadastroDaRevendedora()
         {
-            capturaPO.PreencherDadosPessoais(cpf, "");
-            capturaPO.PreencherEndereco("28630535", "4", "Apartamento");
+            capturaPO.PreencherDadosPessoais(nome, telefone ,"");
+            capturaPO.PreencherEndereco(cep, numeroCasa, "Apartamento");
         }
 
         [When(@"seleciono o kit de ""(.*)""")]
@@ -60,13 +72,22 @@ namespace PaginaDeCaptura.StepDefinition
         public void QuandoSelecionoParaOFreteComo(string frete)
         {
             capturaPO.SelecionarRecebimento(frete);
+            capturaPO.FinalizarCompra();
         }
+
+        [When(@"preencho o cpf e a data de nascimento")]
+        public void QuandoPreenchoOCpfEADataDeNascimento()
+        {
+            capturaPO.PreencherCpfNascimento(cpf, nascimento);
+            capturaPO.FinalizarCadastro();
+        }
+
 
 
         [When(@"efetuo pagamento com cartão")]
         public void QuandoEfetuoPagamentoComCartao()
         {
-            capturaPO.FinalizarCheckoutCartao(numero, mes, ano, codigo);
+            capturaPO.FinalizarCheckoutCartao(numeroCard, mes, ano, codigo);
         }
 
         [Then(@"vejo a mensagem")]

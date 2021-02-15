@@ -10,7 +10,7 @@ namespace PaginaDeCaptura.PageObjects
     public class CapturaPO
     {
         private IWebDriver driver;
-        Utilitarios utilitarios;
+        Utilitarios util;
         private By byInputCpf;
         private By byInputNome;
         private By byInputData;
@@ -47,14 +47,14 @@ namespace PaginaDeCaptura.PageObjects
         public CapturaPO(IWebDriver driver)
         {
             this.driver = driver;
-            utilitarios = new Utilitarios(driver); 
+            util = new Utilitarios(driver); 
             byInputCpf = By.Id("novacaptura__field--cpf");
             byInputNome = By.Id("novacaptura__field--nome");
             byInputData = By.Id("novacaptura__field--data-nascimento");
             byInputTelefone = By.Id("novacaptura__field--telefone");
             byInputEmail = By.Id("novacaptura__field--email");
             byInputIndicador = By.Id("novacaptura__field--codigo-indicador");
-            byCheckTermos = By.XPath("//*[@id='app']/div/main/div/div/div/div/div/div/div[2]/div[1]/div/form/div/div[8]/p/a/i");
+            byCheckTermos = By.CssSelector("i.primary--text");
             byBotaoAceitoTermos = By.Id("terms__button--aceitar");
             byBotaoContinuarNovaCaptura = By.Id("novacaptura__button--continuar");
             byInputCep = By.Id("endereco__field--cep");
@@ -84,35 +84,51 @@ namespace PaginaDeCaptura.PageObjects
             driver.Navigate().GoToUrl(url + "novo-cadastro");
         }
 
-        public void PreencherDadosPessoais(string cpf, string codIndicador)
+        public void PreencherDadosPessoais(string nome, string telefone ,string codIndicador)
         {
-            utilitarios.SendKey(byInputNome, "Teste Automatizado", 10);
-            utilitarios.SendKey(byInputTelefone, "22999999999", 10);
-            utilitarios.SendKey(byInputEmail, "teste@teste.com", 10);
-            utilitarios.SendKey(byInputIndicador, codIndicador, 10);
-            utilitarios.OnClick(byCheckTermos, 10);
-            utilitarios.OnClick(byBotaoAceitoTermos, 10);
-            utilitarios.OnClick(byBotaoContinuarNovaCaptura, 10);
+            util.SendKey(byInputNome, nome, 10);
+            util.SendKey(byInputTelefone, telefone, 10);
+            util.SendKey(byInputEmail, "teste@teste.com", 10);
+            util.SendKey(byInputIndicador, codIndicador, 10);
+            util.OnClick(byCheckTermos, 10);
+            util.OnClick(byBotaoAceitoTermos, 10);
+            util.OnClick(byBotaoContinuarNovaCaptura, 10);
 
         }
 
         public void PreencherEndereco(string cep, string numero, string complemento)
         {
-            utilitarios.SendKey(byInputCep, cep, 10);
-            utilitarios.SendKey(byInputNumero, numero, 10);
-            utilitarios.SendKey(byInputComplemento, complemento, 10);
-            utilitarios.OnClick(byBotaoContinuarEndereco, 10);
+            util.SendKey(byInputCep, cep, 10);
+            util.SendKey(byInputNumero, numero, 10);
+            util.SendKey(byInputComplemento, complemento, 10);
+            util.OnClick(byBotaoContinuarEndereco, 10);
+        }
+
+        public void PreencherCpfNascimento(string cpf, string data)
+        {
+            util.SendKey(byInputCpf, cpf, 30);
+            util.SendKey(byInputData, data, 30);
+        }
+
+        public void FinalizarCadastro()
+        {
+            util.OnClick(byBotaoContinuarNovaCaptura, 30);
+        }
+
+        public void FinalizarCompra()
+        {
+            util.OnClick(byBotaoComprar, 30);
         }
 
         public void SelecionarKit(string kit)
         {
             if (kit == "entrada")
             {
-                utilitarios.OnClick(byBotaoKitEntrada, 10);
+                util.OnClick(byBotaoKitEntrada, 10);
             }
             else
             {
-                utilitarios.OnClick(byBotaoKitPassaporte, 10);
+                util.OnClick(byBotaoKitPassaporte, 10);
             }
         }
 
@@ -120,25 +136,24 @@ namespace PaginaDeCaptura.PageObjects
         {
             if (frete == "receber depois")
             {
-                utilitarios.OnClick(byCheckReceberDepois, 10);
+                util.OnClick(byCheckReceberDepois, 10);
             }
         }
 
         public void FinalizarCheckoutCartao(string numero, string mes, string ano, string codigo)
         {
-            utilitarios.OnClick(byBotaoComprar, 10);
-            utilitarios.OnClick(byBotaoPagar, 10);
-            utilitarios.OnClick(byBotaoCartao, 10);
-            utilitarios.SendKey(byInputNumeroCartao, numero, 10);
-            utilitarios.SendKey(byInputNomeCartao, "Teste", 10);
+            util.OnClick(byBotaoPagar, 10);
+            util.OnClick(byBotaoCartao, 10);
+            util.SendKey(byInputNumeroCartao, numero, 10);
+            util.SendKey(byInputNomeCartao, "Teste", 10);
 
-            utilitarios.SelectValue(bySelectMes, mes, 10);
-            utilitarios.SelectText(bySelectAno, ano, 10);
+            util.SelectValue(bySelectMes, mes, 10);
+            util.SelectText(bySelectAno, ano, 10);
 
-            utilitarios.SendKey(byInputCodigo, codigo, 10);
+            util.SendKey(byInputCodigo, codigo, 10);
 
-            utilitarios.OnClick(byBotaoContinuarPagamento, 10);
-            utilitarios.OnClick(byBotaoConfirmarCheckout, 10);
+            util.OnClick(byBotaoContinuarPagamento, 10);
+            util.OnClick(byBotaoConfirmarCheckout, 10);
         }
     }
 }
