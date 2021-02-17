@@ -56,6 +56,11 @@ namespace Gestor.StepDefinition
             revendedoraPO.DeletarCashback();
         }
 
+        [When(@"altero o limite para a revendedora")]
+        public void QuandoAlteroOLimiteParaARevendedora()
+        {
+            revendedoraPO.AjustarLimiteCredito("500");
+        }
 
         [Then(@"vejo a mensagem de sucesso ""(.*)""")]
         public void EntaoVejoAMensagemDeSucesso(string mensagem)

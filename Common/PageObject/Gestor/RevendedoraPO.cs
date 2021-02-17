@@ -28,6 +28,9 @@ namespace Gestor.PageObjects
         private By byTdCpf;
         private By byTdCod;
         private By byTabCredit;
+        private By byAddCredit;
+        private By byNovoLimite;
+        private By byBotaoSalvarLimite;
 
         public RevendedoraPO(IWebDriver driver)
         {
@@ -40,7 +43,7 @@ namespace Gestor.PageObjects
             byLinkRevendedoras = By.XPath("/html/body/div[1]/div/nav/div[2]/div[2]/a[2]");
             byEditarRevendedora = By.XPath("/html/body/div[1]/div/main/div/div[2]/div[1]/div[2]/div/div[2]/div[1]/table/tbody/tr/td[10]/a");
             byTabCashBack = By.XPath("/html/body/div[1]/div/main/div/div[2]/div/div/div/div/div[1]/div[2]/div/div[6]");
-            byBotaoAdicionarCashback = By.CssSelector("button.indigo");
+            byBotaoAdicionarCashback = By.XPath("/html/body/div[1]/div/main/div/div[2]/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/div/div[1]/div[1]/button");
             byInputValorCashback = By.CssSelector("input[name='valor']");
             byInputDataCashback = By.CssSelector("input[name='expiresAt']");
             byBotaoSalvar = By.CssSelector("button.success--text");
@@ -53,6 +56,9 @@ namespace Gestor.PageObjects
             byTdCpf = By.XPath("/html/body/div/div/main/div/div[2]/div[1]/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[4]");
             byTdCod = By.XPath("/html/body/div/div/main/div/div[2]/div[1]/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[7]");
             byTabCredit = By.XPath("/html/body/div[1]/div[1]/main/div/div[2]/div/div/div/div/div[1]/div[2]/div/div[7]");
+            byAddCredit = By.XPath("/html/body/div[1]/div/main/div/div[2]/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/button/span/i");
+            byNovoLimite = By.CssSelector("input[name='novoLimite']");
+            byBotaoSalvarLimite = By.CssSelector("button.blue--text");
         }
 
         public string MensagemSucesso => driver.FindElement(byMensagemSucesso).Text;
@@ -85,6 +91,14 @@ namespace Gestor.PageObjects
             util.OnClick(byBotaoSalvar, 30);
         }
 
+        public void AjustarLimiteCredito(string novoLimite)
+        {
+            util.OnClick(byTabCredit, 30);
+            util.OnClick(byAddCredit, 30);
+            util.SendKey(byNovoLimite, novoLimite, 30);
+            util.OnClick(byBotaoSalvarLimite, 30);
+        }
+
         public void DeletarCashback()
         {
             util.OnClick(byTabCashBack, 10);
@@ -97,15 +111,15 @@ namespace Gestor.PageObjects
             switch (field)
             {
                 case "nome":
-                    string nome = driver.FindElement(byTdName).Text;
+                    string nome = util.GetText(byTdName, 30);
                     return nome;
 
                 case "cpf":
-                    string cpf = driver.FindElement(byTdCpf).Text;
+                    string cpf = util.GetText(byTdCpf, 30); 
                     return cpf;
 
                 case "codStyllus":
-                    string cod = driver.FindElement(byTdCod).Text;
+                    string cod = util.GetText(byTdCod, 30); 
                     return cod; 
                 
                 default:

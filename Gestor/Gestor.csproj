@@ -140,11 +140,13 @@
     <Compile Include="StepDefinition\AjusteCashbackManualmenteSteps.cs" />
     <Compile Include="StepDefinition\BuscarRevendedoraSteps.cs" />
     <Compile Include="StepDefinition\LoginSteps.cs" />
+    <Compile Include="StepDefinition\PedidosEscritorioSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Features\Login.feature" />
-    <None Include="Features\Cashback.feature" />
+    <None Include="Features\AdjustReseller.feature" />
+    <None Include="Features\PedidosEscritorio.feature" />
     <None Include="Features\SearchReseller.feature" />
     <None Include="packages.config" />
   </ItemGroup>

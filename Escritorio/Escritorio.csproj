@@ -138,12 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\Helpers.cs" />
-    <Compile Include="PageObjects\CarrinhoPO.cs" />
-    <Compile Include="PageObjects\ChekoutPO.cs" />
-    <Compile Include="PageObjects\Produtos.cs" />
-    <Compile Include="PageObjects\HomePO.cs" />
-    <Compile Include="PageObjects\LoginPO.cs" />
-    <Compile Include="PageObjects\PedidoRapidoPO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\AddToCartSteps.cs" />

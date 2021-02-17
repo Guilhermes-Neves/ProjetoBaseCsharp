@@ -53,6 +53,7 @@ C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Pagin
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\PaginaDeCaptura.exe
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\PaginaDeCaptura.pdb
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\BoDi.dll
+C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Common.dll
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Cucumber.Messages.dll
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Dynamitey.dll
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Gherkin.dll
@@ -68,6 +69,7 @@ C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\TechT
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Utf8Json.dll
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\WebDriver.dll
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\WebDriver.Support.dll
+C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Common.pdb
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\BoDi.pdb
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Google.Protobuf.pdb
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Google.Protobuf.xml
@@ -82,11 +84,9 @@ C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\TechT
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Utf8Json.xml
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\WebDriver.xml
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\WebDriver.Support.xml
+C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.csprojAssemblyReference.cache
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.exe.config
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.csproj.CoreCompileInputs.cache
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.csproj.CopyComplete
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.exe
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.pdb
-C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.csprojAssemblyReference.cache
-C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Common.dll
-C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\Common.pdb

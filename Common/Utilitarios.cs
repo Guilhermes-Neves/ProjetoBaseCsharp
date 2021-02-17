@@ -8,7 +8,7 @@ namespace Common
     public class Utilitarios
     {
         private IWebDriver driver;
-        int waitTime = 800;
+        int waitTime = 900;
 
         public Utilitarios(IWebDriver driver)
         {
@@ -53,7 +53,7 @@ namespace Common
                 {
                     if (true)
                     {
-                        Thread.Sleep(waitTime);
+                        Thread.Sleep(2000);
                         string textoElemento = driver.FindElement(element).Text;
                         Thread.Sleep(waitTime);
                         return textoElemento;
@@ -191,7 +191,7 @@ namespace Common
             }
             if (projeto == "gestor")
             {
-                string urlGestor = "http://localhost:8080/#/";
+                string urlGestor = "https://hlg-painel.styllus.online/#/";
                 return urlGestor;
             }
             if (projeto == "paginaCaptura")

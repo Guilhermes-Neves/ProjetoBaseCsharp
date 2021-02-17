@@ -8,7 +8,6 @@ namespace escritorio.PageObjects
     public class PedidoRapidoPO
     {
         Utilitarios util;
-        private const int V = 10;
         private IWebDriver driver;
         private By byInputReferencia;
         private By byInputQuantidade;

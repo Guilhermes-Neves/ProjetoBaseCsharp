@@ -139,7 +139,6 @@
   <ItemGroup>
     <Compile Include="Helpers\InitHelpers.cs" />
     <Compile Include="Helpers\RevendedoraHelper.cs" />
-    <Compile Include="PageObjects\CapturaPO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepDefinition\CadastrarUmaRevendedoraSteps.cs" />

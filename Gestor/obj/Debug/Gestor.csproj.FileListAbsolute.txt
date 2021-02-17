@@ -51,6 +51,7 @@ C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Gestor.exe.con
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Gestor.exe
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Gestor.pdb
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\BoDi.dll
+C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Common.dll
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Cucumber.Messages.dll
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Dynamitey.dll
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Gherkin.dll
@@ -65,6 +66,7 @@ C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\TechTalk.SpecF
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Utf8Json.dll
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\WebDriver.dll
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\WebDriver.Support.dll
+C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Common.pdb
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\BoDi.pdb
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Google.Protobuf.pdb
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Google.Protobuf.xml
@@ -78,11 +80,9 @@ C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\TechTalk.SpecF
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Utf8Json.xml
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\WebDriver.xml
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\WebDriver.Support.xml
+C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\obj\Debug\Gestor.csprojAssemblyReference.cache
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\obj\Debug\Gestor.exe.config
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\obj\Debug\Gestor.csproj.CoreCompileInputs.cache
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\obj\Debug\Gestor.csproj.CopyComplete
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\obj\Debug\Gestor.exe
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\obj\Debug\Gestor.pdb
-C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\obj\Debug\Gestor.csprojAssemblyReference.cache
-C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Common.dll
-C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\Common.pdb
