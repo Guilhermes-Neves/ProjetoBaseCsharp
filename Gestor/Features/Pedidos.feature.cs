@@ -20,22 +20,23 @@ namespace Gestor.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Buscar revendedora")]
-    public partial class BuscarRevendedoraFeature
+    [NUnit.Framework.DescriptionAttribute("Pedidos")]
+    public partial class PedidosFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "SearchReseller.feature"
+#line 1 "Pedidos.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt"), "Features", "Buscar revendedora", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt"), "Features", "Pedidos", "\tPara que eu possa localizar e realizar ações em um pedido\r\n\tSendo um gestor prev" +
+                    "iamente cadastrado\r\n\tPosso localizar e editar informações de um pedido", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,18 +75,23 @@ namespace Gestor.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Buscar revendedoras cadastradas")]
-        [NUnit.Framework.TestCaseAttribute("MARCIO MARCOS GOMILA", "nome", null)]
-        [NUnit.Framework.TestCaseAttribute("000.741.577-01", "cpf", null)]
-        [NUnit.Framework.TestCaseAttribute("810437", "codStyllus", null)]
-        public virtual void BuscarRevendedorasCadastradas(string valor, string campo, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Aplicar filtro Pedidos Escritorio")]
+        [NUnit.Framework.TestCaseAttribute("VITOR GIOVANNI DA CONCEIÇÃO", "", "nome", null)]
+        [NUnit.Framework.TestCaseAttribute("1396039", "", "codStyllus", null)]
+        [NUnit.Framework.TestCaseAttribute("NOVO", "", "status", null)]
+        [NUnit.Framework.TestCaseAttribute("502.60", "500", "valorMin", null)]
+        [NUnit.Framework.TestCaseAttribute("À Prazo", "", "formaPag", null)]
+        [NUnit.Framework.TestCaseAttribute("11/02/2021", "", "data", null)]
+        [NUnit.Framework.TestCaseAttribute("Estornado", "", "statusPag", null)]
+        public virtual void AplicarFiltroPedidosEscritorio(string valor, string valor2, string campo, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("valor", valor);
+            argumentsOfScenario.Add("valor2", valor2);
             argumentsOfScenario.Add("campo", campo);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Buscar revendedoras cadastradas", null, tagsOfScenario, argumentsOfScenario);
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Aplicar filtro Pedidos Escritorio", null, tagsOfScenario, argumentsOfScenario);
+#line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -105,27 +111,37 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 6
-    testRunner.Given("que estou na página de revendedoras", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line 9
+ testRunner.Given("que eu estou na página de pedidos do escritório", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
-#line 7
-    testRunner.When(string.Format("busco uma revendedora pelo \"{0}\" no campo \"{1}\"", valor, campo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 10
+ testRunner.When(string.Format("eu aplico o filtro \"{0}\" e \"{1}\" no \"{2}\"", valor, valor2, campo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
-#line 8
-    testRunner.Then(string.Format("visualizo apenas a revendedora correspondente pelo \"{0}\" no campo \"{1}\"", valor, campo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line 11
+ testRunner.Then(string.Format("eu visualizo pedidos com o \"{0}\" no \"{1}\"", valor, campo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Buscar revendedora não cadastrada")]
-        public virtual void BuscarRevendedoraNaoCadastrada()
+        [NUnit.Framework.DescriptionAttribute("Aplicar filtro Pedidos Captura")]
+        [NUnit.Framework.TestCaseAttribute("VITOR GIOVANNI DA CONCEIÇÃO", "", "nome", null)]
+        [NUnit.Framework.TestCaseAttribute("1396039", "", "codStyllus", null)]
+        [NUnit.Framework.TestCaseAttribute("NÃO ENTREGUE", "", "status", null)]
+        [NUnit.Framework.TestCaseAttribute("139.02", "139.01", "valorMin", null)]
+        [NUnit.Framework.TestCaseAttribute("À Prazo", "", "formaPag", null)]
+        [NUnit.Framework.TestCaseAttribute("11/02/2021", "", "data", null)]
+        [NUnit.Framework.TestCaseAttribute("Recusado", "", "statusPag", null)]
+        public virtual void AplicarFiltroPedidosCaptura(string valor, string valor2, string campo, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Buscar revendedora não cadastrada", null, tagsOfScenario, argumentsOfScenario);
-#line 16
+            argumentsOfScenario.Add("valor", valor);
+            argumentsOfScenario.Add("valor2", valor2);
+            argumentsOfScenario.Add("campo", campo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Aplicar filtro Pedidos Captura", null, tagsOfScenario, argumentsOfScenario);
+#line 23
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -145,14 +161,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 17
-    testRunner.Given("que estou na página de revendedoras", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line 24
+ testRunner.Given("que estou na página de pedidos da página de captura", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
-#line 18
-    testRunner.When("busco uma revendedora pelo \"78432947329\" no campo \"codStyllus\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 25
+ testRunner.When(string.Format("eu aplico o filtro \"{0}\" e \"{1}\" no \"{2}\"", valor, valor2, campo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
-#line 19
-    testRunner.Then("não visualizo nenhuma revendedora com o codigo \"78432947329\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line 26
+ testRunner.Then(string.Format("eu visualizo pedidos com o \"{0}\" no \"{1}\"", valor, campo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             }
             this.ScenarioCleanup();

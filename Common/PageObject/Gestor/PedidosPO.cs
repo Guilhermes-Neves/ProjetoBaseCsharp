@@ -24,6 +24,7 @@ namespace Common.PageObject
         private By byTdNome;
         private By byTdCod;
         private By byOptionNovo;
+        private By byOptionNaoEntregue;
         private By byTdStatus;
         private By byTdValor;
         private By byOptionPrazo;
@@ -32,8 +33,11 @@ namespace Common.PageObject
         private By byTdFormPag;
         private By byDiaSeisInicio;
         private By byDiaSeisFim;
+        private By byDiaOnzeInicio;
+        private By byDiaOnzeFim;
         private By byTdData;
         private By byOptionEstornado;
+        private By byOptionRecusado;
         private By byTdStatusPgto;
 
 
@@ -56,46 +60,66 @@ namespace Common.PageObject
             byTdNome = By.XPath("/html/body/div/div/main/div/div[2]/div[1]/div/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[3]");
             byTdCod = By.XPath("/html/body/div/div/main/div/div[2]/div[1]/div/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[4]");
             byOptionNovo = By.XPath("/html/body/div/div[2]/div/div[2]/div/div");
+            byOptionNaoEntregue = By.XPath("/html/body/div/div[2]/div/div[6]/div/div");
             byTdStatus = By.XPath("/html/body/div/div[1]/main/div/div[2]/div[1]/div/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[7]");
             byTdValor = By.XPath("/html/body/div/div[1]/main/div/div[2]/div[1]/div/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[5]");
             byOptionPrazo = By.XPath("/html/body/div/div[2]/div/div[1]/div/div");
             byTdFormPag = By.XPath("/html/body/div/div[1]/main/div/div[2]/div[1]/div/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[8]");
             byDiaSeisInicio = By.XPath("/html/body/div/div[2]/div/div/div/div[2]/table/tbody/tr[1]/td[7]/button/div");
+            byDiaOnzeInicio = By.XPath("/html/body/div[1]/div[2]/div/div/div/div[2]/table/tbody/tr[2]/td[5]/button/div");
             byDiaSeisFim = By.XPath("/html/body/div[1]/div[3]/div/div/div/div[2]/table/tbody/tr[1]/td[7]/button/div");
+            byDiaOnzeFim = By.XPath("/html/body/div[1]/div[3]/div/div/div/div[2]/table/tbody/tr[2]/td[5]/button/div");
             byTdData = By.XPath("/html/body/div/div[1]/main/div/div[2]/div[1]/div/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[6]");
             byOptionEstornado = By.XPath("/html/body/div[1]/div[2]/div/div[2]/div/div");
+            byOptionRecusado = By.XPath("/html/body/div/div[2]/div/div[3]/div/div");
             byTdStatusPgto = By.XPath("/html/body/div[1]/div[1]/main/div/div[2]/div[1]/div/div[2]/div[1]/div[1]/table/tbody/tr/td[9]");
         }
 
 
 
-        public void AplicarFiltro(string value, string field)
+        public void AplicarFiltro(string value1, string value2, string field)
         {
             switch (field)
             {
                 case "nome":
                     util.OnClick(byBotaoFiltro, 30);
-                    util.SendKey(byInputNome, value, 30);
+                    util.SendKey(byInputNome, value1, 30);
                     util.OnClick(byBotaoBuscar, 30);
                     break;
 
                 case "codStyllus":
                     util.OnClick(byBotaoFiltro, 30);
-                    util.SendKey(byInputCodStyllus, value, 30);
+                    util.SendKey(byInputCodStyllus, value1, 30);
                     util.OnClick(byBotaoBuscar, 30);
                     break;
 
                 case "status":
-                    util.OnClick(byBotaoFiltro, 30);
-                    util.OnClick(bySelectStatus, 30);
-                    util.OnClick(byOptionNovo, 30);
-                    util.OnClick(byBotaoBuscar, 30);
+                    switch (value1)
+                    {
+                        case "NOVO":
+                            util.OnClick(byBotaoFiltro, 30);
+                            util.OnClick(bySelectStatus, 30);
+                            util.OnClick(byOptionNovo, 30);
+                            util.OnClick(byBotaoBuscar, 30);
+                            break;
+
+                        case "NÃO ENTREGUE":
+                            util.OnClick(byBotaoFiltro, 30);
+                            util.OnClick(bySelectStatus, 30);
+                            util.OnClick(byOptionNaoEntregue, 30);
+                            util.OnClick(byBotaoBuscar, 30);
+                            break; 
+
+                        default:
+                            break;
+                    }
+                    
                     break;
 
                 case "valorMin":
                     util.OnClick(byBotaoFiltro, 30);
-                    util.SendKey(byInputValorMin, "502", 30);
-                    util.SendKey(byInputValorMax, value, 30);
+                    util.SendKey(byInputValorMin, value2, 30);
+                    util.SendKey(byInputValorMax, value1, 30);
                     util.OnClick(byBotaoBuscar, 30);
                     break;
 
@@ -109,17 +133,33 @@ namespace Common.PageObject
                 case "data":
                     util.OnClick(byBotaoFiltro, 30);
                     util.OnClick(byInputDataInicio, 30);
-                    util.OnClick(byDiaSeisInicio, 30);
+                    util.OnClick(byDiaOnzeInicio, 30);
                     util.OnClick(byInputDataFim, 30);
-                    util.OnClick(byDiaSeisFim, 30);
+                    util.OnClick(byDiaOnzeFim, 30);
                     util.OnClick(byBotaoBuscar, 30);
                     break;
 
                 case "statusPag":
-                    util.OnClick(byBotaoFiltro, 30);
-                    util.OnClick(bySelectStatusPagamento, 30);
-                    util.OnClick(byOptionEstornado, 30);
-                    util.OnClick(byBotaoBuscar, 30);
+                    switch (value1)
+                    {
+                        case "Estornado":
+                            util.OnClick(byBotaoFiltro, 30);
+                            util.OnClick(bySelectStatusPagamento, 30);
+                            util.OnClick(byOptionEstornado, 30);
+                            util.OnClick(byBotaoBuscar, 30);
+                            break;
+
+                        case "Recusado":
+                            util.OnClick(byBotaoFiltro, 30);
+                            util.OnClick(bySelectStatusPagamento, 30);
+                            util.OnClick(byOptionRecusado, 30);
+                            util.OnClick(byBotaoBuscar, 30);
+                            break;
+
+                        default:
+                            break;
+                    }
+                    
                     break;
 
                 default:

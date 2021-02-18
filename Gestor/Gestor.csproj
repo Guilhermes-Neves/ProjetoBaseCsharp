@@ -140,7 +140,7 @@
     <Compile Include="StepDefinition\AjusteCashbackManualmenteSteps.cs" />
     <Compile Include="StepDefinition\BuscarRevendedoraSteps.cs" />
     <Compile Include="StepDefinition\LoginSteps.cs" />
-    <Compile Include="StepDefinition\PedidosEscritorioSteps.cs" />
+    <Compile Include="StepDefinition\PedidosSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
