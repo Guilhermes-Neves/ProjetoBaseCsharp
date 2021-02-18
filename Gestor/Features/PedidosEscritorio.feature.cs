@@ -76,25 +76,21 @@ namespace Gestor.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Aplicado filtro")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
         [NUnit.Framework.TestCaseAttribute("DEBORA QUEIROZ MARTINS", "nome", null)]
         [NUnit.Framework.TestCaseAttribute("97225", "codStyllus", null)]
         [NUnit.Framework.TestCaseAttribute("NOVO", "status", null)]
         [NUnit.Framework.TestCaseAttribute("502.60", "valorMin", null)]
+        [NUnit.Framework.TestCaseAttribute("À Prazo", "formaPag", null)]
+        [NUnit.Framework.TestCaseAttribute("06/02/2021", "data", null)]
+        [NUnit.Framework.TestCaseAttribute("Estornado", "statusPag", null)]
         public virtual void AplicadoFiltro(string valor, string campo, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "mytag"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("valor", valor);
             argumentsOfScenario.Add("campo", campo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Aplicado filtro", null, tagsOfScenario, argumentsOfScenario);
-#line 9
+#line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -114,13 +110,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 10
+#line 9
  testRunner.Given("que estou na página de pedidos do escritório", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
-#line 11
+#line 10
  testRunner.When(string.Format("aplico o filtro \"{0}\" no \"{1}\"", valor, campo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
-#line 12
+#line 11
  testRunner.Then(string.Format("visualizo pedidos com o \"{0}\" no \"{1}\"", valor, campo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             }

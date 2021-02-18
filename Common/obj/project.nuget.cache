@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1ZFdh07TpGOiC0Oy1NYkGpqHua+BS1Mbh1sfre8gOGzJVm77ILX718+aAh/mFEjrhQ4vNNEfVZM16Z6GksWwZQ==",
+  "dgSpecHash": "Obg1FV8+4D0n11FAlxlJsi/1LTNKTS+9xMtH9A9RBOiDaC/+CFluwRbyjpydtX5IL3UUoBzJtG7UECEmfcEcQQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\guilh\\Source\\Repos\\testes-automatizados\\Common\\Common.csproj",
+  "projectFilePath": "C:\\Users\\guilh\\source\\repos\\testes-automatizados\\Common\\Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

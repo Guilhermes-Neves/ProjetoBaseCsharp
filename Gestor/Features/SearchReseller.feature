@@ -2,7 +2,7 @@
 
 Funcionalidade: Buscar revendedora
 
-Cenário: Buscar revendedoras
+Cenário: Buscar revendedoras cadastradas
     Dado que estou na página de revendedoras
     Quando busco uma revendedora pelo "<valor>" no campo "<campo>"
     Então visualizo apenas a revendedora correspondente pelo "<valor>" no campo "<campo>"
