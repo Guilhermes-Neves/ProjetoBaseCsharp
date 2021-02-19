@@ -2,10 +2,13 @@
 using Common.PageObject;
 using Common.PageObject.Gestor;
 using gestor.PageObjects;
+using Gestor.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace Gestor.StepDefinition
@@ -19,6 +22,7 @@ namespace Gestor.StepDefinition
         Utilitarios util;
         PedidosEcritorioPO pedidosEscritorioPO;
         PedidosCapturaPO pedidosCapturaPO;
+        RevendedoraPO revendedoraPO;
         string url;
 
         public PedidosSteps()
@@ -28,6 +32,7 @@ namespace Gestor.StepDefinition
             pedidosEscritorioPO = new PedidosEcritorioPO(driver);
             pedidosCapturaPO = new PedidosCapturaPO(driver);
             loginPO = new LoginGestorPO(driver);
+            revendedoraPO = new RevendedoraPO(driver);
             url = util.GetUrl("gestor");
             loginPO.EfetuarLoginComDados(url, util.UsuarioLogin("gestor"), util.SenhaLogin("gestor"));
             driver.Manage().Window.Maximize();
@@ -56,6 +61,14 @@ namespace Gestor.StepDefinition
             pedidosEscritorioPO.pedidos.AplicarFiltro(valor1, valor2, campo);
         }
 
+        [When(@"encontro um pedido e altero o status dele para ""(.*)""")]
+        public void QuandoEncontroUmPedidoEAlteroOStatusDelePara(string estado)
+        {
+            pedidosEscritorioPO.pedidos.AplicarFiltro("NOVO", "", "status");
+            pedidosEscritorioPO.pedidos.AlterarEstadoPedido(estado);
+        }
+
+
         [Then(@"eu visualizo pedidos com o ""(.*)"" no ""(.*)""")]
         public void EntaoEuVisualizoPedidosComONo(string valor, string campo)
         {
@@ -63,5 +76,23 @@ namespace Gestor.StepDefinition
             valor = valor.Replace("NCEIÇÃO", "...");
             Assert.AreEqual(valor, pedidoEncontrado);
         }
+
+        [Then(@"eu vejo a mensage de sucesso ""(.*)""")]
+        public void EntaoEuVejoAMensageDeSucesso(string mensagem)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
+            bool iguais = wait.Until(drv => revendedoraPO.MensagemSucesso == mensagem);
+            Assert.True(iguais);
+        }
+
+        [Then(@"eu visualizo o botão de alterar estado desabilitado")]
+        public void EntaoEuVisualizoOBotaoDeAlterarEstadoDesabilitado()
+        {
+            Thread.Sleep(5000);
+            Console.WriteLine(pedidosEscritorioPO.pedidos.EncontrarBotao());
+            Assert.IsTrue(pedidosEscritorioPO.pedidos.EncontrarBotao());
+        }
+
+
     }
 }

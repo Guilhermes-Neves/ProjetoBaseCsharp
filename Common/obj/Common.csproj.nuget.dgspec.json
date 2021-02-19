@@ -55,6 +55,10 @@
             "Selenium.WebDriver": {
               "target": "Package",
               "version": "[3.141.0, )"
+            },
+            "SeleniumExtensions": {
+              "target": "Package",
+              "version": "[1.1.0, )"
             }
           },
           "imports": [

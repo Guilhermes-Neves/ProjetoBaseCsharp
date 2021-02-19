@@ -133,3 +133,6 @@ C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\obj\Debug\Escritorio
 C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\obj\Debug\Escritorio.pdb
 C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\bin\Debug\Common.dll
 C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\bin\Debug\Common.pdb
+C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\bin\Debug\SeleniumExtensions.dll
+C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\bin\Debug\SeleniumExtensions.pdb
+C:\Users\guilh\Source\Repos\testes-automatizados\Escritorio\bin\Debug\SeleniumExtensions.xml

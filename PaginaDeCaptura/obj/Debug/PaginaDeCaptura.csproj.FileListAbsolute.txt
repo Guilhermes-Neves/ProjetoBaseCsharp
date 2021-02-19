@@ -90,3 +90,6 @@ C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\Pagin
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.csproj.CopyComplete
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.exe
 C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\obj\Debug\PaginaDeCaptura.pdb
+C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\SeleniumExtensions.dll
+C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\SeleniumExtensions.pdb
+C:\Users\guilh\Source\Repos\testes-automatizados\PaginaDeCaptura\bin\Debug\SeleniumExtensions.xml

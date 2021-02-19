@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1ZFdh07TpGOiC0Oy1NYkGpqHua+BS1Mbh1sfre8gOGzJVm77ILX718+aAh/mFEjrhQ4vNNEfVZM16Z6GksWwZQ==",
+  "dgSpecHash": "VO5z6S3w5qzmTo/6p2oIqUGg1ri8F9nwaLhdoHt+3sK+aXnvqaQKtEbk2W0N2uR316FQjiwmqPgxSi45kZYfng==",
   "success": true,
   "projectFilePath": "C:\\Users\\guilh\\Source\\Repos\\testes-automatizados\\Common\\Common.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\guilh\\.nuget\\packages\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\selenium.support\\3.141.0\\selenium.support.3.141.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\selenium.webdriver\\3.141.0\\selenium.webdriver.3.141.0.nupkg.sha512",
+    "C:\\Users\\guilh\\.nuget\\packages\\seleniumextensions\\1.1.0\\seleniumextensions.1.1.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\system.collections.nongeneric\\4.3.0\\system.collections.nongeneric.4.3.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\system.collections.specialized\\4.3.0\\system.collections.specialized.4.3.0.nupkg.sha512",
@@ -51,5 +52,16 @@
     "C:\\Users\\guilh\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'SeleniumExtensions 1.1.0' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto '.NETStandard,Version=v2.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "SeleniumExtensions",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

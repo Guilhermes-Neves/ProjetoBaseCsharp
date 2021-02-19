@@ -3,6 +3,7 @@ using Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using OpenQA.Selenium.Support.UI;
 
 namespace Common.PageObject
 {
@@ -25,6 +26,7 @@ namespace Common.PageObject
         private By byTdCod;
         private By byOptionNovo;
         private By byOptionNaoEntregue;
+        private By byOptionCancelado;
         private By byTdStatus;
         private By byTdValor;
         private By byOptionPrazo;
@@ -39,8 +41,11 @@ namespace Common.PageObject
         private By byOptionEstornado;
         private By byOptionRecusado;
         private By byTdStatusPgto;
-
-
+        private By byBotaoAlterarEstado;
+        private By bySelectEstado;
+        private By byOptionEstadoCancelado;
+        private By byBotaoSalvar;
+        private By byBotaoAlterarDesabilitado;
 
         public PedidosPO(IWebDriver driver)
         {
@@ -73,9 +78,28 @@ namespace Common.PageObject
             byOptionEstornado = By.XPath("/html/body/div[1]/div[2]/div/div[2]/div/div");
             byOptionRecusado = By.XPath("/html/body/div/div[2]/div/div[3]/div/div");
             byTdStatusPgto = By.XPath("/html/body/div[1]/div[1]/main/div/div[2]/div[1]/div/div[2]/div[1]/div[1]/table/tbody/tr/td[9]");
+            byBotaoAlterarEstado = By.XPath("/html/body/div[1]/div[1]/main/div/div[2]/div[1]/div/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[10]/button/span");
+            bySelectEstado = By.XPath("/html/body/div[1]/div[4]/div/div/div[2]/div[1]/div/div[1]/div[1]");
+            byOptionEstadoCancelado = By.XPath("/html/body/div/div[5]/div/div[1]/div/div");
+            byBotaoSalvar = By.CssSelector("button.blue--text");
+            byBotaoAlterarDesabilitado = By.CssSelector("button[disabled='disabled']");
+            byOptionCancelado = By.XPath("/html/body/div[1]/div[2]/div/div[1]/div/div");
         }
 
+        public bool EncontrarBotao()
+        {
+            return Esperar().Until(ExpectedConditions.ElementExists(BotaoDesabilitado())).Displayed;
+        } 
 
+        private WebDriverWait Esperar()
+        {
+            return new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+        }
+
+        private By BotaoDesabilitado()
+        {
+            return byBotaoAlterarDesabilitado;
+        }
 
         public void AplicarFiltro(string value1, string value2, string field)
         {
@@ -108,7 +132,14 @@ namespace Common.PageObject
                             util.OnClick(bySelectStatus, 30);
                             util.OnClick(byOptionNaoEntregue, 30);
                             util.OnClick(byBotaoBuscar, 30);
-                            break; 
+                            break;
+
+                        case "CANCELADO":
+                            util.OnClick(byBotaoFiltro, 30);
+                            util.OnClick(bySelectStatus, 30);
+                            util.OnClick(byOptionCancelado, 30);
+                            util.OnClick(byBotaoBuscar, 30);
+                            break;
 
                         default:
                             break;
@@ -202,6 +233,23 @@ namespace Common.PageObject
                 default:
                     return "não encontrou";
             }
+        }
+
+        public void AlterarEstadoPedido(string value)
+        {
+            switch (value)
+            {
+                case "CANCELADO":
+                    util.OnClick(byBotaoAlterarEstado, 30);
+                    util.OnClick(bySelectEstado, 30);
+                    util.OnClick(byOptionEstadoCancelado, 30);
+                    util.OnClick(byBotaoSalvar, 30);
+                    break;
+
+                default:
+                    break;
+            }
+
         }
     }
 }

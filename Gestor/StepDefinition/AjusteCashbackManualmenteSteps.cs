@@ -68,8 +68,6 @@ namespace Gestor.StepDefinition
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
             bool iguais = wait.Until(drv => revendedoraPO.MensagemSucesso == mensagem);
             Assert.True(iguais);
-
-            driver.Quit();
         }
 
 

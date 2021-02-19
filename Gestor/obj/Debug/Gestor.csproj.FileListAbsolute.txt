@@ -86,3 +86,6 @@ C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\obj\Debug\Gestor.csproj.
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\obj\Debug\Gestor.csproj.CopyComplete
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\obj\Debug\Gestor.exe
 C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\obj\Debug\Gestor.pdb
+C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\SeleniumExtensions.dll
+C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\SeleniumExtensions.pdb
+C:\Users\guilh\Source\Repos\testes-automatizados\Gestor\bin\Debug\SeleniumExtensions.xml
