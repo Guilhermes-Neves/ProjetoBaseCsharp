@@ -10,7 +10,6 @@ namespace PaginaDeCaptura.StepDefinition
         [Theory]
         public void Test()
         {
-           
             capturaPO.Visitar();
             capturaPO.PreencherDadosPessoais(nome, telefone, "");
             capturaPO.PreencherCpfEDataNascimento(cpf, nascimento);

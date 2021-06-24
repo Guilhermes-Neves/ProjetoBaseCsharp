@@ -105,12 +105,17 @@ namespace Escritorio.Commons
         {
             List<Produtos> listaAleatoria = new List<Produtos>();
 
-            int qtd = new Random().Next(10);
+            int randomNumber = new Random().Next(1, listaProdutos.Count);
 
-            for (int i = 0; i <= qtd; i++)
+            for (int i = 0; i <= randomNumber; i++)
             {
-               Thread.Sleep(100);
-               listaAleatoria.Add(listaProdutos[new Random().Next(9)]);
+                int produtoAleatorio = new Random().Next(listaProdutos.Count);
+               
+                if (!listaAleatoria.Contains(listaProdutos[produtoAleatorio]))
+                {
+                    listaProdutos[produtoAleatorio].Quantidade = new Random().Next(1, 10).ToString();
+                    listaAleatoria.Add(listaProdutos[produtoAleatorio]);
+                }
             }
 
             return listaAleatoria;
@@ -130,14 +135,15 @@ namespace Escritorio.Commons
 
         public string ValidarDesconto(Produtos produto, decimal valorSemDesconto)
         {
-            if (ValidarDescontoFixo(produto.Grupo) == null)
+            bool possuiDescontoFixo = ValidarDescontoFixo(produto.Grupo) != null;
+            if (possuiDescontoFixo)
             {
-                string desconto = $"{ValidarFaixaDesconto(valorSemDesconto)}%";
+                string desconto = ValidarDescontoFixo(produto.Grupo);
                 return desconto;
             } 
             else
             {
-                string desconto = ValidarDescontoFixo(produto.Grupo);
+                string desconto = $"{ValidarFaixaDesconto(valorSemDesconto)}%";
                 return desconto;
             }
         }

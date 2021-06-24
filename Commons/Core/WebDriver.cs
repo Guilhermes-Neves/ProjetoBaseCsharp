@@ -78,6 +78,7 @@ namespace Commons.Core
             options.AcceptInsecureCertificates = true;
             options.UnhandledPromptBehavior = UnhandledPromptBehavior.Ignore;
             options.AddArgument("--headless");
+            //options.EnableMobileEmulation("Pixel 2");
             return options;
         }
 
