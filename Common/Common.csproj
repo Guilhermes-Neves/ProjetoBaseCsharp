@@ -5,9 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BouncyCastle" Version="1.8.9" />
+    <PackageReference Include="Castle.Core" Version="4.4.1" />
+    <PackageReference Include="ClassLibraryNETFramework" Version="1.0.0" />
+    <PackageReference Include="itext7" Version="7.1.15" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.2" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="Portable.BouncyCastle" Version="1.8.9" />
     <PackageReference Include="Selenium.Support" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="90.0.4430.2400" />
+    <PackageReference Include="SeleniumExtensions" Version="1.1.0" />
   </ItemGroup>
 
 </Project>
