@@ -1,109 +1,62 @@
 ﻿using OpenQA.Selenium;
 using System.Threading;
-using Common;
+using Common.PageObject.Common;
 
-namespace Gestor.PageObjects
+namespace Common
 {
-    public class RevendedoraPO
+    public class RevendedoraPO : BasePage
     {
-        private IWebDriver driver;
         Utilitarios util;
-        private By byInputCpf;
-        private By byBotaoBuscar;
-        private By byEditarRevendedora;
-        private By byTabCashBack;
-        private By byBotaoAdicionarCashback;
-        private By byInputValorCashback;
-        private By byInputDataCashback;
-        private By byBotaoSalvar;
-        private By byMensagemSucesso;
-        private By byInputAccount;
-        private By byLinkRevendedoras;
-        private By byBotaoDeletar;
-        private By byBotaoProssiga;
-        private By byInputNome;
-        private By byInputCodStyllus;
-        private By byTable;
-        private By byTdName;
-        private By byTdCpf;
-        private By byTdCod;
-        private By byTabCredit;
-        private By byAddCredit;
-        private By byNovoLimite;
-        private By byBotaoSalvarLimite;
 
         public RevendedoraPO(IWebDriver driver)
         {
             this.driver = driver;
             util = new Utilitarios(driver);
-            byInputNome = By.XPath("/html/body/div[1]/div/main/div/div[2]/div[1]/div[2]/div/div[1]/div[2]/div/div/div/input");
-            byInputCpf = By.XPath("/html/body/div[1]/div/main/div/div[2]/div[1]/div[2]/div/div[1]/div[3]/div/div/div/input");
-            byInputCodStyllus = By.XPath("/html/body/div[1]/div/main/div/div[2]/div[1]/div[2]/div/div[1]/div[4]/div/div/div/input");
-            byBotaoBuscar = By.CssSelector("button.v-btn.primary");
-            byLinkRevendedoras = By.XPath("/html/body/div[1]/div/nav/div[2]/div[2]/a[2]");
-            byEditarRevendedora = By.XPath("/html/body/div[1]/div/main/div/div[2]/div[1]/div[2]/div/div[2]/div[1]/table/tbody/tr/td[10]/a");
-            byTabCashBack = By.XPath("/html/body/div[1]/div/main/div/div[2]/div/div/div/div/div[1]/div[2]/div/div[6]");
-            byBotaoAdicionarCashback = By.XPath("/html/body/div[1]/div/main/div/div[2]/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/div/div[1]/div[1]/button");
-            byInputValorCashback = By.CssSelector("input[name='valor']");
-            byInputDataCashback = By.CssSelector("input[name='expiresAt']");
-            byBotaoSalvar = By.CssSelector("button.success--text");
-            byMensagemSucesso = By.CssSelector("p.toast-text");
-            byInputAccount = By.ClassName("mdi-account");
-            byBotaoDeletar = By.CssSelector("button.error--text");
-            byBotaoProssiga = By.XPath("/html/body/div/div[3]/div/div/div[3]/button[2]");
-            byTable = By.CssSelector("table tbody tr");
-            byTdName = By.XPath("/html/body/div/div/main/div/div[2]/div[1]/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[1]");
-            byTdCpf = By.XPath("/html/body/div/div/main/div/div[2]/div[1]/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[4]");
-            byTdCod = By.XPath("/html/body/div/div/main/div/div[2]/div[1]/div[2]/div/div[2]/div[1]/table/tbody/tr[1]/td[7]");
-            byTabCredit = By.XPath("/html/body/div[1]/div[1]/main/div/div[2]/div/div/div/div/div[1]/div[2]/div/div[7]");
-            byAddCredit = By.XPath("/html/body/div[1]/div/main/div/div[2]/div/div/div/div/div[2]/div/div[2]/div/div/div[1]/div/div/div[1]/button/span/i");
-            byNovoLimite = By.CssSelector("input[name='novoLimite']");
-            byBotaoSalvarLimite = By.CssSelector("button.blue--text");
         }
 
-        public string MensagemSucesso => driver.FindElement(byMensagemSucesso).Text;
-        public string CpfRevendedoraTabela => driver.FindElement(byTdCpf).Text;
-        public string CodStyllusRevendedoraTabela => driver.FindElement(byTdCod).Text;
-        public string TabelaRevendedoras => driver.FindElement(byTable).Text;
+        public string MensagemSucesso => driver.FindElement(MANEGER_RESELLER_PAGE.byMensagemSucesso).Text;
+        public string CpfRevendedoraTabela => driver.FindElement(MANEGER_RESELLER_PAGE.byTdCpf).Text;
+        public string CodStyllusRevendedoraTabela => driver.FindElement(MANEGER_RESELLER_PAGE.byTdCod).Text;
+        public string TabelaRevendedoras => driver.FindElement(MANEGER_RESELLER_PAGE.byTable).Text;
 
         public void Visitar()
         {
-            util.OnClick(byLinkRevendedoras, 10);
+            util.OnClick(MANEGER_RESELLER_PAGE.byLinkRevendedoras, 10);
         }
 
         public void FiltrarRevendedora(string cpf)
         {
-            util.SendKey(byInputCpf, cpf, 10);
-            util.OnClick(byBotaoBuscar, 10);
+            util.SendKey(MANEGER_RESELLER_PAGE.byInputCpf, cpf, 10);
+            util.OnClick(MANEGER_RESELLER_PAGE.byBotaoBuscar, 10);
         }
 
         public void EditarRevendedora()
         {
-            util.OnClick(byEditarRevendedora, 10);
+            util.OnClick(MANEGER_RESELLER_PAGE.byEditarRevendedora, 10);
         }
 
         public void AdicionarCashBack(string valor, string data)
         {
-            util.OnClick(byTabCashBack, 30);
-            util.OnClick(byBotaoAdicionarCashback, 30);
-            util.SendKey(byInputValorCashback, valor, 30);
-            util.SendKey(byInputDataCashback, data, 30);
-            util.OnClick(byBotaoSalvar, 30);
+            util.OnClick(MANEGER_RESELLER_PAGE.byTabCashBack, 30);
+            util.OnClick(MANEGER_RESELLER_PAGE.byBotaoAdicionarCashback, 30);
+            util.SendKey(MANEGER_RESELLER_PAGE.byInputValorCashback, valor, 30);
+            util.SendKey(MANEGER_RESELLER_PAGE.byInputDataCashback, data, 30);
+            util.OnClick(MANEGER_RESELLER_PAGE.byBotaoSalvar, 30);
         }
 
         public void AjustarLimiteCredito(string novoLimite)
         {
-            util.OnClick(byTabCredit, 30);
-            util.OnClick(byAddCredit, 30);
-            util.SendKey(byNovoLimite, novoLimite, 30);
-            util.OnClick(byBotaoSalvarLimite, 30);
+            util.OnClick(MANEGER_RESELLER_PAGE.byTabCredit, 30);
+            util.OnClick(MANEGER_RESELLER_PAGE.byAddCredit, 30);
+            util.SendKey(MANEGER_RESELLER_PAGE.byNovoLimite, novoLimite, 30);
+            util.OnClick(MANEGER_RESELLER_PAGE.byBotaoSalvarLimite, 30);
         }
 
         public void DeletarCashback()
         {
-            util.OnClick(byTabCashBack, 10);
-            util.OnClick(byBotaoDeletar, 10);
-            util.OnClick(byBotaoProssiga, 10);
+            util.OnClick(MANEGER_RESELLER_PAGE.byTabCashBack, 10);
+            util.OnClick(MANEGER_RESELLER_PAGE.byBotaoDeletar, 10);
+            util.OnClick(MANEGER_RESELLER_PAGE.byBotaoProssiga, 10);
         }
 
         public string EncontrarRevendedora(string field)
@@ -111,15 +64,15 @@ namespace Gestor.PageObjects
             switch (field)
             {
                 case "nome":
-                    string nome = util.GetText(byTdName, 30);
+                    string nome = util.GetText(MANEGER_RESELLER_PAGE.byTdName, 30);
                     return nome;
 
                 case "cpf":
-                    string cpf = util.GetText(byTdCpf, 30); 
+                    string cpf = util.GetText(MANEGER_RESELLER_PAGE.byTdCpf, 30); 
                     return cpf;
 
                 case "codStyllus":
-                    string cod = util.GetText(byTdCod, 30); 
+                    string cod = util.GetText(MANEGER_RESELLER_PAGE.byTdCod, 30); 
                     return cod; 
                 
                 default:
@@ -132,20 +85,20 @@ namespace Gestor.PageObjects
             switch (field)
             {
                 case "nome":
-                    util.SendKey(byInputNome, value, 10);
-                    util.OnClick(byBotaoBuscar, 10);
+                    util.SendKey(MANEGER_RESELLER_PAGE.byInputNome, value, 10);
+                    util.OnClick(MANEGER_RESELLER_PAGE.byBotaoBuscar, 10);
                     Thread.Sleep(2000);
                     break;
 
                 case "cpf":
-                    util.SendKey(byInputCpf, value, 10);
-                    util.OnClick(byBotaoBuscar, 10);
+                    util.SendKey(MANEGER_RESELLER_PAGE.byInputCpf, value, 10);
+                    util.OnClick(MANEGER_RESELLER_PAGE.byBotaoBuscar, 10);
                     Thread.Sleep(2000);
                     break;
 
                 case "codStyllus":
-                    util.SendKey(byInputCodStyllus, value, 10);
-                    util.OnClick(byBotaoBuscar, 10);
+                    util.SendKey(MANEGER_RESELLER_PAGE.byInputCodStyllus, value, 10);
+                    util.OnClick(MANEGER_RESELLER_PAGE.byBotaoBuscar, 10);
                     Thread.Sleep(2000);
                     break;
 

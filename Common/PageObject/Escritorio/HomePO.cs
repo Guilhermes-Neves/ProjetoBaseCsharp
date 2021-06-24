@@ -1,38 +1,41 @@
-﻿using Common;
+﻿using Common.PageObject.Common;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.Extensions;
-using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
-using System.Threading;
 
-namespace escritorio.PageObjects
+namespace Common
 {
-    public class HomePO
+    public class HomePO : BasePage
     {
-
-        private IWebDriver driver;
-        private By byDangerMessage;
-        private By byLimiteCredito;
         Utilitarios util;
 
-        public string MensagemLogin => util.GetText(byDangerMessage, 30);
+        public bool ValidarMensagemLogin(string mensagem,int timeOut)
+        {
+            DateTime timeoutLimit = DateTime.Now.AddSeconds(timeOut);
 
-        public string LimiteDeCredito => util.GetText(byLimiteCredito, 30);
+            while (DateTime.Now <= timeoutLimit)
+            {
+                string mensagemLogin = util.GetText(OFFICE_HOME_PAGE.byDangerMessage, 30);
+
+                if (mensagemLogin == mensagem)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public string LimiteDeCredito => util.GetText(OFFICE_HOME_PAGE.byLimiteCredito, 30);
 
         public HomePO(IWebDriver driver)
         {
             this.driver = driver;
             util = new Utilitarios(driver);
-            byDangerMessage = By.CssSelector("p.vn-message");
-            byLimiteCredito = By.XPath("//*[@id='app']/div/div[2]/div/div/div[2]/div[1]/div/div/div[1]/div[1]/span");
         }
 
         public void Visitar()
         {
-            driver.Navigate().GoToUrl("https://hlg-escritorio.styllus.online/#/");
+            driver.Navigate().GoToUrl(URL_BASE_ESCRITORIO);
         }
 
 

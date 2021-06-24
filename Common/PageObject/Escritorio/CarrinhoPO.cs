@@ -1,79 +1,52 @@
-﻿using NUnit.Framework.Internal.Execution;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using Escritorio.Helpers;
-using Common;
+using Common.PageObject.Common;
 
-namespace escritorio.PageObjects
+namespace Common
 {
-    public class CarrinhoPO
+    public class CarrinhoPO : BasePage
     {
         Utilitarios util;
-        private IWebDriver driver;
-        private By byTable;
-        private By byAlertaTotalPedido;
-        private By byInputQuantidade;
-        private By bySubtotal;
-        private By byDesconto;
-        private By byTotal;
-        private By byOptionPagamentoPrazo;
-        private By bySelectPagamento;
-        private By byCheckEntregaNormal;
-        private By byCheckEntregaRapida;
-        private By byBotaoFinalizarPedido;
-        private By byAlertaLimite;
-        private By byTdDesconto;
-        private By byAlertaEstoque;
-        private By byInputCashback;
-        private By byBotaoAplicarCashback;
-
-        public string AlertaTotalPedido => driver.FindElement(byAlertaTotalPedido).Text;
-        public string TabelaDeProdutos => driver.FindElement(byTable).Text;
-        public string Subtotal => driver.FindElement(bySubtotal).Text;
-        public string Desconto => driver.FindElement(byDesconto).Text;
-        public string Total => driver.FindElement(byTotal).Text;
-        public bool BotaoDesativado => driver.FindElement(byBotaoFinalizarPedido).Enabled;
-        public bool VerificarPagamentoFormaPrazo => Esperar().Until(ExpectedConditions.InvisibilityOfElementWithText(byOptionPagamentoPrazo, "À Prazo - Até 30 dias no boleto"));
-        public string AlertaLimiteCredito => util.GetText(byAlertaLimite, 30);
-        public string DescontoItem => driver.FindElement(byTdDesconto).Text;
 
         public CarrinhoPO(IWebDriver driver)
         {
             this.driver = driver;
-            byTable = By.CssSelector("table tbody tr");
-            byAlertaTotalPedido = By.CssSelector(".alert.alert-modern.alert-danger");
-            bySubtotal = By.XPath("//*[@id='app']/div/div[2]/div/div/div[2]/div/div/div[2]/div[3]/div/div/ul/li[1]/strong");
-            byDesconto = By.XPath("//*[@id='app']/div/div[2]/div/div/div[2]/div/div/div[2]/div[3]/div/div/ul/li[2]/strong");
-            byTotal = By.XPath("//*[@id='app']/div/div[2]/div/div/div[2]/div/div/div[2]/div[3]/div/div/ul/li[3]/strong");
-            bySelectPagamento = By.Id("fr_pgto");
-            byCheckEntregaNormal = By.XPath("//*[@id='app']/div/div/div/div/div[2]/div/div/div[2]/div[2]/div/div/div[2]/div/p/span");
-            byCheckEntregaRapida = By.XPath("//*[@id='app']/div/div/div/div/div[2]/div/div/div[2]/div[2]/div/div/div[3]/div/p/span");
-            byBotaoFinalizarPedido = By.Id("place_order");
-            byInputQuantidade = By.CssSelector("input.form-control.form-control-sm.text-center");
-            byOptionPagamentoPrazo = By.XPath("//*[@id='fr_pgto']/option[2]");
-            byAlertaLimite = By.CssSelector(".alert.alert-info");
-            byTdDesconto = By.XPath("/html/body/div[2]/div[2]/div/div/div/div[2]/div/div/div[1]/div/div[3]/table/tbody/tr/td[5]");
-            byAlertaEstoque = By.CssSelector("p.alert.alert-danger");
-            byInputCashback = By.XPath("/html/body/div[2]/div/div/div/div/div[2]/div/div/div[2]/div[1]/div/div/div/div/input");
-            byBotaoAplicarCashback = By.CssSelector("button.btn.mt-2.btn-info.btn-block");
             util = new Utilitarios(driver);
         }
+
+        public string AlertaTotalPedido => util.GetText(OFFICE_CART_PAGE.byAlertaTotalPedido, 30);
+
+        public string TabelaDeProdutos => util.GetText(OFFICE_CART_PAGE.byTable, 30);
+
+        public string Subtotal => util.GetText(OFFICE_CART_PAGE.bySubtotal, 30);
+
+        public string Desconto => driver.FindElement(OFFICE_CART_PAGE.byDesconto).Text;
+
+        public string Total => driver.FindElement(OFFICE_CART_PAGE.byTotal).Text;
+
+        public bool BotaoDesativado => driver.FindElement(OFFICE_CART_PAGE.byBotaoFinalizarPedido).Enabled;
+
+        public string AlertaLimiteCredito => util.GetText(OFFICE_CART_PAGE.byAlertaLimite, 30);
+
+        public string DescontoItem => driver.FindElement(OFFICE_CART_PAGE.byTdDesconto).Text;
+
+        public string EstoqueIndisponivel => util.GetText(OFFICE_CART_PAGE.byAlertaSemEstoque, 30);
 
         public string Alerta(int alert)
         {
             switch (alert)
             {
                 case 1:
-                    string alertaLimite = util.GetText(byAlertaLimite, 30);
+                    string alertaLimite = util.GetText(OFFICE_CART_PAGE.byAlertaLimite, 30);
                     return alertaLimite;
 
                 case 2:
-                    string alertaEstoque = util.GetText(byAlertaEstoque, 30);
+                    string alertaEstoque = util.GetText(OFFICE_CART_PAGE.byAlertaEstoque, 30);
                     return alertaEstoque;
 
                 case 3:
-                    var alertaTotalPedido = util.GetText(byAlertaTotalPedido, 30);
+                    var alertaTotalPedido = util.GetText(OFFICE_CART_PAGE.byAlertaTotalPedido, 30);
                     return alertaTotalPedido;
 
                 default:
@@ -81,15 +54,15 @@ namespace escritorio.PageObjects
             }
         }
 
-        public void Visitar(string url)
+        public void Visitar()
         {
-            driver.Navigate().GoToUrl(url);
+            driver.Navigate().GoToUrl(URL_BASE_ESCRITORIO + "pedidos/carrinho");
         }
 
         public void EsperarCarregamento()
         {
             new WebDriverWait(driver, new TimeSpan(0, 0, 30))
-                .Until(ExpectedConditions.ElementIsVisible(byTable));
+                .Until(ExpectedConditions.ElementIsVisible(OFFICE_CART_PAGE.byTable));
         }
 
         private WebDriverWait Esperar()
@@ -99,24 +72,24 @@ namespace escritorio.PageObjects
 
         public void AlterarQuantidade(string quantidade)
         {
-            util.ClearInput(byInputQuantidade, 10);
-            util.SendKey(byInputQuantidade, quantidade, 10);
+            util.ClearInput(OFFICE_CART_PAGE.byInputQuantidade, 10);
+            util.SendKey(OFFICE_CART_PAGE.byInputQuantidade, quantidade, 10);
         }
 
         public void SelecionarPagamento(string formaPagamento)
         {
-            util.SelectText(bySelectPagamento, formaPagamento, 10);
+            util.SelectText(OFFICE_CART_PAGE.bySelectPagamento, formaPagamento, 10);
         }
 
         public void SelecionarFrete(string frete)
         {
             if (frete == "Entrega Normal")
             {
-                util.OnClick(byCheckEntregaNormal, 5);
+                util.OnClick(OFFICE_CART_PAGE.byCheckEntregaNormal, 5);
             }
             if (frete == "Entrega Rápida")
             {
-                util.OnClick(byCheckEntregaRapida, 5);
+                util.OnClick(OFFICE_CART_PAGE.byCheckEntregaRapida, 5);
             }
             if (frete == "Frete Gratis")
             {
@@ -126,16 +99,36 @@ namespace escritorio.PageObjects
 
         public void AplicarCashback(string valor)
         {
-            util.SendKey(byInputCashback, valor, 30);
-            util.OnClick(byBotaoAplicarCashback, 30);
+            util.SendKey(OFFICE_CART_PAGE.byInputCashback, valor, 30);
+            util.OnClick(OFFICE_CART_PAGE.byBotaoAplicarCashback, 30);
         }
 
         public void FinalizarPedido()
         {
-            util.OnClick(byBotaoFinalizarPedido, 5);
+            util.OnClick(OFFICE_CART_PAGE.byBotaoFinalizarPedido, 5);
         }
 
+        public bool ValidarProdutosNoCarrinho(string campoDesejado, string valorDesejado)
+        {
+            int qtdProdutosCarinho = util.GetElementCount($"(//li[contains(@class, '{campoDesejado}')])", 30);
 
+            for (int i = 0; i <= qtdProdutosCarinho; i++)
+            {
+                By elemento = By.XPath($"(//li[contains(@class, '{campoDesejado}')])[{i}]");
+                string valorEncontrado = util.GetText(elemento, 30);
 
+                if (valorEncontrado == valorDesejado)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool ValidarFormaPagamentoPrazo()
+        {
+            return util.IsElementDisplayed(OFFICE_CART_PAGE.byOptionPagamentoPrazo);
+        }
     }
 }

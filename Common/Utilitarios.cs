@@ -7,12 +7,28 @@ namespace Common
 {
     public class Utilitarios
     {
+        internal ReportHandler reportHandler;
         private IWebDriver driver;
         int waitTime = 900;
 
         public Utilitarios(IWebDriver driver)
         {
             this.driver = driver;
+        }
+
+        public void GetScreenshot()
+        {
+            string message = "Tirou screenshot";
+
+            try
+            {
+                reportHandler.AddEvidence();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void OnClick(By element, double timeOut)
@@ -24,13 +40,8 @@ namespace Common
             {
                 try
                 {
-                    if (true)
-                    {
-                        Thread.Sleep(waitTime);
-                        driver.FindElement(element).Click();
-                        Thread.Sleep(waitTime);
-                        return;
-                    }
+                    driver.FindElement(element).Click();
+                    return;
                 }
                 catch (Exception e)
                 {
@@ -38,7 +49,6 @@ namespace Common
                     continue;
                 }
             }
-            Thread.Sleep(waitTime);
             throw methodException;
         }
 
@@ -51,13 +61,8 @@ namespace Common
             {
                 try
                 {
-                    if (true)
-                    {
-                        Thread.Sleep(2000);
-                        string textoElemento = driver.FindElement(element).Text;
-                        Thread.Sleep(waitTime);
-                        return textoElemento;
-                    }
+                    string textoElemento = driver.FindElement(element).Text;
+                    return textoElemento;
                 }
                 catch (Exception e)
                 {
@@ -65,7 +70,6 @@ namespace Common
                     continue;
                 }
             }
-            Thread.Sleep(waitTime);
             throw methodException;
         }
 
@@ -78,13 +82,8 @@ namespace Common
             {
                 try
                 {
-                    if (true)
-                    {
-                        Thread.Sleep(waitTime);
-                        driver.FindElement(element).Clear();
-                        Thread.Sleep(waitTime);
-                        return;
-                    }
+                    driver.FindElement(element).Clear();
+                    return;
                 }
                 catch (Exception e)
                 {
@@ -92,7 +91,6 @@ namespace Common
                     continue;
                 }
             }
-            Thread.Sleep(waitTime);
             throw methodException;
         }
 
@@ -105,13 +103,8 @@ namespace Common
             {
                 try
                 {
-                    if (true)
-                    {
-                        Thread.Sleep(waitTime);
-                        driver.FindElement(element).SendKeys(value);
-                        Thread.Sleep(waitTime);
-                        return;
-                    }
+                    driver.FindElement(element).SendKeys(value);
+                    return;
                 }
                 catch (Exception e)
                 {
@@ -119,8 +112,6 @@ namespace Common
                     continue;
                 }
             }
-            Thread.Sleep(waitTime);
-            throw methodException;
         }
 
         public void SelectValue(By element, string value, double timeOut)
@@ -132,15 +123,9 @@ namespace Common
             {
                 try
                 {
-                    if (true)
-                    {
-                        Thread.Sleep(waitTime);
-                        var selectInput = new SelectElement(driver.FindElement(element));
-                        selectInput.SelectByValue(value);
-
-                        Thread.Sleep(waitTime);
-                        return;
-                    }
+                    var selectInput = new SelectElement(driver.FindElement(element));
+                    selectInput.SelectByValue(value);
+                    return;
                 }
                 catch (Exception e)
                 {
@@ -148,7 +133,6 @@ namespace Common
                     continue;
                 }
             }
-            Thread.Sleep(waitTime);
             throw methodException;
         }
 
@@ -161,15 +145,9 @@ namespace Common
             {
                 try
                 {
-                    if (true)
-                    {
-                        Thread.Sleep(waitTime);
-                        var selectInput = new SelectElement(driver.FindElement(element));
-                        selectInput.SelectByText(value);
-
-                        Thread.Sleep(waitTime);
-                        return;
-                    }
+                    var selectInput = new SelectElement(driver.FindElement(element));
+                    selectInput.SelectByText(value);
+                    return;
                 }
                 catch (Exception e)
                 {
@@ -177,71 +155,114 @@ namespace Common
                     continue;
                 }
             }
-            Thread.Sleep(waitTime);
             throw methodException;
         }
 
-        public string GetUrl(string projeto)
+        public bool IsElementDisplayed(By by)
         {
-
-            if (projeto == "escritorio")
+            try
             {
-                string urlEscritorio = "https://hlg-escritorio.styllus.online/#/";
-                return urlEscritorio;
+                IWebElement element = driver.FindElement(by);
+                return element.Displayed;
             }
-            if (projeto == "gestor")
+            catch
             {
-                string urlGestor = "https://hlg-painel.styllus.online/#/";
-                return urlGestor;
-            }
-            if (projeto == "paginaCaptura")
-            {
-                string urlPaginaCaptura = "https://hlg-revenda.styllus.online/#/";
-                return urlPaginaCaptura;
-            }
-            else
-            {
-                return "Projeto não entontrado";
+                return false;
             }
         }
 
-        public string UsuarioLogin(string projeto)
+        public bool IsElementEnabled(By by)
         {
-            if (projeto == "escritorio")
+            try
             {
-                string usuarioEscritorio = "650083";
-                return usuarioEscritorio;
+                IWebElement element = driver.FindElement(by);
+                return element.Enabled;
             }
-            if (projeto == "gestor")
+            catch
             {
-                string usuarioGestor = "pedro.albani@portalstyllus.com.br";
-                return usuarioGestor;
+                return false;
             }
-            else
-            {
-                return "Projeto não entontrado";
-            }
-
         }
 
-        public string SenhaLogin(string projeto)
+        public bool IsElementSelected(By by)
         {
-            if (projeto == "escritorio")
+            try
             {
-                string senhaEscritorio = "000158";
-                return senhaEscritorio;
+                IWebElement element = driver.FindElement(by);
+                return element.Selected;
             }
-            if (projeto == "gestor")
+            catch
             {
-                string senhaGestor = "Styllus2020!@#";
-                return senhaGestor;
+                return false;
             }
-            else
-            {
-                return "Projeto não entontrado";
-            }
-
         }
 
+        public void WaitUntilElementAppear(By by, double timeout)
+        {
+            DateTime timeoutLimit = DateTime.Now.AddSeconds(timeout);
+
+            while (DateTime.Now <= timeoutLimit)
+            {
+                try
+                {
+                    IWebElement element = driver.FindElement(by);
+                    return;
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
+            }
+        }
+
+        public void WaitUntilElementDesappear(By by, double timeout)
+        {
+            DateTime timeoutLimit = DateTime.Now.AddSeconds(timeout);
+
+            while (DateTime.Now <= timeoutLimit)
+            {
+                try
+                {
+                    IWebElement element = driver.FindElement(by);
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+            }
+        }
+
+        public int GetElementCount(string by, double timeout)
+        {
+            DateTime timeoutLimit = DateTime.Now.AddSeconds(timeout);
+            Exception methodException = new Exception();
+
+            while (DateTime.Now <= timeoutLimit)
+            {
+                try
+                {
+                    return driver.ElementCount(by);
+                } 
+                catch
+                {
+
+                }
+                
+            }
+
+            return 0;
+        }
+
+        public void Refresh()
+        {
+            try
+            {
+                driver.Navigate().Refresh();
+            }
+            catch (Exception methodException)
+            {
+                throw methodException;
+            }
+        }
     }
 }

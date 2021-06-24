@@ -1,29 +1,23 @@
-﻿using OpenQA.Selenium;
+﻿using Common.PageObject.Common;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 
 
-namespace gestor.PageObjects
+namespace Common
 {
-    public class HomeGestorPO
+    public class HomeGestorPO : BasePage
     {
-
-        private IWebDriver driver;
-        private By byLoginMessage;
-
-        public string MensagemLogin => driver.FindElement(byLoginMessage).Text;
-
         public HomeGestorPO(IWebDriver driver)
         {
             this.driver = driver;
-            byLoginMessage = By.CssSelector("p.toast-text");
         }
+
+        public string MensagemLogin => driver.FindElement(MANEGER_HOME_PAGE.byLoginMessage).Text;
 
         public void Visitar()
         {
             driver.Navigate().GoToUrl("http://hlg-painel.styllus.online/#/pages/login");
         }
-
-
     }
 }
