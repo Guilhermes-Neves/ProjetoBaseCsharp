@@ -39,6 +39,10 @@ namespace Commons.Core
                     url = "https://chromedriver.storage.googleapis.com/%1/chromedriver_win32.zip";
                     switch (GetBrowserVersion().Split('.')[0])
                     {
+                        case "92":
+                            url = url.Replace("%1", "92.0.4515.43");
+                            break;
+
                         case "91":
                             url = url.Replace("%1", "90.0.4430.24");
                             break;
