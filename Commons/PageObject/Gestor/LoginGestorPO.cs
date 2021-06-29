@@ -1,7 +1,5 @@
-﻿using Common;
-using Commons.Core;
+﻿using Commons.Core;
 using Commons.PageObject.Common;
-using OpenQA.Selenium;
 
 namespace Commons
 {

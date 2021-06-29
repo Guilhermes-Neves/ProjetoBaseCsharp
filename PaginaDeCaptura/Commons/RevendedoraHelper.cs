@@ -1,6 +1,5 @@
 ﻿using RestSharp;
 using RestSharp.Serialization.Json;
-using System;
 using System.Collections.Generic;
 
 namespace PaginaCaptura.Commons

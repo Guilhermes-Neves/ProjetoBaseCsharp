@@ -2,8 +2,6 @@
 using Commons.Core;
 using Commons.PageObject.Common;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace PaginaCaptura.Commons
 {

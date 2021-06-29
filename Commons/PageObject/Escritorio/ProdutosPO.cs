@@ -1,6 +1,4 @@
-﻿using OpenQA.Selenium;
-using Common;
-using Commons.PageObject.Common;
+﻿using Commons.PageObject.Common;
 using System;
 using Commons.Core;
 

@@ -41,11 +41,5 @@ namespace Commons
         {
             driver.OnClick(RESELLER_CATCH_PAGE.byBotaoFinalizarCadastro, 30);
         }
-
-   
-
-      
-
-       
     }
 }

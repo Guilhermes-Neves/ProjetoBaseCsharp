@@ -1,7 +1,5 @@
 ﻿using Commons.Core;
 using Commons.PageObject.Common;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using System;
 
 

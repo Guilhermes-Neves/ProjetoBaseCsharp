@@ -1,11 +1,4 @@
-﻿using Commons;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.Extensions;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Drawing;
-using System.IO;
+﻿using System;
 
 namespace Commons
 {
