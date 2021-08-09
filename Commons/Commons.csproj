@@ -181,17 +181,7 @@
     <Compile Include="Core\WebDriver.cs" />
     <Compile Include="PageObject\Common\BasePage.cs" />
     <Compile Include="PageObject\Common\Dictionary.cs" />
-    <Compile Include="PageObject\Escritorio\CarrinhoPO.cs" />
-    <Compile Include="PageObject\Escritorio\CheckoutPO.cs" />
-    <Compile Include="PageObject\Escritorio\HomePO.cs" />
-    <Compile Include="PageObject\Escritorio\LoginPO.cs" />
-    <Compile Include="PageObject\Escritorio\ProdutosPO.cs" />
-    <Compile Include="PageObject\Gestor\HomeGestorPO.cs" />
-    <Compile Include="PageObject\Gestor\LoginGestorPO.cs" />
-    <Compile Include="PageObject\Gestor\PedidosCapturaPO.cs" />
-    <Compile Include="PageObject\Gestor\PedidosEcritorioPO.cs" />
-    <Compile Include="PageObject\Gestor\RevendedoraPO.cs" />
-    <Compile Include="PageObject\PaginaDeCaptura\CapturaPO.cs" />
+    <Compile Include="PageObject\Projeto\LoginPO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
